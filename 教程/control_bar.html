@@ -1,0 +1,3016 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  </head>
+  <body style="font-size:14px">
+
+    <h3><a name="control_bar">1 脚本精灵控制条</a></h3>
+	<pre>
+  为方便使用，脚本精灵所有的功能都集中在控制条上，控制条可任意拖动，缩小，吸附。并且不与其他应用或者游戏冲突，使用起来就像游戏自带的工具一样方便。
+可随时切换脚本、测试脚本、导入脚本、播放脚本、录制脚本、截图等，不需要退出游戏。
+	</pre>
+
+    <h4><a name="resize">1.1 改变控制条状态</a></h4>
+	<pre>
+  控制条分为三种状态：展开态、缩小态、吸附态。在展开的状态下，10秒后自动变为收缩态，在收缩态下移动到屏幕边缘会转变为吸附态。
+	</pre>
+    <h5><a name="ex">1.1.1 展开态</a></h5>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/展开态.jpg"/>
+    <ol>
+      <li style="list-style:none">展开态下可以使用脚本精灵的各种功能，打开脚本精灵默认为展开态。</li>
+      <li>展开态下可以使用脚本精灵的各种功能，打开脚本精灵默认为展开态。</li>
+      <li>当前状态为吸附态或者收缩态时，只需要点击第一个按钮即可展开控制条</li>
+      <li>展开态下，10秒后自动变为缩放态</li>
+    </ol>
+	<hr />
+
+    <h5><a name="zoom">1.1.2 缩放态</a></h5>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/缩放态.jpg"/>
+    <ol>
+      <li>缩放态下，控制条缩小到只有一个图标大小，主要目的是不影响下面的游戏或者应用的界面</li>
+      <li>缩放态下，控制条可以任意移动，移动到屏幕边缘，控制条将成为吸附态。</li>
+    </ol><hr />
+
+    <h5><a name="less">1.1.3 吸附态</a></h5>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/吸附态.jpg"/>
+    <ol>
+      <li>在缩放态下，将控制条拖动到屏幕边缘，控制条自动吸附在屏幕边缘上</li>
+      <li>吸附态缩小到三分之一个图标的大小，完全可以忽略它的存在。</li>
+      <li>吸附态下，点击图标即可展开控制条，使用各种功能。</li>
+    </ol><hr />
+
+    <h4><a name="script_manage">1.2 脚本管理</a></h4>
+	
+	
+ <img src="image/进入脚本管理面板.jpg"/></br></br>
+ <img src="image/脚本选项.jpg"/></br>
+	<pre>
+  点击控制条的第二个按钮即可进入脚本管理面板，脚本分为二进制脚本和明文脚本，明文脚本一般为录制的脚本。二进制脚本是
+
+经过脚本精灵开发工具加密和压缩的脚本。脚本管理提供设置当前脚本、删除脚本、导入脚本、切换脚本等功能。
+	</pre>
+    <h5><a name="#bin_script">1.2.1 二进制脚本</a></h5>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/二进制脚本.jpg"/>
+    <ol>
+      <li>二进制脚本是使用脚本精灵开发工具编译加密压缩后的脚本</li>
+      <li>点击脚本管理面板的第二个按钮即可列出当前系统里面的所有二进制脚本</li>
+      <li>点击一个脚本可打开管理选项，可以将其设置为当前脚本或者删除该脚本</li>
+    </ol><hr />
+
+    <h5><a name="#text_script">1.2.1 明文脚本</a></h5>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/明文脚本.jpg"/>
+    <ol>
+      <li>明文脚本是直接可以看见源代码的脚本，录制的脚本就是明文的</li>
+      <li>明文脚本保存在/sdcard/scriptelf/script下，导入脚本实际上就是复制脚本到该目录</li>
+      <li>点击脚本管理面板的第一个按钮即可列出当前系统里面的所有明文脚本</li>
+      <li>点击一个脚本可打开管理选项，可以将其设置为当前脚本或者删除该脚本</li>
+    </ol><hr />
+
+    <h5><a name="import_script">1.2.3 导入脚本</a></h5>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="image/导入脚本.jpg"/>
+    <ol>
+      <li>点击脚本管理面板的导入脚本按钮即可打开文件选择面板，你可以选择一个文件进行导入</li>
+      <li>导入时，脚本精灵自动判断是否为二进制脚本，如果是则导入二进制脚本列表，否则导入到明文脚本列表</li>
+      <li>如果有wifi，建议使用脚本精灵开发工具进行远程管理和远程导入，比较方便</li>
+    </ol><hr />
+
+    <h5><a name="exit_script_manage">1.2.3 退出脚本管理面板</a></h5>
+    <ol>
+      <li>点击脚本管理面板上的退出面板即可退出管理面板</li>
+    </ol><hr />
+
+
+
+    <h4><a name="play_script">1.3 播放脚本</a></h4>
+	<pre>
+  控制条的第三个按钮为控制脚本播放的按钮，在播放前，先要设置一个当前脚本，明文脚本和二进制脚本都可以。
+点击播放后，可以选择播放一次或者循环播放。播放开始后播放按钮变为停止按钮。播放结束后，重新变为播放按钮。
+
+	</pre>
+
+    <h5><a name="start_script">1.3.1 开始播放</a></h5>
+    <ol>
+      <li>选择一个明文脚本或者二进制脚本加载为当前脚本</li>
+      <li>点击控制条的第三个按钮，根据需要选择播放一次或者循环播放，确定即可播放</li>
+      <li>目前二进制脚本需要自己在脚本内控制循环</li>
+    </ol><hr />
+
+    <h5><a name="start_once">1.3.2 播放一次</a></h5>
+    <ol>
+      <li>选择播放一次，脚本从头到尾执行一次，执行完后即停止播放</li>
+    </ol><hr />
+	
+    <h5><a name="start_loop">1.3.3 循环播放</a></h5>
+    <ol>
+      <li>选择循环播放，脚本从头到尾执行完后，又从头开始播放，直到用户点击停止播放按钮</li>
+      <li>这个选项主要针对录制的明文脚本</li>
+      <li>二进制脚本只能播放一次，循环播放需要自己在脚本中设置，由于二进制脚本都是自己编写，所有自己控制循环比较灵活</li>
+    </ol><hr />
+	
+    <h5><a name="stop_script">1.3.4 停止播放</a></h5>
+    <ol>
+      <li>脚本播放后，播放按钮会变为停止按钮，点击停止按钮，即可停止当前的脚本</li>
+    </ol><hr />
+
+
+    <h4><a name="record_script">1.4 录制脚本</a></h4>
+	<ol>
+      <li>脚本精灵可将用户的操作记录下来，保存为脚本文件</li>
+      <li>用户可播放此脚本，以完成动作回放</li>
+      <li>可循环播放</li>
+      <li>用于做简单的重复的动作有很好的效果</li>
+    </ol>
+
+    <h5><a name="start_record">1.4.1 开始录制</a></h5>
+    <ol>
+      <li>点击控制条的第四个按钮即可开始录制脚本</li>
+      <li>开始录制后，将会隐藏控制条</li>
+      <li>此过程用户的动作都将会被记录下来，包括延迟操作</li>
+    </ol><hr />
+
+    <h5><a name="stop_record">1.4.1 停止录制</a></h5>
+    <ol>
+      <li>在已经开始录制的状态下，按下音量下键即可停止录制</li>
+      <li>停止录制后，控制条将重新显示出来</li>
+    </ol><hr />
+
+    <h5><a name="save_script">1.4.1 保存脚本</a></h5>
+    <ol>
+      <li>停止录制后，输入脚本名称，点击保存即可将录制好的脚本保存在明文脚本列表</li>
+    </ol><hr />
+
+	
+
+
+    <h4><a name="record_script">1.5 取素材</a></h4>
+	<ol>
+      <li>脚本精灵提供快捷的方式获取编写脚本需要的素材</li>
+    </ol>
+
+    <h5><a name="#full_screencap">1.5.1 全屏截图</a></h5>
+    <ol>
+      <li>点击控制条的第五个按钮即可进行全屏截图</li>
+      <li>截图保存在/sdcard/scriptelf/image下</li>
+      <li>截图是完整无损的按系统自己的坐标截取的</li>
+    </ol><hr />
+
+    <h5><a name="#rect_screencap">1.5.2 区域截图</a></h5>
+    <ol>
+      <li>先进行全屏截图</li>
+      <li>将图片传输保存到电脑，用电脑打开后，使用脚本精灵开发工具的截图功能进行截图</li>
+      <li>脚本精灵开发工工具的截图功能可以自己选择区域</li>
+      <li>强烈建议直接使用脚本精灵开发工具的远程截图功能(需要wifi)</li>
+    </ol><hr />
+
+    <h5><a name="#get_color">1.5.3 取色</a></h5>
+    <ol>
+      <li>先进行全屏截图</li>
+      <li>将图片传输保存到电脑，用电脑打开后，使用脚本精灵开发工具的取色功能进行取色</li>
+      <li>强烈建议直接使用脚本精灵开发工具的远程取色功能(需要wifi)</li>
+    </ol><hr />
+
+    <h5><a name="#get_point">1.5.3 取坐标</a></h5>
+    <ol>
+      <li>先进行全屏截图</li>
+      <li>用windows画板打开图片，鼠标放在图片的指定的位置上，windows画板右下角会显示该位置的坐标</li>
+      <li>强烈建议直接使用脚本精灵开发工具的远程取坐标功能(需要wifi)</li>
+    </ol><hr />
+
+
+
+
+
+    <h4><a name="exit_scriptelf">1.6 退出脚本精灵</a></h4>
+	<ol>
+      <li>点击控制条的最后一个按钮，即可退出脚本精灵。</li>
+    </ol>
+
+
+
+
+    <h3><a name="dev_tool">2 脚本精灵开发工具</a></h3>
+	<pre>
+  脚本精灵提供一个电脑端的开发工具，提供一个脚本编辑器，具有工程管理、关键字高亮、函数库高亮、脚本检错、编译加密脚本、
+远程屏幕、远程截屏、远程取色、远程取坐标、远程导入等功能。如果有wifi支持，完全不需要用数据线。
+		
+	</pre>
+
+	
+    <h4><a name="dev_tool">2.1 基本介绍</a></h5>
+
+    <h5><a name="dev_tool_introduce">2.1.1 开发工具介绍</a></h5>
+	<hr />
+	
+    <h5><a name="dev_tool_module">2.1.2 各组成部分介绍</a></h5>
+	<hr />
+    <h5><a name="dev_tool_bin_script">2.1.3 二进制脚本结构</a></h5>
+
+    <ol>
+      <li>二进制脚本格式是脚本精灵独有的脚本格式，只有脚本精灵能够识别</li>
+      <li>用脚本精灵开发工具编译后的脚本即为二进制脚本</li>
+      <li>二进制脚本为一个单独的文件，里面包含了脚本本身的代码、脚本所需要的图片和配置、脚本描述、脚本名称等信息</li>
+      <li>编译后的二进制脚本为加密压缩的脚本格式，无法查看和修改脚本内容和相关图片。只有拥有源代码的作者本人才能修改和重新编译脚本</li>
+    </ol>
+
+	<hr />
+    <h5><a name="dev_tool_text_script">2.1.3 明文格式脚本</a></h5>
+
+    <ol>
+      <li>明文脚本是文本格式的，直接用文本编辑器打开即可查看和编辑</li>
+      <li>录制的脚本为明文脚本</li>
+      <li>明文脚本可以用脚本精灵开发工具编译成二进制脚本</li>
+    </ol>
+
+	<hr />
+
+    <h4><a name="project_manage">2.2 工程管理</a></h4>
+	<ul>
+		<li>脚本精灵工程统一保存在”[程序目录]/工程目录“下，启动程序后自动读取工程显示在左边的工程树中</li>
+		<li>工程树中蓝色的为当前活动脚本，用户所做的操作都是针对活动脚本，比如截图的存储路径。在工程名上点击右键可设为活动脚本</li>
+		<li>工程目录中的se.project为工程信息，创建工程时自动创建，不能删除</li>
+		<li>工程中的main.script为脚本文件，实际执行的脚本就是该文件，不能删除和重命名</li>
+		<li>脚本相关的图片和文件需要放在该工程同目录下或者子目录下</li>
+		<li>工程目录下不要存放不用到的文件，这样会影响速度</li>
+	</ul>
+
+    <h5><a name="new_project">2.2.3 新建工程</a></h5>
+	<ul>
+		<li>点击菜单栏->工程->新建工程，弹出新建工程对话框</li>
+		<li>填入工程名称，该名称也将作为脚本的名称</li>
+		<li>填入工程描述，该描述将会写入到脚本中，要简短</li>
+		<li>点确定即可创建一个工程</li>
+	</ul>
+
+    <h5><a name="remove_project">2.2.2 删除工程</a></h5>
+	<ul>
+		<li>在左边工程树上选择一个工程点击鼠标右键弹出上下文菜单</li>
+		<li>点击删除工程</li>
+	</ul>
+
+
+    <h5><a name="edit_script">2.2.3 脚本编辑</a></h5>
+	
+	<ul>
+		<li>双击工程里面main.script即可打开脚本进编辑</li>
+	</ul>
+
+    <h5><a name="image_path">2.2.4 图片路径</a></h5>
+	<ul>
+		<li>由于脚本精灵的脚本编译后会将所有图片打包成一个二进制文件，因此所有寻图函数的图片路径也要写相对工程的路径</li>
+		<li>比如某工程下有一个图片为1.bmp，则图片路径直接写”1.bmp“。如果1.bmp在该工程的子目录"截图"下，则图片路径写"截图/1.bmp"</li>
+		<li>脚本用到的相关图片不需要再另外复制到设备里面，脚本自身已经包含了这些图片</li>
+	</ul>
+
+
+    <h4><a name="remote_device_manage">2.3 远程设备管理</a></h4>
+	
+	<ul>
+		<li>远程设备管理功能包括：远程导入脚本、远程监控屏幕、远程截屏(范围)、远程取色、远程取坐标、远程控制(暂不开放)</li>
+		<li>远程设备管理需要wifi支持</li>
+		<li>远程设备必须已经运行脚本精灵</li>
+	</ul>
+
+
+    <h5><a name="remote_import_script">2.3.1 远程导入脚本</a></h5>
+	<ul>
+		<li>点击菜单栏->构建脚本->远程导入脚本，或按F7</li>
+		<li>输入远程设备的IP，IP可以在[apk端脚本精灵控制条->脚本管理面板->系统信息]里面看到</li>
+		<li>选择需要导入的二进制脚本</li>
+		<li>点击确定即可将二进制脚本远程导入到设备里面</li>
+	</ul>
+	<hr />
+
+
+    <h5><a name="remote_screen">2.3.2 远程屏幕</a></h5>
+	<ul>
+		<li>点击菜单栏->图像工具->远程屏幕</li>
+		<li>输入远程设备的IP，IP可以在[apk端脚本精灵控制条->脚本管理面板->系统信息]里面看到</li>
+		<li>点击连接即可远程连接到设备，连接成功后自动打开远程屏幕窗口</li>
+	</ul>
+	<hr />
+
+    <h5><a name="remote_screencap">2.3.3 远程截图</a></h5>
+	<ul>
+		<li><a href="#remote_screen">打开远程屏幕</a></li>
+		<li>点击菜单->截图->矩形截图，或按Ctrl+R，当前整个电脑屏幕将暂停</li>
+		<li>用鼠标将需要截取的部分画出来，然后双击即可截取画出的矩形部分</li>
+		<li>图片自动保存在活动工程的"截图"目录下</li>
+	</ul>
+	<hr />
+
+    <h5><a name="remote_get_color">2.3.4 远程取色</a></h5>
+	<ul>
+		<li><a href="#remote_screen">打开远程屏幕</a></li>
+		<li>将鼠标指针停在远程屏幕上</li>
+		<li>窗口右上角即可显示当前鼠标位置在远程屏幕上的颜色值、分解出来的RGB值以及放大的指针位置颜色</li>
+	</ul>
+	<hr />
+
+    <h5><a name="remote_get_point">2.3.5 远程取坐标</a></h5>
+	<ul>
+		<li><a href="#remote_screen">打开远程屏幕</a></li>
+		<li>将鼠标指针停在远程屏幕上</li>
+		<li>窗口右上角可以看到鼠标所指位置在远程设备上的坐标</li>
+	</ul>
+	<hr />
+	
+    <h4><a name="script_editor">2.4 脚本编辑器</a></h4>
+    <h5><a name="script_tip">2.4.1 关键字高亮</a></h5>
+	<ul>
+		<li>Lua语法关键字、Lua内置库函数、脚本精灵库函数都将不同的颜色高亮显示</li>
+		<li>脚本精灵库函数和脚本精灵相关全局变量和数据均以红色显示</li>
+	</ul>
+	<hr />
+
+    <h5><a name="script_check">2.4.2 脚本检错</a></h5>
+	<ul>
+		<li>代码检错可以检错脚本的基本语法是否正确，如果错误将提示错误行数和错误信息</li>
+		<li>编译完脚本后，点击菜单->构建脚本->脚本检错，或按F5。即可对当前脚本进行检查</li>
+		<li>检查脚本前会自动保存当前脚本</li>
+		<li>建议每编辑一段代码后，都使用一下F5进行保存并自动检错</li>
+	</ul>
+	<hr />
+
+    <h5><a name="script_compile">2.4.3 编译脚本</a></h5>
+	<ul>
+		<li>点击菜单->构建脚本->编译工程，或按F6。即可对当前活动工程进行编译</li>
+		<li>编译成功后生成的二进制脚本保存在工程跟目录下，名称为：[工程名].se，该文件可以重命名</li>
+	</ul>
+	<hr />
+
+<!--
+    <h3><a name="script">3 脚本语言</a></h3>
+    <p>
+	脚本精灵的的脚本引擎基于Lua 5.2，并对其进行了一些修改，将编译器也集成在一起，并支持中文函数名、中文变量名。
+	保留了Lua 5.2所有的语法规范和内置库函数。
+    </p><hr />
+
+    <h4><a name="script1">3.1 基本语法</a></h4>
+    <p>
+    用户可参考Lua的<a href="http://www.lua.org/manual/5.2/">官方手册</a>或者其他资料来学习以下基本语法：
+    <ul>
+      <li>注释</li>
+      <li>变量与类型</li>
+      <li>运算符</li>
+      <li>赋值</li>
+      <li>条件控制</li>
+      <li>循环控制</li>
+      <li>函数定义</li>
+      <li>库函数</li>
+      <li>等等</li>
+    </ul>
+    </p><hr />
+-->
+
+    <h3><a name="scriptelf_script">3 脚本语言</a></h3>
+    <p style="text-indent: 2em;">
+	脚本精灵的的脚本引擎基于Lua 5.2.2，并对其进行了一些修改，将编译器也集成在一起，并支持中文函数名、中文变量名。
+	保留了Lua 5.2.2所有的语法规范和内置库函数。
+    </p><hr />
+
+	
+    <h4><a name="lua_chinese_doc" />3.1 Lua中文教程</h4>
+	
+		<ul>
+			<li><a href="Lua中文教程.pdf">Lua中文教程</a></li>
+			<li>该教程比较全面，只需要选取其中一些基本语法学习即可</li>
+			<li>了解了变量、判断、循环、函数等基本语法即可在脚本精灵中写出强大的脚本。</li>
+		</ul>
+	<hr />
+    <h4><a name="lua_Interpreter_online" />3.2 Lua在线解释器</h4>
+		<ul>
+			<li><a href="http://www.lua.org/cgi-bin/demo">Lua在线解释器</a></li>
+			<li>打开页面后在文本框中输入要运行的Lua代码</li>
+			<li>点击Run按钮，开始解释执行脚本</li>
+			<li>执行后，下面Output处会显示脚本的输出或者错误信息。</li>
+		</ul>
+	<hr />
+    <h4><a name="lua_run" />3.3 Lua中文教程中的例子运行</h4>
+		<ul>
+			<li>教程中的所有例子可在在线解释器中测试和运行，方便学习之用</li>
+			<li>脚本精灵相关函数在线解释器不能识别</li>
+		</ul>
+
+		
+    <h4><a href="http://121.199.61.246/upload/forum.php?mod=viewthread&tid=6">3.4 Lua简明教程</a></h4>
+
+	<hr />
+
+    <h3><a name="scriptelf_function_lib" />4 脚本精灵库函数</h3>
+
+    <h4><a name="scriptelf_function_lib_base" />4.1 基本函数</h4>
+
+    <h5><a name="touchClick" />4.1.1 触摸点击</h5>
+    <p style="text-indent: 2em">模拟点击屏幕</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchClick(x,y)</p>
+      <li>参数
+	<!--  <table border=1>
+		<tr><td>序列</td><td>属性</td><td>说明</td></tr>
+		<tr><td>参数1</td><td>必填</td><td>x坐标，数字类型</td></tr>
+	  </table>-->
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+touchClick(100,100); <font style="background-color:#000000;color:green" >--触摸点击坐标(100,100)</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="touchDown" />4.1.2 触摸按下</h5>
+    <p style="text-indent: 2em">模拟按下手指</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchDown(x,y,id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:green">参数3：可选，跟踪ID，表示想要按下哪个手指，用于多点触摸。默认为0</li>
+      </ul>
+      </li>
+	  <br />
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+touchDown(100,100);	<font style="background-color:#000000;color:green" >--手指0按下坐标(100,100)</font>
+touchDown(200,200,1);	<font style="background-color:#000000;color:green" >--手指1按下坐标(200,200)</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="touchUp" />4.1.3 触摸弹起</h5>
+    <p style="text-indent: 2em">模拟弹起手指</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchUp(id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:green">参数1：可选，跟踪ID，表示想要弹起哪个手指，用于多点触摸。默认为0</li>
+      </ul>
+      </li>
+	  <br />
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+touchUp();	<font style="background-color:#000000;color:green" >--手指0弹起</font>
+touchUp(1);	<font style="background-color:#000000;color:green" >--手指1弹起</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="touchMove" />4.1.4 触摸滑动</h5>
+    <p style="text-indent: 2em">模拟手指在屏幕上滑动，滑动前需要先调用触摸按下函数</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchMove(x,y,id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:green">参数3：可选，跟踪ID，表示想要滑动的手指标识，用于多点触摸。默认为0</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+touchDown(100,100);	<font style="background-color:#000000;color:green" >--手指0按下坐标(100,100)</font>
+touchDown(200,200,1);	<font style="background-color:#000000;color:green" >--手指1按下坐标(200,200)</font>
+touchMove(300,300);	<font style="background-color:#000000;color:green" >--手指0滑动到坐标(300,300)</font>
+touchMove(50,50,1);	<font style="background-color:#000000;color:green" >--手指1按下坐标(200,200)</font>
+touchUp(0);		<font style="background-color:#000000;color:green" >--手指0弹起</font>
+touchUp(1);		<font style="background-color:#000000;color:green" >--手指1弹起</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="inputText" />4.1.5 输入文本</h5>
+    <p style="text-indent: 2em">在当前屏幕上获得焦点的文本框中输入一个文本字符串，目前只支持字母、数字和空格</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">input(text)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，要输入的文本，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+input("10086");	<font style="background-color:#000000;color:green" >--输入10086</font>
+input("ab 11");	<font style="background-color:#000000;color:green" >--输入ab 11</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="inputCode" />4.1.6 模拟按键</h5>
+    <p style="text-indent: 2em">模拟点击设备上的按键，如0-9的数字，a-z的字母，返回键，确认键、HOME键等</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">input(code)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，要点击的按键虚拟码，数字类型。按键对应的虚拟码请参照附录<a href="#vktable">5.1 虚拟键码对照表</a></li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+input(4);	<font style="background-color:#000000;color:green" >--点击返回键</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="getColor" />4.1.7 获取颜色</h5>
+    <p style="text-indent: 2em">获取屏幕上指定坐标的颜色值</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getColor(x,y)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：屏幕上坐标(x,y)的颜色值，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local color = getColor(100,100);	<font style="background-color:#000000;color:green" >--获取屏幕上坐标(100,100)处的颜色值</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="findColor" />4.1.8 普通寻色</h5>
+    <p style="text-indent: 2em">在一个范围内寻找指定颜色，如果没有填写范围参数，则全屏找色</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findColor(color,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要寻找的颜色的值，数字类型</li>
+        <li style="color:green">参数2：选填，表示矩形范围左上顶点的x坐标，数字类型</li>
+        <li style="color:green">参数3：选填，表示矩形范围左上顶点的y坐标，数字类型</li>
+        <li style="color:green">参数4：选填，表示矩形范围右下顶点的y坐标，数字类型</li>
+        <li style="color:green">参数5：选填，表示矩形范围右下顶点的y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：是否找到颜色，布尔类型</li>
+        <li>返回值2：该颜色相对于屏幕上的x坐标，数字类型</li>
+        <li>返回值3：该颜色相对于屏幕上的y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local flag,x,y = findColor(0xFF0000,100,100,200,200);	<font style="background-color:#000000;color:green" >--在屏幕范围(100,100,200,200)内寻找纯红色(0xFF0000)</font>
+if flag then
+  toast("在坐标("..x..","..y..")处找到了颜色0xFF0000");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="findColorFuzzy" />4.1.9 模糊寻色</h5>
+    <p style="text-indent: 2em">在一个范围内寻找指定颜色，如果没有填写范围参数，则全屏找色，另外加一个相似值，表示相近的颜色也匹配，建议使用80</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findColorFuzzy(color,clarity,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要寻找的颜色的值，数字类型</li>
+        <li style="color:red">参数2：必填，表示相似度，范围1-100，建议使用80，数字类型</li>
+        <li style="color:green">参数2：选填，表示矩形范围左上顶点的x坐标，数字类型</li>
+        <li style="color:green">参数3：选填，表示矩形范围左上顶点的y坐标，数字类型</li>
+        <li style="color:green">参数4：选填，表示矩形范围右下顶点的y坐标，数字类型</li>
+        <li style="color:green">参数5：选填，表示矩形范围右下顶点的y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：是否找到颜色，布尔类型</li>
+        <li>返回值2：该颜色相对于屏幕上的x坐标，数字类型</li>
+        <li>返回值3：该颜色相对于屏幕上的y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local flag,x,y = findColorFuzzy(0xFF0000,80,100,100,200,200);	<font style="background-color:#000000;color:green" >--在屏幕范围(100,100,200,200)内以相似度80%寻找纯红色(0xFF0000)</font>
+if flag then
+  toast("在坐标("..x..","..y..")处找到了红颜色");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="RGB" />4.1.10 RGB颜色合成</h5>
+    <p style="text-indent: 2em">使用指定的红绿蓝三种颜色合成一个颜色值</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">RGB(r,g,b)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，红色值，范围：0-255，数字类型</li>
+        <li style="color:red">参数2：必填，绿色值，范围：0-255，数字类型</li>
+        <li style="color:red">参数3：必填，蓝色值，范围：0-255，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：合成后的颜色的RGB值</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--将红、绿、蓝对应的值：0,255,0合成一个颜色值，这里合成后为一个纯绿色颜色值。执行后，rgb等于0x00FF00等于65280</font>
+local rgb = RGB(0,255,0);	
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+    <h5><a name="getColorRGB" />4.1.11 获取颜色RGB</h5>
+    <p style="text-indent: 2em">获取屏幕上指定坐标的颜色的RGB值</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getColorRGB(x,y)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：R,屏幕上坐标(x,y)的颜色值的红色值，数字类型,0-255</li>
+        <li>返回值2：G,屏幕上坐标(x,y)的颜色值的绿色值，数字类型,0-255</li>
+        <li>返回值3：B,屏幕上坐标(x,y)的颜色值的蓝色值，数字类型,0-255</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local r,g,b = getColorRGB(100,100);	<font style="background-color:#000000;color:green" >--获取屏幕上坐标(100,100)处的颜色值的RGB值分别存入r,g,b三个变量中</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+    <h5><a name="isColor" />4.1.12 判断颜色</h5>
+    <p style="text-indent: 2em">判断指定坐标的颜色。PS：使用该函数(多点确定一个图或多个图)代替寻图函数可以大大的提高脚本的执行速度和性能。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">isColor(x,y,color)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:red">参数3：必填，要判断的颜色，数字类型</li>
+        <li style="color:blue">参数4：可选，相似度，范围50-100,建议用80，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，屏幕上坐标(x,y)的颜色是否为color指定的颜色，是返回true，否返回false</li>
+        <li>返回值2：屏幕上坐标(x,y)实际的颜色值，如果[返回值1]为true，则[返回值2]与参数color相等</li>
+        <li>第二个返回值不需要用到的话可以当做他不存在</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--判断屏幕上坐标(100,100)处的颜色值是否为0xFFFFFF，是就点击坐标(200,200)</font>
+if isColor(100,100,0xFFFFFF) then
+  touchClick(200,200);		
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+    <h5><a name="findImage" />4.1.13 精确寻图</h5>
+    <p style="text-indent: 2em">在屏幕中寻找指定的图片，精确度为100%，即不能有一个字节的不匹配才算找到图片。
+	图片路径必须是相对脚本工程的路径，图片路径参考<a href="#image_path">图片路径</a>
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImage(path)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--在屏幕中寻找图片[截图/1.bmp]，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImage("截图/1.bmp")
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="clickImage" />4.1.14 点击图片</h5>
+    <p style="text-indent: 2em">在屏幕中用精确寻图的方式寻找指定的图片，如果找到则自动计算该图片的中心坐标并点击
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">clickImage(path)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到并点击成功则返回true，没有找到或点击失败则返回false</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+clickImage("截图/1.bmp")		<font style="background-color:#000000;color:green" >--点击图片[截图/1.bmp]</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="findImageRect" />4.1.15 范围寻图</h5>
+    <p style="text-indent: 2em">在屏幕中指定矩形范围内精确寻图，其他信息参见精确寻图
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImage(path,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，矩形范围左上顶点x坐标，数字类型</li>
+        <li style="color:red">参数3：必填，矩形范围左上顶点y坐标，数字类型</li>
+        <li style="color:red">参数4：必填，矩形范围右下顶点x坐标，数字类型</li>
+        <li style="color:red">参数5：必填，矩形范围右下顶点y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--在屏幕中(100,100,200,200)范围内寻找图片[截图/1.bmp]，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImage("截图/1.bmp"，100,100,200,200)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="findImageFuzzy" />4.1.16 模糊寻图</h5>
+    <p style="text-indent: 2em">在屏幕中模糊寻找指定图片，允许一定程度的不匹配
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageFuzzy(path,clarity)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，清晰度百分比，范围：50-99，100的效果跟精确寻图一样，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--在屏幕中设置清晰度为95%，全屏模糊寻找图片[截图/1.bmp]，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageFuzzy("截图/1.bmp",95)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="findImageFuzzyRect" />4.1.17 范围模糊寻图</h5>
+    <p style="text-indent: 2em">在屏幕中指定矩形范围内模糊寻图，更多信息请参见模糊寻图
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageFuzzy(path,clarity,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，清晰度百分比，范围：50-99，100的效果跟精确寻图一样，数字类型</li>
+        <li style="color:red">参数3：必填，矩形范围左上顶点x坐标，数字类型</li>
+        <li style="color:red">参数4：必填，矩形范围左上顶点y坐标，数字类型</li>
+        <li style="color:red">参数5：必填，矩形范围右下顶点x坐标，数字类型</li>
+        <li style="color:red">参数6：必填，矩形范围右下顶点y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--设置清晰度为95%，在屏幕中(100,100,200,200)范围内模糊寻找图片[截图/1.bmp]，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageFuzzy("截图/1.bmp",95,100,100,200,200)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="findImageIrregular" />4.1.18 不规则寻图</h5>
+    <p style="text-indent: 2em">在屏幕中寻找指定图片，可以忽略一个颜色值。也称为透明寻图、背景寻图。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageIrregular(path,ignoreColor)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，要忽略的颜色值(背景色)，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--在屏幕中不规则寻找图片[截图/1.bmp]，忽略颜色0xFFFFFF(背景色)，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageIrregular("截图/1.bmp",0xFFFFFF)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="findImageIrregularRect" />4.1.19 范围不规则寻图</h5>
+    <p style="text-indent: 2em">在屏幕中指定范围内不规则寻图。更多信息请参见不规则寻图。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageIrregular(path,ignoreColor,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，要忽略的颜色值(背景色)，数字类型</li>
+        <li style="color:red">参数3：必填，矩形范围左上顶点x坐标，数字类型</li>
+        <li style="color:red">参数4：必填，矩形范围左上顶点y坐标，数字类型</li>
+        <li style="color:red">参数5：必填，矩形范围右下顶点x坐标，数字类型</li>
+        <li style="color:red">参数6：必填，矩形范围右下顶点y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--在屏幕中(100,100,200,200)范围内不规则寻找图片[截图/1.bmp]，忽略颜色0xFFFFFF(背景色)，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageFuzzy("截图/1.bmp",0xFFFFFF,100,100,200,200)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+    <h5><a name="findImageFuzzyIrregular" />4.1.20 模糊不规则寻图</h5>
+    <p style="text-indent: 2em">在屏幕中指定范围内不规则寻图。更多信息请参见 模糊寻图 和 不规则寻图。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageFuzzyIrregular(path,clarity,color)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，清晰度百分比，范围：50-99，100的效果跟精确寻图一样，数字类型</li>
+        <li style="color:red">参数3：必填，要忽略的颜色值(背景色)，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--设置清晰度为95%，在屏幕中模糊并且不规则寻找图片[截图/1.bmp]，忽略颜色0xFFFFFF(背景色)，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageFuzzy("截图/1.bmp",95,0xFFFFFF)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="findImageFuzzyIrregularRect" />4.1.21 范围模糊不规则寻图</h5>
+    <p style="text-indent: 2em">在屏幕中指定范围内模糊不规则寻图。更多信息请参见 模糊不规则寻图。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findImageFuzzyIrregular(path,clarity,color,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，图片路径，字符串类型</li>
+        <li style="color:red">参数2：必填，清晰度百分比，范围：50-99，100的效果跟精确寻图一样，数字类型</li>
+        <li style="color:red">参数3：必填，要忽略的颜色值(背景色)，数字类型</li>
+        <li style="color:red">参数4：必填，矩形范围左上顶点x坐标，数字类型</li>
+        <li style="color:red">参数5：必填，矩形范围左上顶点y坐标，数字类型</li>
+        <li style="color:red">参数6：必填，矩形范围右下顶点x坐标，数字类型</li>
+        <li style="color:red">参数7：必填，矩形范围右下顶点y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，如果找到返回true，没有找到则返回false</li>
+        <li>返回值2：图片在屏幕中的x坐标，如果图片没有找到，则忽略该值。数字类型</li>
+        <li>返回值3：图片在屏幕中的y坐标，如果图片没有找到，则忽略该值。数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--设置清晰度为95%，在屏幕中(100,100,200,200)范围内模糊并且不规则寻找图片[截图/1.bmp]，忽略颜色0xFFFFFF(背景色)，如果找到则提示图片坐标并点击，没有找到则提示没有找到</font>
+local flag,x,y = findImageFuzzyIrregular("截图/1.bmp",95,0xFFFFFF,100,100,200,200)
+if flag then
+  toast(string.format("在坐标(%d,%d)找到了图片[1.bmp]",x,y));
+  touchClick(x,y);	<font style="background-color:#000000;color:green" >--触摸点击坐标(x,y)</font>
+else
+  toast("没有找到图片[1.bmp]");
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="sleep" />4.1.22 休眠</h5>
+    <p style="text-indent: 2em">脚本休眠指定毫秒数。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">sleep(n)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要休眠的毫秒数，1秒=1000毫秒，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+toast("1100毫秒后，脚本继续执行...");	<font style="background-color:#000000;color:green" >--提示信息，提示完后休眠1100毫秒</font>
+sleep(1000);				<font style="background-color:#000000;color:green" >--休眠1000毫秒，即1秒</font>
+sleep(100);				<font style="background-color:#000000;color:green" >--休眠100毫秒，即1/10秒</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="getResolutionRatio" />4.1.23 获取屏幕分辨率</h5>
+    <p style="text-indent: 2em">获取屏幕分辨率。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getResolutionRatio()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：分辨率的宽</li>
+        <li>返回值2：分辨率的高</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local w,h = getResolutionRatio();			<font style="background-color:#000000;color:green" >--获取屏幕分辨率</font>
+toast(string.format("当前屏幕分辨率为：%dx%d",w,h));	<font style="background-color:#000000;color:green" >--显示获取到的屏幕分辨率</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="getBitsPerPixel" />4.1.24 获取屏幕色位</h5>
+    <p style="text-indent: 2em">获取屏幕色位，即获取当前屏幕设备一个颜色值占多少位。16/24/32
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getBitsPerPixel()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：当前屏幕的色位。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+local bits = getBitsPerPixel();				<font style="background-color:#000000;color:green" >--获取屏幕色位</font>
+toast(string.format("当前屏幕分辨率为：%d",bits));		<font style="background-color:#000000;color:green" >--显示获取到的屏幕色位</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="toast" />4.1.25 弹出文本提示</h5>
+    <p style="text-indent: 2em">在屏幕中弹出文本提示，2.5秒后消失
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">toast(text)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1，必填，要显示的文本信息，字符串类型。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+toast("hello");		<font style="background-color:#000000;color:green" >--显示hello</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="vibrate" />4.1.26 震动</h5>
+    <p style="text-indent: 2em">设备震动提示，只对支持震动的设备有效，一般对手机都有效，对平板无效。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">vibrate(m)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要震动的时长，单位为毫秒，1000毫秒=1秒，数字类型。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+vibrate(2000);		<font style="background-color:#000000;color:green" >--震动2秒</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+    <h5><a name="log" />4.1.27 记录日志</h5>
+    <p style="text-indent: 2em">记录脚本中自定义的日志，日志自动保存在[/SD卡/ScriptElf/logs/[当天日期].log]下。日志会自动加上输出时间。该函数可支持开发平台的<a href="#how_remote_debug">远程调试</a>，在远程调试窗口中显示的文字为绿色。
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">log(text)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要记录的日志，字符串类型。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--记录日志信息“111111111”</font>
+log("111111111");		
+
+<font style="background-color:#000000;color:green" >--执行后，假如当前时间为2013-7-24 12:32:20,则日志保存在文件：[/SD卡/ScriptElf/logs/2013-7-24.log]下。</font>
+<font style="background-color:#000000;color:green" >--记录的日志内容为：2013-7-24 12:32:20 : 111111111</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="loge" />4.1.28 记录错误日志</h5>
+    <p style="text-indent: 2em">跟<a href="#log">log()</a>函数类似，区别是loge()函数在日志记录时间后面会加上“错误”两个字，在开发平台<a href="#how_remote_debug">远程调试</a>窗口中显示的文字为红色
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">loge(text)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要记录的错误日志，字符串类型。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--记录错误日志信息“坐标100,100的颜色不为0xFF0000”</font>
+loge("坐标100,100的颜色不为0xFF0000");		
+
+<font style="background-color:#000000;color:green" >--执行后，假如当前时间为2013-7-24 12:32:20,则日志保存在文件：[/SD卡/ScriptElf/logs/2013-7-24.log]下。</font>
+<font style="background-color:#000000;color:green" >--记录的日志内容为：2013-7-24 12:32:20 错误 : 坐标100,100的颜色不为0xFF0000</font>
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+    <h5><a name="findApp" />4.1.29 查找某应用是否安装</h5>
+    <p style="text-indent: 2em">查找一个应用是否已经在手机中安装
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">findApp(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要查找的应用的包名，字符串类型。手机中一般的应用管理工具都可以看到应用包名。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，存在这个应用返回true，不存在返回false。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--查找QQ是否安装，QQ的包名为“com.tencent.qq”</font>
+if findApp("com.tencent.qq") then
+  toast("未安装QQ");
+else
+  toast("已安装QQ");
+end
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="isRunning" />4.1.30 判断某应用是否正在运行</h5>
+    <p style="text-indent: 2em">判断某应用是否正在运行
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">isRunning(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要查找的应用的包名，字符串类型。手机中一般的应用管理工具都可以看到应用包名。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：布尔类型，指定应用正在运行返回true，没有运行返回false。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--查找QQ是否正在运行，QQ的包名为“com.tencent.qq”</font>
+if isRunning("com.tencent.qq") then
+  toast("QQ正在运行中...");
+else
+  toast("QQ未运行...");
+end
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+
+    <h5><a name="startApp" />4.1.31 启动指定应用</h5>
+    <p style="text-indent: 2em">启动指定应用
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">startApp(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要启动的应用的包名，字符串类型。手机中一般的应用管理工具都可以看到应用包名。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--如果QQ已经安装并且未启动则启动它，QQ的包名为“com.tencent.qq”，</font>
+local pkgName = “com.tencent.qq”;
+if not findApp(pkgName) then			<font style="background-color:#000000;color:green" >--如果没有安装QQ，则提示未安装QQ</font>
+  toast("QQ未安装");
+elseif not isRunning(pkgName) then		<font style="background-color:#000000;color:green" >--否则如果已经安装QQ并且QQ没有运行，则启动QQ</font>
+  startApp(pkgName);
+end
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+
+    <h5><a name="kill" />4.1.32 结束一个应用</h5>
+    <p style="text-indent: 2em">结束一个正在运行的应用
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">kill(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，表示要结束的应用的包名，字符串类型。手机中一般的应用管理工具都可以看到应用包名。</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--如果QQ正在运行，则结束它，QQ的包名为“com.tencent.qq”</font>
+if isRunning("com.tencent.qq") then
+  kill("com.tencent.qq");
+end
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="exit" />4.1.33 退出当前脚本</h5>
+    <p style="text-indent: 2em">停止当前脚本的运行
+	</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">exit()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--如果当前手机的UDID不等于“ALJFLJSLK32329FAKJL43434”，则退出当前脚本</font>
+if getUDID() ~= "ALJFLJSLK32329FAKJL43434" then
+  exit();
+end
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+	
+	<h5><a name="getSDCardPath" />4.2.34 获取SD卡路径</h5>
+    <p style="text-indent: 2em">获取设备上SD卡的绝对路径。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getSDCardPath()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：SD卡在设备上的绝对路径，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取SD卡路径并显示出来</font>
+local sdcardPath = getSDCardPath();
+toast(sdcardPath);
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+	
+	
+	<h5><a name="screencapToFile" />4.2.35 截图到文件</h5>
+    <p style="text-indent: 2em">截取屏幕内容到图片文件，可指定范围截图。不指定范围则表示全屏截图。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">screencapToFile(path,x1,y1,x2,y2)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，截图保存的文件路径，可配合<a href="#getSDCardPath()">获取SD卡路径</a>函数来使用，字符串类型</li>
+        <li style="color:green">参数1：选填，范围截图矩形的左上顶点x坐标，数字类型</li>
+        <li style="color:green">参数2：选填，范围截图矩形的左上顶点y坐标，数字类型</li>
+        <li style="color:green">参数3：选填，范围截图矩形的右下顶点x坐标，数字类型</li>
+        <li style="color:green">参数4：选填，范围截图矩形的右下顶点y坐标，数字类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：表示是否截图成功，布尔类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--截取屏幕范围(100,100,200,200)保存到文件"[SD卡]/截图/[当前时间戳].bmp"</font>
+screencapToFile(string.format("%s/截图/%d.bmp",getSDCardPath(),os.time()),100,100,200,200);
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+	
+	
+	<h5><a name="copy" />4.1.36 拷贝文本到剪切板</h5>
+    <p style="text-indent: 2em">拷贝文本到剪切板，可以配合输入法粘贴出来，支持中文。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">copy(text)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要拷贝到剪切板的文本，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--拷贝文本"你好abc123@@##￥￥0.0"到剪切板</font>
+copy("你好abc123@@##￥￥0.0")
+
+<font style="background-color:#000000;color:green" >--之后可操作输入法将其粘贴到文本框中</font>
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+	
+	<h5><a name="pauseApp" />4.1.37 暂停指定应用</h5>
+    <p style="text-indent: 2em">暂停指定应用的运行，执行后，应用将处于暂停状态，适合用在一些屏幕变化比较快的应用上。暂停时间不宜太长，使用resumeApp()函数可以恢复应用。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">pauseApp(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要暂停的应用包名，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--暂停QQ</font>
+pauseApp("com.tencent.qq")
+
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+	
+	<h5><a name="resumeApp" />4.1.38 恢复指定应用的运行</h5>
+    <p style="text-indent: 2em">恢复指定应用的运行，一般用在被pauseApp()函数暂停的应用。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">resumeApp(pkgName)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，需要恢复的应用包名，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--恢复QQ的运行</font>
+resumeApp("com.tencent.qq")
+
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h4><a name="scriptelf_function_lib_hight" />4.2 高级函数</h4>
+
+    <h5><a name="getUDID" />4.2.1 获取设备UDID唯一串</h5>
+    <p style="text-indent: 2em">获取设备综合唯一串，该串由脚本精灵根据当前设备硬件信息、操作系统信息、品牌数据综合计算而来，不同的两台设备得到的值必然不同</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getUDID()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：设备UDID唯一串，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前UDID与指定的串"AFLJE324234LJNAD654343434SLSDL"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getUDID() ~= "AFLJE324234LJNAD654343434SLSDL" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前UDID串与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+    <h5><a name="getWifiMAC" />4.2.2 获取网卡MAC</h5>
+    <p style="text-indent: 2em">获取设备网卡物理地址(MAC)</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getWifiMAC()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：当前Wifi网卡设备的物理地址串，即MAC，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前Wifi设备的MAC串与指定的串"aa:bb:cc:dd"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getWifiMAC() ~= "aa:bb:cc:dd" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前蓝牙设备MAC与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h5><a name="getBluetoothMAC" />4.2.3 获取蓝牙设备MAC</h5>
+    <p style="text-indent: 2em">获取蓝牙设备物理地址(MAC)</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getBluetoothMAC()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：当前蓝牙设备的物理地址串，即MAC，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前蓝牙设备的MAC串与指定的串"aa:bb:cc:dd"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getBluetoothMAC() ~= "aa:bb:cc:dd" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前蓝牙设备MAC与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="getIMEI" />4.2.4 获取IMEI</h5>
+    <p style="text-indent: 2em">获取设备IMEI串</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getIMEI()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：当前设备的IMEI串，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前设备的IMEI串与指定的串"34345345345"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getIMEI() ~= "34345345345" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前设备IMEI串与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+
+
+    <h5><a name="getDeviceInfo" />4.2.5 获取设备信息串</h5>
+    <p style="text-indent: 2em">获取脚本精灵根据设备信息计算而来的串</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getDeviceInfo()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：设备信息串，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前设备的设备信息串与指定的串"34345345345"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getDeviceInfo() ~= "34345345345" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前设备信息串与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="getAndroidID" />4.2.6 获取AndroidID</h5>
+    <p style="text-indent: 2em">获取当前设备的AndroidID</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">getAndroidID()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：当前设备的AndroidID，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--获取当前设备的设备信息串与指定的串"23f23bjsadf3434"比较，如果不相等，则提示未授权，然后退出脚本</font>
+if getDeviceInfo() ~= "23f23bjsadf3434" then
+  toast("当前用户未授权...");	<font style="background-color:#000000;color:green" >--提示当前用户未授权</font>
+  os.exit();			<font style="background-color:#000000;color:green" >--停止并退出脚本</font>
+end
+toast("用户已通过授权认证...");	<font style="background-color:#000000;color:green" >--执行到了这里表示当前设备AndroidID串与指定串相等，可以继续往后执行脚本</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+    <h5><a name="touchClick" />4.2.7 启动线程</h5>
+    <p style="text-indent: 2em">启动一个线程，相当于同时运行多个脚本</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">startThread(fun_name)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，线程函数名称，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+--定义线程函数
+function my_thread(){
+  --线程里面定义一个死循环，或者其他功能代码
+  while true do
+    ...
+  end
+}
+startThread("my_thread"); <font style="background-color:#000000;color:green" >--指定线程函数为my_thread，启动线程</font>
+
+<font style="background-color:#000000;color:green" >--执行到此处后，后面的代码和my_thread里面的代码将会同时运行</font>
+...
+
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <!--h5><a name="touchClick" />4.2.7 启动线程</h5>
+    <p style="text-indent: 2em">启动一个线程，相当于同时运行多个脚本</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">startThread(fun_name)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，线程函数名称，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+--定义线程函数
+function my_thread(){
+  --线程里面定义一个死循环，或者其他功能代码
+  while true do
+    ...
+  end
+}
+startThread("my_thread"); <font style="background-color:#000000;color:green" >--指定线程函数为my_thread，启动线程</font>
+
+<font style="background-color:#000000;color:green" >--执行到此处后，后面的代码和my_thread里面的代码将会同时运行</font>
+...
+
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+    <h5><a name="startTimer" />4.2.8 启动定时器(暂未开放)</h5><hr />
+    <h5><a name="killTimer" />4.2.9 停止定时器(暂未开放)</h5><hr /-->
+
+
+	
+	<h5><a name="touchClickRandom" />4.2.7 随机触摸点击</h5>
+    <p style="text-indent: 2em"><a href="#touchClick">触摸点击</a>的扩展函数，点击的坐标在一个范围内随机，可以防止某些游戏对重复有规律的动作检测</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchClickRandom(x,y,r,id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:red">参数3：必填，随机因子，数字类型，例：随机因子5，则点击的x和y会自动加上-5到5之间的一个随机数</li>
+        <li style="color:green">参数4：选填，手指ID</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：实际点击的x坐标</li>
+        <li>返回值2：实际点击的y坐标</li>
+        <li>返回值3：产生的随机数</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--以随机因子5随机点击坐标(83,156)，实际点击的坐标保存在x,y中，随机数保存在n中，这三个返回值可以忽略</font>
+local x,y,n = touchClickRandom(83,156,5);
+toast(string.format("实际点击了(%d,%d)，产生的随机数为：%d",x,y,n));
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+	
+	
+	<h5><a name="touchDownRandom" />4.2.8 随机触摸按下</h5>
+    <p style="text-indent: 2em"><a href="#touchDown">触摸按下</a>的扩展函数，按下的坐标在一个范围内随机，可以防止某些游戏对重复有规律的动作检测</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchDownRandom(x,y,r,id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:red">参数3：必填，随机因子，数字类型，例：随机因子5，则按下的x和y会自动加上-5到5之间的一个随机数</li>
+        <li style="color:green">参数4：选填，手指ID</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：实际按下的x坐标</li>
+        <li>返回值2：实际按下的y坐标</li>
+        <li>返回值3：产生的随机数</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--以随机因子5随机按下坐标(83,156)，实际按下的坐标保存在x,y中，随机数保存在n中，这三个返回值可以忽略</font>
+local x,y,n = touchDownRandom(83,156,5);
+toast(string.format("实际按下了(%d,%d)，产生的随机数为：%d",x,y,n));
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+	
+	
+	<h5><a name="touchMoveRandom" />4.2.9 随机触摸滑动</h5>
+    <p style="text-indent: 2em"><a href="#touchMove">触摸滑动</a>的扩展函数，滑动的坐标在一个范围内随机，可以防止某些游戏对重复有规律的动作检测</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">touchDownRandom(x,y,r,id)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，x坐标，数字类型</li>
+        <li style="color:red">参数2：必填，y坐标，数字类型</li>
+        <li style="color:red">参数3：必填，随机因子，数字类型，例：随机因子5，则滑动到的的x和y会自动加上-5到5之间的一个随机数</li>
+        <li style="color:green">参数4：选填，手指ID</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：实际滑动到的的x坐标</li>
+        <li>返回值2：实际滑动到的y坐标</li>
+        <li>返回值3：产生的随机数</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--以随机因子5随机滑动到坐标(83,156)，实际滑动到的坐标保存在x,y中，随机数保存在n中，这三个返回值可以忽略</font>
+local x,y,n = touchMoveRandom(83,156,5);
+toast(string.format("实际滑动到了(%d,%d)，产生的随机数为：%d",x,y,n));
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+	
+	
+	<h5><a name="httpGet" />4.2.10 http访问</h5>
+    <p style="text-indent: 2em">可以访问一个网址，抓取网页内容，获取远程服务器数据，提交本地数据等。可用于服务器验证，用户授权，远程代码等。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">httpGet(url)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，要访问的URL，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>返回值1：访问网址所返回的内容，字符串类型</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--访问网址“http://scriptelf.duapp.com/test.txt”，获取内容并显示出来，该网址用浏览器打开看到内容与用httpGet访问获取到的内容是一致的</font>
+local content = httpGet("http://scriptelf.duapp.com/test.txt");
+toast(content);
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+
+	
+
+    <h4><a name="about_compat_mode" />4.3 兼容模式相关函数</h4>
+
+
+    <h5><a name="setCompatMode" />4.3.1 强制设置兼容模式</h5>
+    <p style="text-indent: 2em">强制将当前脚本指定为兼容模式，只对当前脚本有效。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">setCompatMode(b)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li style="color:red">参数1：必填，布尔类型。true表示强制设为兼容模式，false表示取消强制设置的兼容模式(不影响用户自己的设置)</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--强制指定当前脚本为兼容模式，兼容模式下有一些特定的函数。根据脚本的实际情况，有时候使用兼容模式找图找色效率更高</font>
+setCompatMode(true)		
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+    <h5><a name="isCompatMode" />4.3.2 判断当前模式</h5>
+    <p style="text-indent: 2em">判断当前是否为兼容模式。(包括用户设置的或者脚本通过setCompatMode()函数强制设置的)</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">isCompatMode()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--兼容模式与优化模式的截图和色彩有时候会有差别，用isCompatMode()函数可以根据当前模式来选择要比对的图片或者颜色</font>
+
+
+<font style="background-color:#000000;color:green" >--自定一个点击图片函数，根据当前模式和分辨率自动匹配要寻找的图片，准备好对应路径的图片后，调用时只需要传入图片名称就可以自动匹配适合当前手机或者平板的图片了</font>
+function myClickImage(img)
+  w,h = getResolutionRatio();
+  if isCompatMode() then
+    path = "兼容模式/"..w.."x"..h.."/";
+  else
+    path = "优化模式/"..w.."x"..h.."/";
+  end
+  path = path..img..".bmp";
+  return clickImage(path);
+end
+
+
+<font style="background-color:#000000;color:green" >--调用，如果当前分辨率为480x854,模式为优化模式，则该函数会点击图片"优化模式/480x584/开始.bmp"</font>
+myClickImage("开始");
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+    <h5><a name="setAutoScreencap" />4.3.3 设置自定义截屏</h5>
+    <p style="text-indent: 2em">即设置是否自动获取屏幕比对数据，值在兼容模式下有效。在兼容模式下，寻图找色时需要大量拷贝内存，这样速度会很慢。实际情况下，比对图片或者找色不需要每次都重新截取屏幕数据，该函数设置为false后，所有的寻图找色函数都不再自动截屏，需要更新屏幕比对数据，调用screencap()函数即可</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">setAutoScreencap(b)</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+         <li style="color:red">参数1：必填，布尔类型。true表示自动截屏，false表示不自动截屏</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--该函数需要与screencap()函数配合使用，示例在<a href="#screencap">screencap()</a>函数中给出。</font>
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+
+
+
+    <h5><a name="screencap" />4.3.4 截取屏幕</h5>
+    <p style="text-indent: 2em">截取当前屏幕更新到比对缓冲区。该函数只有在兼容模式下，<a href="#setAutoScreencap">setAutoScreencap(false)</a>时才有效。</p>
+    <ul>
+      <li>原型
+		<p style="text-indent: 2em;color:red">screencap()</p>
+      <li>参数
+	  <br />
+	  <br />
+      <ul>
+        <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>返回值
+	  <br />
+	  <br />
+      <ul>
+         <li>无</li>
+      </ul>
+	  <br />
+      </li>
+
+      <li>示例
+      <ul>
+        <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--screencap()和setAutoScreencap函数只有在兼容模式下有效，但是在优化模式下调用也不会有问题，因此这两个函数可以兼容这两种模式。</font>
+<font style="background-color:#000000;color:green" >--当有连续的颜色比对或者图片比对，他们之间又没有流程顺序关系的话，可以将他们放在一屏上比对，可以避免每个比对都要重新截屏</font>
+
+setAutoScreencap(false);  <font style="background-color:#000000;color:green" >	--设置当前为非自动截屏模式</font>
+
+while true do
+  screencap()			<font style="background-color:#000000;color:green" >--每循环一次更新一次比对缓冲区</font>
+  
+  if isColor(10,10,0xFF0000) and isColor(40,60,0xABA342) then
+    touchClick(40,60);
+  end
+  clickImage("截图/1.bmp");
+  clickImage("截图/2.bmp");
+  clickImage("截图/3.bmp");
+  clickImage("截图/4.bmp");
+  clickImage("截图/5.bmp");
+  clickImage("截图/6.bmp");
+  clickImage("截图/7.bmp");
+  clickImage("截图/8.bmp");
+  clickImage("截图/9.bmp");
+  clickImage("截图/10.bmp");
+end
+
+<font style="background-color:#000000;color:green" >--在兼容模式下，以上代码每次循环只需要截取1次屏幕。如果没有设置setAutoScreencap(false)和调用screencap(),
+--则每循环一次要截屏12次(找色、点击图片)，而截屏是非常耗时间的。使用这两个函数，这段代码的速度相当于快了12倍。</font>
+
+
+</pre>
+      </ul>
+      </li>
+    </ul><hr />
+
+
+
+    <h3><a name="how_use" />5 使用技巧</h3>
+
+
+    <h4><a name="how_touch" />5.1 如何模拟触摸操作</h4>
+	<p style="text-indent: 2em">
+      <ul>
+        <li>触摸操作主要包括：触摸点击、触摸按下、触摸滑动、触摸弹起。</li>
+        <li>触摸点击实际上就是触摸按下和触摸弹起的组合</li>
+        <li>触摸滑动必须在触摸按下后才有效。</li>
+        <li>函数具体说明及示例请参见函数库：<a href="#touchClick">4.1.1 - 4.1.4</a></a></li>
+      </ul>
+	</p>
+	<hr />
+
+    <h4><a name="how_find_image" />5.2 如何寻图</h4>
+	<p style="text-indent: 2em">
+      <ul>
+        <li>寻图是指在手机屏幕中查找指定图片是否存在，以及存在时它的坐标。</li>
+        <li>寻图的目的主要是判断某个事件是否发生或者获取某个按钮或者游戏中的可点击的区域的坐标，然后进行点击。</li>
+        <li>寻图使用的图片最好为脚本精灵截取的图片或者在开发平台上截取的图片，其他软件截取的图片可能不精准。</li>
+        <li>脚本精灵中寻图相关函数包括：普通寻图、模糊寻图、范围寻图、透明寻图、点击图片等。</a></li>
+        <li>寻图相关函数说明及示例在本教程的<a href="#findImage">4.1.13 - 4.1.21</a>，可点击进去详细了解</li>
+      </ul>
+	</p>
+	<hr />
+	
+    <h4><a name="how_find_color" />5.3 如何找色</h4>
+	<p style="text-indent: 2em">
+      <ul>
+        <li>找色与寻图类似，找色相对来说，比寻图速度要快很多。</li>
+        <li>脚本精灵中找色相关函数包括：获取颜色、判断颜色、模糊判断颜色、范围找图、模糊找色、点击图片等。</a></li>
+        <li>找色相关函数说明及示例在本教程的<a href="#getColor">4.1.7 - 4.1.12</a>，可点击进去详细了解</li>
+      </ul>
+	</p>
+	<hr />
+
+    <h4><a name="how_log" />5.4 如何记录日志</h4>
+	<p style="text-indent: 2em">
+		使用<a href="#log">log()</a>函数可以记录脚本普通日志。使用<a href="#loge">loge()</a>函数可以记录脚本错误日志。
+	</p>
+	<hr />
+	
+    <h4><a name="how_create_connection" />5.5 开发平台如何与手机建立连接</h4>
+	<p style="text-indent: 2em">
+	
+      <ul>
+        <li>未与手机建立连接时，开发平台状态栏(左下角)显示：“无任何连接”。</li>
+        <li>与手机建立了连接后，开发平台状态栏(左下角)显示：“已与xxxx建立连接”。</li>
+        <li>在开发平台上与手机进行了远程屏幕或者远程导入脚本后，开发平台就默认与手机建立了连接。</li>
+        <li>在菜单栏的连接管理里面可以直接建立或者断开与手机的连接。</li>
+      </ul>
+		
+	</p>
+	<hr />
+
+
+    <h4><a name="how_remote_debug" />5.6 如何进行远程调试</h4>
+	<p style="text-indent: 2em">
+	
+      <ul>
+        <li>远程调试是指在手机上运行脚本，可以在电脑上动态实时的看到脚本的日志输出信息，方便调试和测试脚本。</li>
+        <li>要进行远程调试，开发平台必须与手机已经建立了连接。<a href="#how_create_connection">开发平台如何与手机建立连接？</a></li>
+        <li>在与手机建立了连接后，脚本中使用的<a href="#log">log()</a>和<a href="#loge">loge()</a>函数的输出内容都会实时同步的显示在开发平台下方的远程调试窗口中</li>
+        <li><a href="#log">log()</a>函数的输出内容以绿色显示。</li>
+		<li><a href="#loge">loge()</a>函数的输出内容以红色显示。</li>
+		<li>想要清空远程调试窗口中的内容，可以在远程调试窗口中按ctrl+a全选，然后按删除键即可。</li>
+      </ul>
+	</p>
+	<hr />
+
+    <h4><a name="how_input_chinese" />5.7 如何输入中文文本</h4>
+	<p style="text-indent: 2em">
+	
+      <ul>
+        <li>使用<a href="#copy">copy</a>函数将你要输入的文本拷贝到剪切板</li>
+        <li>使用触摸点击等函数把焦点定位到你要输入的文本框，这时会自动调出输入法</li>
+        <li>操作输入法上面的粘贴功能即可把刚才拷贝到剪切板的内容粘贴到文本框</li>
+      </ul>
+	</p>
+	<hr />
+
+
+    <h4><a name="how_dev_script" />5.8 脚本优化原则</h4>
+	<p style="text-indent: 2em">
+	
+      <ul>
+        <li>尽量使用找色和判断颜色的方式代替找图。找色和判断颜色都使用模糊的方式，范围80-90比较合适。</li>
+        <li>如果一定要找图的话，尽量使用范围找图，范围越小越好，图片截取越小越好，基本截取到特征就可以了。</li>
+      </ul>
+	</p>
+	<hr />
+
+    <h4><a name="how_fortuitous_handle" />5.9 处理意外逻辑</h4>
+    <p style="text-indent: 2em">意外逻辑是指在脚本正常流程之外的不一定经常发生但是必须处理的的逻辑，比如网络掉线、不定时弹窗、游戏进程意外结束等。对于这种情况很多人想到多线程。实际上多线程是很好的解决方法，但是在android平台下，脚本多线程会带来很多更麻烦的问题。目前脚本精灵暂不提供多线程，以后会陆续以更好的方式提供更简单易用的多线程。使用lua的协程，可以解决该问题，但没相应基础概念的人难学懂，代码也相对复杂。这里介绍一个比较简单的可以解决意外逻辑的方案，实际效果跟lua的协程一样。</p>
+	<p style="text-indent: 2em">
+	
+      <ul>
+        <li>定义一个函数专门处理所有的意外情况，在所有可能出现意外情况的地方都调用一下该函数</li>
+        <li>因为调用比较频繁，所以在没有意外情况发生的情况下，该函数需要以很快的速度执行完毕不能太多延迟，参考<a href="#how_dev_script">脚本优化原则</a>来设计这个函数基本上不会有问题。</li>
+        <li>以这种方式处理，流程和逻辑都比较易懂，跟平常的脚本一样只是一个函数调用，没有更多的概念。</li>
+      </ul>
+	
+	</p>
+
+示例
+	       <pre style="background-color:#000000;color:red" >
+
+<font style="background-color:#000000;color:green" >--该函数专门处理意外情况。</font>
+function fortuitousHandler()
+  if [网络掉线] then
+    ...
+  elseif [游戏没有运行] then
+    ...
+  elseif [有人找你PK] then
+    ...
+  elseif [临时弹窗] then
+    ...
+  elseif [死亡] then
+    ...
+  end
+end
+
+<font style="background-color:#000000;color:green" >--假设这里是循环战斗。</font>
+while true do
+  fortuitousHandler();
+  [找怪]
+  [选怪]
+  [接任务]
+  [交任务]
+end
+
+<font style="background-color:#000000;color:green" >--如果有操作是操作没完毕就不返回的死循环，因为出现意外情况可能导致该操作不返回，所以在这样的死循环里面也调用一下fortuitousHandler()来处理意外情况</font>
+
+</pre>
+	<hr />
+
+	
+	
+	<hr />
+
+
+
+    <h3><a name="ex_doc" />6 附录</h3>
+    <h4><a name="vktable" />6.1 虚拟键对照表</h4>
+	
+	<table border=1>
+	<tr><th>虚拟码</th><th width=100>常量</th><th width=100>说明</th></tr>
+	<tr><td align="center">0</td><td align="center">VK_UNKNOWN</td><td align="center">无</td></tr>
+	<tr><td align="center">1</td><td align="center">VK_MENU</td><td align="center">菜单键</td></tr>
+	<tr><td align="center">2</td><td align="center">VK_SOFT_RIGHT</td><td align="center"></td></tr>
+	<tr><td align="center">3</td><td align="center">VK_HOME</td><td align="center">HOME键</td></tr>
+	<tr><td align="center">4</td><td align="center">VK_BACK</td><td align="center">返回键</td></tr>
+	<tr><td align="center">5</td><td align="center">VK_ENDCALL</td><td align="center">挂电话键</td></tr>
+	<tr><td align="center">6</td><td align="center">VK_0</td><td align="center">数字0</td></tr>
+	<tr><td align="center">7-16</td><td align="center">VK_0 - VK_9</td><td align="center">数字0-9</td></tr>
+	<tr><td align="center">17</td><td align="center">VK_STAR</td><td align="center"></td></tr>
+	<tr><td align="center">18</td><td align="center">VK_POUND</td><td align="center"></td></tr>
+	<tr><td align="center">19</td><td align="center">VK_DPAD_UP</td><td align="center"></td></tr>
+	<tr><td align="center">20</td><td align="center">VK_DPAD_DOWN</td><td align="center"></td></tr>
+	<tr><td align="center">21</td><td align="center">VK_DPAD_LEFT</td><td align="center"></td></tr>
+	<tr><td align="center">22</td><td align="center">VK_DPAD_RIGHT</td><td align="center"></td></tr>
+	<tr><td align="center">23</td><td align="center">VK_DPAD_CENTER</td><td align="center"></td></tr>
+	<tr><td align="center">24</td><td align="center">VK_VOLUME_UP</td><td align="center">音量+</td></tr>
+	<tr><td align="center">25</td><td align="center">VK_VOLUME_DOWN</td><td align="center">音量-</td></tr>
+	<tr><td align="center">26</td><td align="center">VK_POWER</td><td align="center">电源键</td></tr>
+	<tr><td align="center">27</td><td align="center">VK_CAMERA</td><td align="center">照相键</td></tr>
+	<tr><td align="center">28</td><td align="center">VK_CLEAR</td><td align="center">清除键</td></tr>
+	<tr><td align="center">29-54</td><td align="center">VK_A - VK_Z</td><td align="center">字母A-Z</td></tr>
+	
+	<tr><td align="center">66</td><td align="center">VK_ENTER</td><td align="center">确认键</td></tr>
+	<tr><td align="center">84</td><td align="center">VK_SEARCH</td><td align="center">搜索键</td></tr>
+
+	
+</table>
+
+
+  </body>
+</html>
+
+
+
+
