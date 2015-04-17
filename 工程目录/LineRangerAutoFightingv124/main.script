@@ -17,8 +17,8 @@ function isRangerViewMap()
 	end	
 end
 
-function isHasOncFeatherColor()	
-	--if isColor(619,55,0xF5E800) then
+function isHasOncFeatherColor()				
+	--not  "0" color
 	if not(isColor(684,63,0xFFFFFF) and isColor(688,57,0xFFFFFF) and isColor(680,57,0xFFFFFF)) then
 		return true;
 	else
@@ -27,7 +27,9 @@ function isHasOncFeatherColor()
 end
 
 function isHasTwoFeatherColor()	
-	if not(isColor(684,63,0xFFFFFF) and isColor(688,57,0xFFFFFF) and isColor(680,57,0xFFFFFF)) and not(isColor(683,52,0xFAFBFB) and isColor(687,52,0xD5D8DB) and isColor(685,62,0xD8DBDD)) then
+	--not  "0" color and not "1" color
+	if not(isColor(684,63,0xFFFFFF) and isColor(688,57,0xFFFFFF) and isColor(680,57,0xFFFFFF)) and not(isColor(683,52,0xFAFBFB) and isColor(686,51,0xFAFAFA) and isColor(685,62,0xD8DADD)) then	
+      --if not(isColor(683,52,0xFAFBFB) and isColor(686,51,0xFAFAFA) and isColor(685,62,0xD8DADD)) then
 		return true;
 	else
 		return false;
@@ -821,8 +823,7 @@ function createUI()
 	-- 新版本會出現本日 200% 加成畫面
 	-- 加自動遷換隊伍
 end
-function main()
-	
+function main()	
 	::main::
 	--debug end
 	--sleep(1000000);
