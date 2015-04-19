@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv124
+--LineRangerAutoFightingv125
 -----------------------------------------------------------------------
 function isMainMapColor()
 	if isColor(82,587,0xFFFFFF) and isColor(208,607,0xFFFFFF) then
