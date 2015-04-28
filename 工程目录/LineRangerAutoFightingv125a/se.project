@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv125a</name>
+ <desc>fix level up bug.</desc>
+ <script>main.script</script>
+</project>
