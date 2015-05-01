@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv126</name>
+ <desc>Droid4X upgrade</desc>
+ <script>main.script</script>
+</project>

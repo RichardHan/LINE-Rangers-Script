@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv125
+--LineRangerAutoFightingv126
 -----------------------------------------------------------------------
 function isMainMapColor()
-	if isColor(82,587,0xFFFFFF) and isColor(208,607,0xFFFFFF) then
+	if isColor(86,603,0xFFFFFF) and isColor(224,594,0xFFFFFF) then
 		return true;	
 	else
 		return false;
@@ -10,37 +10,15 @@ function isMainMapColor()
 end
 
 function isRangerViewMap()
-	if isColor(87,614,0xFFFFFF) and isColor(215,588,0xFFFFFF) and isColor(322,592,0xFFFFFF) then
+	if isColor(99,611,0xFFFFFF) and isColor(343,610,0xFFFFFF) and isColor(664,625,0xFFFFFF) then
 		return true;	
 	else
 		return false;
 	end	
 end
 
--- no longer in use
-function isHasOncFeatherColor()				
-	--not  "0" color
-	if not(isColor(684,63,0xFFFFFF) and isColor(688,57,0xFFFFFF) and isColor(680,57,0xFFFFFF)) then
-		return true;
-	else
-		return false;
-	end
-end
-
--- no longer in use
-function isHasTwoFeatherColor()	
-	--not  "0" color and not "1" color
-	if not(isColor(684,63,0xFFFFFF) and isColor(688,57,0xFFFFFF) and isColor(680,57,0xFFFFFF)) and not(isColor(683,52,0xFAFBFB) and isColor(686,51,0xFAFAFA) and isColor(685,62,0xD8DADD)) then	
-      --if not(isColor(683,52,0xFAFBFB) and isColor(686,51,0xFAFAFA) and isColor(685,62,0xD8DADD)) then
-		return true;
-	else
-		return false;
-	end
-end
-
-function isFightingViewColor()
-	--if isColor(1164,67,0x733718) then
-	if isColor(1117,91,0x763A19) then		
+function isFightingViewColor()	
+	if isColor(1197,74,0x763A19) then
 		return true;
 	else
 		return false;
@@ -48,13 +26,14 @@ function isFightingViewColor()
 end
 
 function isLevelEightColor()
-	if isColor(1047,615,0x000000) and isColor(1048,625,0x000000) and isColor(1064,625,0x000000) and isColor(1064,613,0x000000) then
+	if isColor(1120,632,0x000000) and isColor(1138,632,0x000000) and isColor(1137,648,0x000000) and isColor(1138,642,0x000000) then
 		return true;
 	else
 		return false;
 	end
 end
 
+--todo
 function gameIsExist()
 	if isColor(61,305,0x58BCF7) and isColor(33,398,0x5FBEF6) then
 		return false;
@@ -62,6 +41,8 @@ function gameIsExist()
 		return true;	
 	end	
 end
+
+--todo
 function gotoGameAgain()
 	if isColor(61,305,0x58BCF7) and isColor(33,398,0x5FBEF6) then
 		-- click game again.
@@ -72,15 +53,15 @@ end
 
 function slideToLeft()
 	 -- need slide to right.	 
-	touchDown(44,455);
+	touchDown(44,505);
 	sleep(200);
-	touchMove(899,460);
+	touchMove(899,510);
 	sleep(200);
 	touchUp();
 	sleep(3000);
-	touchDown(44,455);
+	touchDown(44,505);
 	sleep(200);
-	touchMove(899,460);
+	touchMove(899,510);
 	sleep(200);
 	touchUp();	
 	sleep(3000);
@@ -88,15 +69,15 @@ end
 
 function slideToRight()
 	 -- need slide to right.	 
-	touchDown(899,460);
+	touchDown(899,510);
 	sleep(200);
-	touchMove(44,455);
+	touchMove(44,505);
 	sleep(200);
 	touchUp();
 	sleep(3000);
-	touchDown(899,460);
+	touchDown(899,510);
 	sleep(200);
-	touchMove(44,455);
+	touchMove(44,505);
 	sleep(200);
 	touchUp();	
 	sleep(3000);
@@ -108,7 +89,7 @@ function fireRangerByPorgressColor()
 	touchClick(470,650);sleep(100);
 	touchClick(600,650);sleep(100);
 	touchClick(720,650);sleep(100);
-	touchClick(840,650);sleep(100);
+	touchClick(860,650);sleep(100);
 
 	--Tomas Ghost /  湯瑪斯
 	touchClick(602,172);sleep(100);
@@ -135,23 +116,26 @@ end
 
 function callFriend()
 	--call friend help
-	if isColor(132,90,0xF3D331) and isColor(146,91,0xF5D431) then
-		touchClick(132,90);				
+	if isColor(155,95,0xFAD833) and isColor(164,93,0xF4D233) then
+		touchClick(155,95);				
 	end
 end
 
+--todo
 function switchTeam()
 	--call friend help	
 	sleep(500);
 	touchClick(52,100);
 end
 
+--todo
 function clickLINEAutoButton()	
 	--try to click LINE auto button , if enable line auto mode , will not into this function.	
 	sleep(500);
 	touchClick(1139,152);	
 end
 
+--todo
 function isLINEAutoButtonClickedColor()
 	if isColor(1139,162, 0xFFF320) then
 		return true;		
@@ -160,6 +144,7 @@ function isLINEAutoButtonClickedColor()
 	end
 end
 
+--todo
 function fightingByUserSelectedMode()
 	local isCalledFriend = false;
 	local isClickedLineAutoButton = false;
@@ -244,53 +229,48 @@ function fightingByUserSelectedMode()
 			if (i*3) > txtTeamDelaySec*1 then
 				switchTeam();
 			end										
-		end
-		
-		if(isSwitchTeam == "只切換一次") then			
-			if (i*3) > (txtTeamDelaySec*1) and (i*3) < (txtTeamDelaySec*1 + 5) then
-				switchTeam();
-			end					
-		end
-			
+		end		
 	end	
 end
 
 function loopFifghtingInSpecialMode()		
 	--bug  如果遊戲是第一次打開  會出現教學
 	while true do
-		sleep(3000);
-							
+		sleep(3000);							
 		--enter button
 		touchDown(690,600);
 		sleep(100);
 		touchUp();
 		sleep(10000);
 		
-		-- already used all enter tickey.
-		if isColor(665,476, 0x00BB33) and isColor(553,477,0x00BB33) then
-			toast("zero");						
-			touchClick(599,479); --確認btn
-			sleep(2000);
-			--back to special view , to next .
-			--touchDown(42,65); --old
-			touchClick(43,93);				
-			sleep(6000);
-			break;							
-		end
-		
 		while true do
-			pickFriendAndSkill();	
+			pickFriendAndSkill();
+			
+			-- already used all enter tickey.
+			if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then
+				--toast("zero");
+				touchClick(599,479); --確認btn
+				sleep(2000);
+				--back to special view , to next .
+				--touchDown(42,65); --old
+				touchClick(43,95);				
+				sleep(4000);
+				goto endloopFifghtingInSpecialMode
+			end
+
 			-- in the first time go to special mode, there have tech view.
 			touchClick(1018,536);
-			sleep(500);				
+			sleep(500);
+			
 			--戰鬥畫面
 			if isFightingViewColor() then
 				toast("偵測到戰鬥開始");
 				fighting();
 				break;
 			end				
-		end
+		end				
 	end
+	::endloopFifghtingInSpecialMode::
 end
 
 function fighting()	
@@ -326,24 +306,26 @@ function fighting()
 			end							
 			
 			-- default - win   or      確認出現是否有寶物		
-			if (isColor(1007,34,0x0E71E0)) or (not isColor(851,359,0xAA6633)) and isColor(510,591,0x05C232) then
+			if isColor(1022,30,0x1374DA) then
+				
 				toast("WIN");
 				sleep(8000);
 								
 				toast("亂點螢幕");
 				--亂點螢幕 
-				touchClick(1070,33);
+				touchClick(1022,30);
 				
 				sleep(2000);
 				
-				touchClick(1070,33);
+				touchClick(1022,30);
 				
 				sleep(6000);
 				
 				--isColor(851,359,0xAA6633)   抽獎畫面的框框
 
+				--todo
 				--出現升級確認視窗 
-				if isColor(656,526,0xFFFFFF,95) then
+				if isColor(569,543,0xFFFFFF,97) and isColor(734,543,0xFFFFFF,97) then
 					toast("升級確認");
 					touchClick(600,589);-- confirm button	bug here	
 					--touchClick(779,589);-- this is get ranger confirm button						
@@ -358,26 +340,23 @@ function fighting()
 				end	
 																				
 				--進入 過關紅利 & 抽獎畫面
-				if(isColor(868,190,0xAA6633))then
+				if(isColor(935,181,0xAA5926))then
 					toast("進入 過關紅利 & 抽獎畫面");
 					sleep(6000);		
-					touchClick(598,577);--停止button
+					touchClick(641,609);--停止button
 					
 					sleep(4000);
-					
-					--[todo] check is only confirm button OR have two button
-					-- if you get item > only one button on the center > just click confirm button on the center
-					-- if you get ranger > two button , one is add to your team on the left hand side , another one is confirm on the right hand side. > to be confirm
-					
-					--抽到Ranger todo.
-					if isColor(530,566,0x0ABCCB) then --有出現 加入隊伍button
+																		
+					--抽到Ranger.
+					if isColor(597,581,0x0ABCCB) then -- 有出現加入隊伍button
 						sleep(1000);
 						toast("抽到Ranger, 準備離開");
-						touchClick(779,589);-- 點 確認 button																	
+						touchClick(774,587);-- 點 確認 button																	
 						sleep(5000);
 						break;
 					end
-												
+						
+					--todo
 					--確認抽獎
 					if(isColor(598,569,0x05C232))then
 						sleep(1000);			
@@ -412,7 +391,7 @@ function pickFriendAndSkill()
 	end
 	
 	touchClick(610,610); -- 下一步btn
-	sleep(3000);
+	sleep(500);
 
 	--選朋友畫面
 	if isColor(255,344,0xB49266) or isColor(270,482,0xDCE5EF) then
@@ -421,17 +400,17 @@ function pickFriendAndSkill()
 	end	
 	
 	while true do
-		if isColor(561,479,0x22AACC) and isColor(752,484,0x00BB33) then
+		-- not(isColor(812,686,0x200200)  ==>>   特殊關卡進入button color
+		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then
 			toast("羽毛不足");
-			touchClick(561,479);
+			touchClick(548,494);
 			sleep(10000);
 		else
 			break;
 		end		
 	end
+	
 end
-
-
 
 function mainCheckpoint()
 	while true do
@@ -443,12 +422,12 @@ function mainCheckpoint()
 		end		
 
 		--主要地圖畫面		
-		--if isColor(83,582,0x00AD07) and isColor(231,555,0x7603FC) and isColor(116,614,0x7C381B) and isColor(245,616,0x844121) then old
-		
-		if isMainMapColor() then
+		--if isColor(83,582,0x00AD07) and isColor(231,555,0x7603FC) and isColor(116,614,0x7C381B) and isColor(245,616,0x844121) then old		
+		if isMainMapColor() then						
 			--if isColor(530,50,0xdb9700) then old
 			--if isHasOncFeatherColor() then
-			local centerX = 600;
+			--1280 / 2 = 640;
+			local centerX = 640;
 			local centerY = 360;
 			--找到第一根羽毛
 			--toast("[找到羽毛]")			
@@ -473,12 +452,6 @@ function mainCheckpoint()
 			touchClick(centerX-400,centerY);
 		
 			sleep(5000);	
-			--else			
-				--toast("羽毛用完了");
-				--sleep 15 minute
-				--sleep(900000);
-				--sleep(10000);	
-			--end
 		end
 		
 		--亂點螢幕 有些關卡會出現劇情畫面  通常是王關卡的後面
@@ -511,70 +484,70 @@ function specialCheckpoint()
 	end
 							
 	if advPartOne1 then
-		toast("[debug]advPartOne1");
-		sleep(5000);
-		slideToLeft();
-		touchClick(652,373);
+		toast("甦醒的魔眼1");
+		sleep(2000);
+		slideToLeft();				   
+		touchClick(701,377);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartOne2 then
-		toast("[debug]advPartOne2");
-		sleep(5000);
+		toast("甦醒的魔眼2");
+		sleep(2000);
 		slideToLeft();
-		touchClick(681,246);
+		touchClick(724,238);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartOne3 then
-		toast("[debug]advPartOne3");
-		sleep(5000);
+		toast("甦醒的魔眼3");
+		sleep(2000);
 		slideToLeft();
-		touchClick(774,161);	
+		touchClick(832,148);	
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartOne4 then
-		toast("[debug]advPartOne4");
-		sleep(5000);
+		toast("甦醒的魔眼4");
+		sleep(2000);
 		slideToLeft();
-		touchClick(910,157);
+		touchClick(972,147);
 		loopFifghtingInSpecialMode();							
 	end
 	if advPartOne5 then
-		toast("[debug]advPartOne5");	
-		sleep(5000);
+		toast("甦醒的魔眼5");	
+		sleep(2000);
 		slideToLeft();				     
-		touchClick(994,245);
+		touchClick(1068,237);
 		loopFifghtingInSpecialMode();
 	end	
 	if advPartOne6 then			
-		toast("[debug]advPartOne6");
-		sleep(5000);
+		toast("甦醒的魔眼6");
+		sleep(2000);
 		slideToLeft();
-		touchClick(1010,361);
+		touchClick(1074,363);
 		loopFifghtingInSpecialMode();
 		sleep(5000);
 	end
 	if advPartTwo1 then			
-		toast("[debug]advPartTwo1");
-		sleep(5000);
+		toast("無盡的黃金沙漠1");
+		sleep(2000);
 		slideToLeft();
-		touchClick(1151,356);
+		touchClick(1230,359);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartTwo2 then			
-		toast("[debug]advPartTwo2");
-		sleep(5000);
+		toast("無盡的黃金沙漠2");
+		sleep(2000);
 		slideToLeft();		
-		touchClick(1156,231);
+		touchClick(1241,233);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartTwo3 then			
-		toast("[debug]advPartTwo3");
-		sleep(5000);
+		toast("無盡的黃金沙漠3");
+		sleep(2000);
 		slideToLeft();	
 				
 		-- slicetoright a little
@@ -583,119 +556,125 @@ function specialCheckpoint()
 		touchMove(609,543);
 		touchUp();
 		
-		touchClick(1141,163);
+		touchClick(1221,149);
 		sleep(2000);
 		loopFifghtingInSpecialMode();																		
 	end
+	
 	if advPartTwo4 then
-		toast("[debug]advPartTwo4");			
-		sleep(5000);		
+		toast("無盡的黃金沙漠4");			
+		sleep(2000);		
 		slideToRight();
-		touchClick(10,168);
+		touchClick(8,160);
 		loopFifghtingInSpecialMode();
 	end	
 	if advPartTwo5 then
-		toast("[debug]advPartTwo5");		
-		sleep(5000);
+		toast("無盡的黃金沙漠5");		
+		sleep(2000);
 		slideToRight();
-		touchClick(66,270)
+		touchClick(71,262)
 		loopFifghtingInSpecialMode();
 	end		
 	if advPartTwo6 then
-		toast("[debug]advPartTwo6");		
-		sleep(5000);
+		toast("無盡的黃金沙漠6");		
+		sleep(2000);
 		slideToRight();
-		touchClick(41,393);
+		touchClick(45,405);
 		loopFifghtingInSpecialMode();
 	end
 		
 	if advPartThree1 then
-		toast("[debug]advPartThree1");
-		sleep(5000);
+		toast("黃昏之冰神殿1");
+		sleep(2000);
 		slideToRight();
-		touchClick(198,362);
+		touchClick(211,365);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartThree2 then		
-		toast("[debug]advPartThree2");
-		sleep(5000);
+		toast("黃昏之冰神殿2");
+		sleep(2000);
 		slideToRight();
-		touchClick(201,238);
+		touchClick(221,225);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartThree3 then		
-		toast("[debug]advPartThree3");
-		sleep(5000);
+		toast("黃昏之冰神殿3");
+		sleep(2000);
 		slideToRight();
-		touchClick(318,163);
+		touchClick(337,151);
 		loopFifghtingInSpecialMode();
 	end	
 	if advPartThree4 then
-		toast("[debug]advPartThree4");	
+		toast("黃昏之冰神殿4");	
 		slideToRight();
-		sleep(5000);
-		touchClick(438,165);
+		sleep(2000);
+		touchClick(462,145);
 		loopFifghtingInSpecialMode();
 	end
 			
 	if advPartThree5 then
-		toast("[debug]advPartThree5");		
+		toast("黃昏之冰神殿5");		
 		slideToRight();
-		sleep(5000);
-		touchClick(533,241);
-		loopFifghtingInSpecialMode();
-	end		
-	if advPartThree6 then
-		toast("[debug]advPartThree6");		
-		slideToRight();
-		sleep(5000);
-		touchClick(534,357);
+		sleep(2000);
+		touchClick(574,235);
 		loopFifghtingInSpecialMode();
 	end	
-	if advPartFour1 then
-		toast("[debug]advPartFour1");
-		sleep(5000);		
+	
+	if advPartThree6 then
+		toast("黃昏之冰神殿6");		
 		slideToRight();
-		touchClick(668,370);
+		sleep(2000);
+		touchClick(571,364);
+		loopFifghtingInSpecialMode();
+	end
+	
+	if advPartFour1 then
+		toast("不滅的骸石1");
+		sleep(2000);		
+		slideToRight();
+		touchClick(723,370);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartFour2 then		
-		toast("[debug]advPartFour2");
-		sleep(5000);		
+		toast("不滅的骸石2");
+		sleep(2000);		
 		slideToRight();
-		touchClick(673,254);
+		touchClick(720,241);
 		loopFifghtingInSpecialMode();
 	end
 	
 	if advPartFour3 then		
-		toast("[debug]advPartFour3");
-		sleep(5000);		
+		toast("不滅的骸石3");
+		sleep(2000);		
 		slideToRight();
-		touchClick(754,151);
+		touchClick(805,143);
 		loopFifghtingInSpecialMode();
-	end	
+	end
+	
 	if advPartFour4 then
-		toast("[debug]advPartFour4");			
+		toast("不滅的骸石4");			
 		slideToRight();
-		sleep(5000);
-		touchClick(888,156);		
+		sleep(2000);
+		touchClick(949,141);		
 		loopFifghtingInSpecialMode();
 	end	
+	
 	if advPartFour5 then
-		toast("[debug]advPartFour5");		
+		toast("不滅的骸石5");		
 		slideToRight();
-		sleep(5000);
-		touchClick(984,230);		
+		sleep(2000);
+		touchClick(1052,223);		
 		loopFifghtingInSpecialMode();
 	end	
+	
 	if advPartFour6 then
-		toast("[debug]advPartFour6");		
+		toast("不滅的骸石6");		
 		slideToRight();
-		sleep(5000);
-		touchClick(993,354);		
+		sleep(2000);
+		touchClick(1053,346);		
 		loopFifghtingInSpecialMode();
 	end
 end
@@ -705,14 +684,12 @@ function createUI()
 	showLoopSetting(false);
 	
 	createTextView("UI_tv","模式選擇:")
+	newLine();	
+	createRadioBox("UI_type","自動戰鬥(手動選擇關卡)",false);newLine();
+	createRadioBox("UI_type","主要關卡",true)newLine();
+	createRadioBox("UI_type","特殊關卡",false)newLine();
 	newLine();
-	createRadioBox("UI_type","主要關卡",true)
-	newLine();
-	createRadioBox("UI_type","特殊關卡",false)	
-	newLine();
-	newLine();
-	createTextView("adv_part1","    甦醒的魔眼: ");
-	newLine();
+	createTextView("adv_part1","    甦醒的魔眼: ");newLine();
 	createTextView("adv_part1_t","    ");
 	createCheckBox("advPartOne1","1  ",false);
 	createCheckBox("advPartOne2","2  ",false);
@@ -721,8 +698,7 @@ function createUI()
 	createCheckBox("advPartOne5","5  ",false);
 	createCheckBox("advPartOne6","6  ",false);
 	newLine();
-	createTextView("adv_part2","    無盡的黃金沙漠: ");
-	newLine();
+	createTextView("adv_part2","    無盡的黃金沙漠: ");newLine();
 	createTextView("adv_part2_t","    ");
 	createCheckBox("advPartTwo1","1  ",false);
 	createCheckBox("advPartTwo2","2  ",false);
@@ -731,8 +707,7 @@ function createUI()
 	createCheckBox("advPartTwo5","5  ",false);
 	createCheckBox("advPartTwo6","6  ",false);
 	newLine();
-	createTextView("adv_part3","    黃昏之冰神殿: ");
-	newLine();
+	createTextView("adv_part3","    黃昏之冰神殿: ");newLine();
 	createTextView("adv_part3_t","    ");
 	createCheckBox("advPartThree1","1  ",false);
 	createCheckBox("advPartThree2","2  ",false);
@@ -741,41 +716,26 @@ function createUI()
 	createCheckBox("advPartThree5","5 ",false);
 	createCheckBox("advPartThree6","6 ",false);
 	newLine();
-	createTextView("adv_part4","    不滅的骸石: ");
-	newLine();
+	createTextView("adv_part4","    不滅的骸石: ");newLine();
 	createTextView("adv_part4_t","    ");
 	createCheckBox("advPartFour1","1  ",false);
 	createCheckBox("advPartFour2","2  ",false);
 	createCheckBox("advPartFour3","3  ",false);
 	createCheckBox("advPartFour4","4  ",false);
 	createCheckBox("advPartFour5","5 ",false);
-	createCheckBox("advPartFour6","6 ",false);		
-	newLine();
-	createRadioBox("UI_type","自動戰鬥(手動選擇關卡)",false);
-	newLine();
-	newLine();
-	newLine();
-	newLine();
+	createCheckBox("advPartFour6","6 ",false);			
+	newLine();newLine();newLine();newLine();
 	createTextView("UI_label_option2","升級礦石方式: ");
 	newLine();
-	createRadioBox("UI_option2","自動",true);createTextView("temp1","  ");
-	createRadioBox("UI_option2","先升礦到八級",false);createTextView("temp2","  ");
-	createRadioBox("UI_option2","不升礦",false);createTextView("temp3","  ");
-	newLine();
-	newLine();
-	newLine();
-	newLine();
-	createTextView("temp4","切換隊伍模式: ");	
-	newLine();
-	createRadioBox("isSwitchTeam","不切換",true);
-	newLine();	
-	createRadioBox("isSwitchTeam","連續切換",false);
-	newLine();
-	createRadioBox("isSwitchTeam","只切換一次",false);	
-	newLine();
+	createRadioBox("UI_option2","自動",true);createTextView("txtTemp1","  ");
+	createRadioBox("UI_option2","先升礦到八級",false);createTextView("txtTemp2","  ");
+	createRadioBox("UI_option2","不升礦",false);createTextView("txtTemp3","  ");
+	newLine();newLine();newLine();newLine();
+	createTextView("temp4","切換隊伍模式: ");	newLine();
+	createRadioBox("isSwitchTeam","不切換",true);newLine();	
+	createRadioBox("isSwitchTeam","連續切換",false);newLine();	
 	createTextView("labdelaySec","      幾秒後開始切換:");createEditText("txtTeamDelaySec",6,1,70,60);
-	newLine();
-	newLine();
+	newLine();newLine();
 	createTextView("version"," 版本：v1.2.3  (1280 x 720)")
 	-- v117
 	-- 特殊關卡輸了會lock
@@ -793,6 +753,12 @@ function main()
 	--debug end
 	--sleep(1000000);
 	
+	--toast("debug");;
+	--sleep(5000);
+	
+	--toast("debug end");;
+	--sleep(3000);
+
 	--兼容模式 check
 	if not(isCompatMode()) then
 		toast("兼容模式設定錯誤");
@@ -813,7 +779,7 @@ function main()
 	
 	local w,h = getResolutionRatio();  --获取屏幕分辨率	
 		
-toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s",UI_type,isSwitchTeam,UI_option2))
+	toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s",UI_type,isSwitchTeam,UI_option2))
 	--toast(string.format("目前螢幕解析度：%dx%d  \r\n模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s",w,h,UI_type,isSwitchTeam,UI_option2))
 	--toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s",UI_type,isSwitchTeam,UI_option2))
 	--if(w == 1152) and (h == 720)then
@@ -829,7 +795,7 @@ toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石
 	sleep(5000);
 				
 	--關卡類型選擇
-	if (UI_type == "主要關卡") then
+	if (UI_type == "主要關卡") then		
 		mainCheckpoint();
 	end
 	
