@@ -293,14 +293,14 @@ function fighting()
 			sleep(10000)
 			
 			--loss
-			if isColor(438,469,0xFFFFFF) and isColor(442,468,0xFFFFFF) then
+			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then
 				toast("LOSS");
 				sleep(5000);
 				
-				touchClick(663,466);   --取消btn
+				touchClick(775,482);   --取消btn
 				sleep(5000);
 								
-				touchClick(705,589);  --過關失敗確認btn		
+				touchClick(750,647);  --過關失敗確認btn		
 				sleep(5000);
 				break;	
 			end							
