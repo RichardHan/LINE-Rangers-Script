@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv127
+--LineRangerAutoFightingv128
 -----------------------------------------------------------------------
 function isPopupScreenColor()
 	if isColor(116,688,0x030101) and isColor(269,683,0x030201) then
@@ -740,7 +740,7 @@ function createUI()
 	
 	showLoopSetting(false);
 	
-	createTextView("UI_tv","[ 模式選擇 ")
+	createTextView("UI_tv","[ 模式選擇 ]")
 	newLine();	
 	createRadioBox("UI_type","自動戰鬥(手動選擇關卡)",false);newLine();
 	createRadioBox("UI_type","主要關卡",true)newLine();
@@ -807,7 +807,7 @@ function createUI()
 	  createCheckBox("advSillOne5","5",false);	  
 	  createCheckBox("advSillOne6","6",false);
 	  newLine()	  
-	  createTextView("labtemp1","無盡的黃金沙漠:");newLine()
+	  createTextView("labtemp2","無盡的黃金沙漠:");newLine()
 	  createCheckBox("advSillTwo1","1",false);
 	  createCheckBox("advSillTwo2","2",false);
 	  createCheckBox("advSillTwo3","3",false);
@@ -815,7 +815,7 @@ function createUI()
 	  createCheckBox("advSillTwo5","5",false);	  
 	  createCheckBox("advSillTwo6","6",false);
 	  newLine()	 
-	  createTextView("labtemp1","黃昏之冰神殿:");newLine()
+	  createTextView("labtemp3","黃昏之冰神殿:");newLine()
 	  createCheckBox("advSillThree1","1",false);
 	  createCheckBox("advSillThree2","2",false);
 	  createCheckBox("advSillThree3","3",false);	    
@@ -823,7 +823,7 @@ function createUI()
 	  createCheckBox("advSillThree5","5",false);
 	  createCheckBox("advSillThree6","6",true);
 	  newLine()
-	  createTextView("labtemp1","不滅的骸石:");newLine()
+	  createTextView("labtemp4","不滅的骸石:");newLine()
 	  createCheckBox("advSillFour1","1",false);
 	  createCheckBox("advSillFour2","2",false);	  
 	  createCheckBox("advSillFour3","3",false);	  
