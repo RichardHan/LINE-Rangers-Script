@@ -371,18 +371,26 @@ function loopFifghtingInSpecialMode(useSkill,isCheckTime)
 		
 	while true do
 		
+		-- 不知道為甚麼會點到素材  有點到取消
+		if isColor(1093,86,0xFFEE44) and isColor(1099,86,0xFFEE44) then
+			sleep(1000);
+			touchClick(1093,86);
+			sleep(1000);		
+		end		
+
 		--如果遊戲是第一次打開  會出現特殊教學
 		if isColor(1086,512,0xFFFCCF) then
 			touchClick(1086,512);
 			sleep(1000);
-			touchClick(1086,512);
+			--touchClick(1086,512);
+			--sleep(1000);
 		end
 		
 		pickFriendAndSkill(isCheckTime);
 								
-		-- already used all enter tickey.
-		if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then
-			--toast("zero");
+		-- 超過入場次數
+		if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then			
+			toast("超過入場次數");
 			touchClick(599,479); --確認btn
 			sleep(2000);
 			--back to special view , to next .
@@ -527,7 +535,7 @@ function pickFriendAndSkill(isCheckTime)
 		touchClick(1095,145);		
 		sleep(3000)
 	end
-		
+			
 	sleep(500);
 	
 	--if isColor(610,610,0x05C232) or isColor(610,610,0xCF0F00) or isColor(610,610,0x24AAC6) then
@@ -700,23 +708,24 @@ function specialCheckpoint()
 		loopFifghtingInSpecialMode(advSillOne6,false);			
 	end
 
-
 	if advPartFour5 then
 		toast("不滅的骸石5");		
 		slideToRight();
 		sleep(2000);
 		touchClick(1052,223);		
 		loopFifghtingInSpecialMode(advSillFour5,false);
-		fightInverseClockCheckpoint()
+		fightInverseClockCheckpoint();	
 	end	
+	
 	if advPartThree5 then
 		toast("黃昏之冰神殿5");		
 		slideToRight();
 		sleep(2000);
 		touchClick(574,235);
 		loopFifghtingInSpecialMode(advSillThree5,false);
-		fightInverseClockCheckpoint()
+		fightInverseClockCheckpoint()		
 	end
+	
 	if false or advPartTwo5 then
 		toast("無盡的黃金沙漠5");		
 		sleep(2000);
@@ -726,24 +735,25 @@ function specialCheckpoint()
 		loopFifghtingInSpecialMode(advSillTwo5,false);
 		fightInverseClockCheckpoint()
 	end	
+	
 	if advPartSix5 then
 		toast("未知礦山 or 沉默的廢鐵掩埋場 5");
 		sleep(2000);
 		slideToLeft();				   
 		touchClick(1068,237);
-		loopFifghtingInSpecialMode(advSillSix5,false);
-		fightInverseClockCheckpoint()
-	end			
+		loopFifghtingInSpecialMode(advSillSix5,false);		
+		fightInverseClockCheckpoint()		
+	end	
+	
 	if false or advPartOne5 then
 		toast("甦醒的魔眼5");	
 		sleep(2000);
 		slideToLeft();
 		someSlideToRight();				     
 		touchClick(500,238);
-		loopFifghtingInSpecialMode(advSillOne5,false);
+		loopFifghtingInSpecialMode(advSillOne5,false);		
 		fightInverseClockCheckpoint()
-	end	
-
+	end		
 	if advPartFour4 then
 		toast("不滅的骸石4");			
 		slideToRight();
