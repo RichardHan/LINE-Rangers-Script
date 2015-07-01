@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv132
+--LineRangerAutoFightingv133
 -----------------------------------------------------------------------
 function autoPickFriend()
 	if (tonumber(skill0deplay) == 0) then
@@ -100,7 +100,8 @@ function isRangerViewMap()
 end
 
 function fitInverseClockworkTime()
-	if (tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 21) then		
+	if (tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 21) or
+	   (tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14) then		
 		toast("符合逆時發條時間");
 		return ture;
 		else
@@ -410,7 +411,9 @@ function loopFifghtingInSpecialMode(useSkill,isCheckTime)
 		if isFightingViewColor() then
 			toast("偵測到戰鬥開始");
 			fighting(useSkill);
-			break;
+			
+			--but rerport by gilbert ?
+			--break;
 		end				
 	end				
 	
@@ -987,82 +990,89 @@ function createUI()
 	createRadioBox("UI_type","自動戰鬥(手動選擇關卡)",false);newLine();
 	createRadioBox("UI_type","主要關卡",false)newLine();
 	createRadioBox("UI_type","特殊關卡",true)newLine();
-	createRadioBox("UI_type","無盡關卡",false)newLine();
-	createRadioBox("UI_type","自動對戰好友",false)newLine();
-	newLine();
-	createTextView("adv_part1","    甦醒的魔眼:");newLine();	
-	createTextView("adv_part2_t","    ");
-	createCheckBox("advPartOne1","1  ",true);
-	createCheckBox("advPartOne2","2  ",true);
-	createCheckBox("advPartOne3","3  ",true);
-	createCheckBox("advPartOne4","4  ",true);
-	createCheckBox("advPartOne5","5  ",true);
-	createCheckBox("advPartOne6","6  ",true);
-	newLine();
-	createTextView("adv_part2","    無盡的黃金沙漠:");newLine();	
-	createTextView("adv_part2_t","    ");
-	createCheckBox("advPartTwo1","1  ",true);
-	createCheckBox("advPartTwo2","2  ",true);
-	createCheckBox("advPartTwo3","3  ",true);
-	createCheckBox("advPartTwo4","4  ",true);
-	createCheckBox("advPartTwo5","5  ",true);
-	createCheckBox("advPartTwo6","6  ",true);
-	newLine();
-	createTextView("adv_part3","    黃昏之冰神殿: ");newLine();
-	createTextView("adv_part3_t","    ");
-	createCheckBox("advPartThree1","1  ",true);
-	createCheckBox("advPartThree2","2  ",true);
-	createCheckBox("advPartThree3","3  ",true);
-	createCheckBox("advPartThree4","4  ",true);
-	createCheckBox("advPartThree5","5 ",true);
-	createCheckBox("advPartThree6","6 ",true);
-	newLine();
-	createTextView("adv_part4","    不滅的骸石: ");newLine();	
-	createTextView("adv_part4_t","    ");
-	createCheckBox("advPartFour1","1  ",true);
-	createCheckBox("advPartFour2","2  ",true);
-	createCheckBox("advPartFour3","3  ",true);
-	createCheckBox("advPartFour4","4  ",true);
-	createCheckBox("advPartFour5","5 ",true);
-	createCheckBox("advPartFour6","6 ",true);
-	newLine();
-	createTextView("adv_part5","    逆時發條: ");newLine();
-	createTextView("adv_part5_t","    ");
-	createCheckBox("advPartFive1","1  ",true);
-	createCheckBox("advPartFive2","2  ",true);
-	createCheckBox("advPartFive3","3  ",true);
-	createCheckBox("advPartFive4","4  ",true);
-	createCheckBox("advPartFive5","5 ",true);
-	createCheckBox("advPartFive6","6 ",false);	
-	newLine();
-	createTextView("adv_part6","    未知礦山 or 沉默的廢鐵掩埋場:");newLine();	
-	createTextView("adv_part6_t","    ");
-	createCheckBox("advPartSix1","1  ",true);
-	createCheckBox("advPartSix2","2  ",true);
-	createCheckBox("advPartSix3","3  ",true);
-	createCheckBox("advPartSix4","4  ",true);
-	createCheckBox("advPartSix5","5 ",true);
-	createCheckBox("advPartSix6","6 ",false);			
-	newLine();newLine();newLine();newLine();
+	createRadioBox("UI_type","無盡關卡/自動團戰",false)newLine();
+	createRadioBox("UI_type","自動對戰好友",false)
+
+	newLine()newLine()newLine();newLine();
+
+	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
+	createRadioBox("isSwitchTeam","不切換",true);newLine();	
+	createRadioBox("isSwitchTeam","連續切換",false);newLine();
+	createTextView("labdelaySec","      幾秒後開始切換:");createEditText("txtTeamDelaySec",25,1,70,60);
+	  
+	newLine()newLine()newLine();newLine();
+	
 	createTextView("UI_label_option2","[ 升級礦石方式 ]");
 	newLine();
 	createRadioBox("UI_option2","自動",true);createTextView("txtTemp1","  ");
 	createRadioBox("UI_option2","先升礦到八級",false);createTextView("txtTemp2","  ");
 	createRadioBox("UI_option2","不升礦",false);createTextView("txtTemp3","  ");
+	
 	newLine();newLine();newLine();newLine();
-	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
-	createRadioBox("isSwitchTeam","不切換",true);newLine();	
-	createRadioBox("isSwitchTeam","連續切換",false);newLine();
-	createTextView("labdelaySec","      幾秒後開始切換:");createEditText("txtTeamDelaySec",25,1,70,60);		
-	  
+		
+	createTextView("labOtherTitile","[  其他設定  ]")newLine();
+	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
+
 	newLine()newLine()newLine();newLine();
 	
-	createTextView("labOtherTitile","[  其他設定  ]")newLine();
-	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);	newLine();	
+	createTextView("labSkillTitile_top","[  自動關卡設定  ]")newLine();
+	createTextView("adv_part1","    甦醒的魔眼:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advPartOne1","1",true);
+	createCheckBox("advPartOne2","2",true);
+	createCheckBox("advPartOne3","3",true);
+	createCheckBox("advPartOne4","4",true);
+	createCheckBox("advPartOne5","5",true);
+	createCheckBox("advPartOne6","6",true);
+	newLine();
+	createTextView("adv_part2","    無盡的黃金沙漠:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advPartTwo1","1",true);
+	createCheckBox("advPartTwo2","2",true);
+	createCheckBox("advPartTwo3","3",true);
+	createCheckBox("advPartTwo4","4",true);
+	createCheckBox("advPartTwo5","5",true);
+	createCheckBox("advPartTwo6","6",true);
+	newLine();
+	createTextView("adv_part3","    黃昏之冰神殿: ");newLine();
+	createTextView("adv_part3_t","");
+	createCheckBox("advPartThree1","1",true);
+	createCheckBox("advPartThree2","2",true);
+	createCheckBox("advPartThree3","3",true);
+	createCheckBox("advPartThree4","4",true);
+	createCheckBox("advPartThree5","5",true);
+	createCheckBox("advPartThree6","6",true);
+	newLine();
+	createTextView("adv_part4","    不滅的骸石: ");newLine();	
+	createTextView("adv_part4_t","");
+	createCheckBox("advPartFour1","1",true);
+	createCheckBox("advPartFour2","2",true);
+	createCheckBox("advPartFour3","3",true);
+	createCheckBox("advPartFour4","4",true);
+	createCheckBox("advPartFour5","5",true);
+	createCheckBox("advPartFour6","6",true);
+	newLine();
+	createTextView("adv_part5","    逆時發條: ");newLine();
+	createTextView("adv_part5_t","");
+	createCheckBox("advPartFive1","1",true);
+	createCheckBox("advPartFive2","2",true);
+	createCheckBox("advPartFive3","3",true);
+	createCheckBox("advPartFive4","4",true);
+	createCheckBox("advPartFive5","5",true);
+	createCheckBox("advPartFive6","6",false);	
+	newLine();
+	createTextView("adv_part6","    未知礦山 or 沉默的廢鐵掩埋場:");newLine();	
+	createTextView("adv_part6_t"," ");
+	createCheckBox("advPartSix1","1",true);
+	createCheckBox("advPartSix2","2",true);
+	createCheckBox("advPartSix3","3",true);
+	createCheckBox("advPartSix4","4",true);
+	createCheckBox("advPartSix5","5",true);
+	createCheckBox("advPartSix6","6",false);			
+	newLine();newLine();newLine();newLine();
 
-	newLine()newLine()newLine();newLine();
 
-	  createTextView("labSkillTitile","[  自動技能關卡設定  ]")newLine();
+	  createTextView("labSkillTitile","[  自動技能設定  ]")newLine();
 	  createTextView("labtemp0","所有主要關卡跟自動戰鬥:");	  
 	  createCheckBox("skillMainpoint","",false);
 	  newLine()	  	 
@@ -1189,7 +1199,7 @@ function main()
 		mainCheckpoint();
 	end
 	
-	if(UI_type == "無盡關卡") then
+	if(UI_type == "無盡關卡/自動團戰") then
 		while true do			
 			if(isColor(1104,590,0xCF0F00) and isColor(1084,590,0xCF0F00)) then
 				touchClick(1104,590);
