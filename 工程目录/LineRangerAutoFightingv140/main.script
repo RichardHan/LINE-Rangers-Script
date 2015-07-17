@@ -162,9 +162,9 @@ end
 function someSlideToRight()
 	touchDown(731,549);
 	sleep(200);
-	touchMove(550,549);
+	touchMove(560,549);
 	touchUp();	
-	sleep(3000);
+	sleep(2000);
 end
 
 function slideToRight()
@@ -651,7 +651,17 @@ function mainCheckpoint()
 	end		
 end
 
-function specialCheckpoint()			
+function specialCheckpoint()		
+	local alignLeft1_X = 210;
+	local alignLeft1_Y = 400;
+	local alignRight1_X = 710;
+	local alignRight1_Y = 370;
+	
+	local alignLeft2_X = 215;
+	local alignLeft2_Y = 273;
+	local alignRight2_X = 724;
+	local alignRight2_Y = 238;	
+
 	if isRangerViewMap() then
 		toast("在遊戲開始畫面 > 進入主要關卡");
 		touchClick(1157,613); -- click start button on right of bottom corner.				
@@ -698,22 +708,8 @@ function specialCheckpoint()
 		touchClick(320,185);
 		loopFifghtingInSpecialMode(advSillFive3,true);
 	end
-	if advClockwork2 then
-		toast("逆時發條2");
-		sleep(2000);		
-		slideToLeft();
-		touchClick(215,273);
-		loopFifghtingInSpecialMode(advSillFive2,true);
-	end
-	if advClockwork1 then
-		toast("逆時發條1");
-		sleep(2000);		
-		slideToLeft();
-		touchClick(210,404);
-		loopFifghtingInSpecialMode(advSillFive1,true);
-	end	
-				
-	
+
+			
 	if advPartFour6 then
 		toast("不滅的骸石6");		
 		slideToRight();
@@ -721,7 +717,7 @@ function specialCheckpoint()
 		touchClick(1053,346);		
 		loopFifghtingInSpecialMode(advSillFour6,false);		
 	end
-	if advPartThree6 then
+	if advSilence6 then
 		toast("黃昏之冰神殿6");		
 		slideToRight();
 		sleep(2000);
@@ -760,7 +756,7 @@ function specialCheckpoint()
 		loopFifghtingInSpecialMode(advSillFour5,false);		
 	end	
 	
-	if advPartThree5 then
+	if advSilence5 then
 		toast("黃昏之冰神殿5");		
 		slideToRight();
 		sleep(2000);
@@ -800,12 +796,13 @@ function specialCheckpoint()
 		touchClick(949,141);		
 		loopFifghtingInSpecialMode(advSillFour4,false);		
 	end				
-	if advPartThree4 then
-		toast("黃昏之冰神殿4");	
-		slideToRight();
-		sleep(2000);
-		touchClick(462,145);
-		loopFifghtingInSpecialMode(advSillThree4,false);		
+	if advSilence4 then
+		--toast("沉默的廢鐵掩埋場4");	
+		--slideToRight();
+		--sleep(2000);
+		--touchClick(462,145);
+		--loopFifghtingInSpecialMode(advSillThree4,false);	
+		advPlay("沉默的廢鐵掩埋場4","leftPlusLittleRight",advSillThree4,972,147,false);		
 	end	
 	if  advDesert4 then
 		toast("無盡的黃金沙漠4");			
@@ -838,12 +835,13 @@ function specialCheckpoint()
 		touchClick(805,143);
 		loopFifghtingInSpecialMode(advSillFour3,false);		
 	end
-	if advPartThree3 then		
-		toast("黃昏之冰神殿3");
-		sleep(2000);
-		slideToRight();
-		touchClick(337,151);
-		loopFifghtingInSpecialMode(advSillThree3,false);		
+	if advSilence3 then		
+		--toast("沉默的廢鐵掩埋場3");
+		--sleep(2000);
+		--slideToRight();
+		--touchClick(337,151);
+		--loopFifghtingInSpecialMode(advSillThree3,false);	
+		advPlay("沉默的廢鐵掩埋場3","leftPlusLittleRight",advSillThree3,832,148,false);	
 	end		
 	if advDesert3 then			
 		toast("無盡的黃金沙漠3");
@@ -870,107 +868,39 @@ function specialCheckpoint()
 		loopFifghtingInSpecialMode(advSillOne3,false);		
 	end	
 
+	if advClockwork2 then advPlay("逆時發條2","left",advSillFive2,alignLeft2_X,alignLeft2_Y,true);	 end
+	if advMine2 then	  advPlay("未知礦山2","left",advSillSix2,alignRight2_X,alignRight2_Y,true); end			
+	if advPartFour2 then	  advPlay("不滅的骸石2","leftPlusLittleRight",advSillFour2,alignLeft2_X,alignLeft2_Y,false);	end		
+	if advSilence2 then	  advPlay("沉默的廢鐵掩埋場2","leftPlusLittleRight",advSillThree2,alignRight2_X,alignRight2_Y,false); end
+	if advWake2 then       advPlay("甦醒的魔眼2","right",advSillOne2,alignLeft2_X,alignLeft2_Y,false);	end	
+	if advDesert2 then     advPlay("無盡的黃金沙漠2","right",advSillTwo2,alignRight2_X,alignRight2_Y,false); end	
 
-	if advPartFour2 then		
-		toast("不滅的骸石2");
-		sleep(2000);		
-		slideToRight();
-		touchClick(720,241);
-		loopFifghtingInSpecialMode(advSillFour2,false);		
-	end	
-	if advDesert2 then				
-		toast("無盡的黃金沙漠2");
-		sleep(2000);
-		slideToLeft();
-		someSlideToRight();
-		--BUG.
-		touchClick(1241,233);
-		loopFifghtingInSpecialMode(advSillTwo2,false);		
-	end
-	if advPartThree2 then		
-		toast("黃昏之冰神殿2");
-		sleep(2000);
-		slideToLeft();
-		touchClick(664,227);
-		loopFifghtingInSpecialMode(advSillThree2,false);		
-	end
-	if advMine2 then
-		toast("未知礦山2");
-		sleep(2000);
-		slideToLeft();				   
-		touchClick(724,238);
-		loopFifghtingInSpecialMode(advSillSix2,false);		
-	end			
-	if advWake2 then
-		toast("甦醒的魔眼2");
-		sleep(2000);
-		slideToLeft();
-		someSlideToRight();		
-		touchClick(159,236);
-		loopFifghtingInSpecialMode(advSillOne2,false);		
-	end	
-
-	if advPartFour1 then
-		toast("不滅的骸石1");
-		sleep(2000);		
-		slideToRight();
-		touchClick(723,370);
-		loopFifghtingInSpecialMode(advSillFour1,false);		
-	end
-	if advMine1 then
-		--toast("未知礦山1");
-		--sleep(2000);
-		--slideToLeft();		   
-		--touchClick(701,377);
-		--loopFifghtingInSpecialMode(advSillSix1,false);		
-		advPlay("未知礦山1","left",advSillSix1,710,370);	
-	end		
-	if advWake1 then
-		--toast("甦醒的魔眼1");
-		--sleep(2000);
-		--slideToLeft();								
-		--someSlideToRight();				  
-		--touchClick(127,373);
-		--loopFifghtingInSpecialMode(advSillOne1,false);		
-		--param: (name,slideType,isUseSkill,x,y)
-		advPlay("甦醒的魔眼1","right",advSillOne1,211,370);		
-	end	
-	
-	if advDesert1 then			
-		--toast("無盡的黃金沙漠1");
-		--sleep(2000);
-		--slideToLeft();
-		--someSlideToRight();
-		--touchClick(655,356);
-		--loopFifghtingInSpecialMode(advSillTwo1,false);		
-		advPlay("無盡的黃金沙漠1","right",advSillTwo1,723,370);		
-	end	
-	
-	if advPartThree1 then
-		toast("黃昏之冰神殿1");
-		sleep(2000);
-		slideToRight();
-		touchClick(211,365);
-		loopFifghtingInSpecialMode(advSillThree1,false);		
-	end		
+	if advClockwork1 then advPlay("逆時發條1","left",advSillFive1,alignLeft1_X,alignLeft1_Y,true);	 end	
+	if advMine1 then        advPlay("未知礦山1","left",advSillSix1,alignRight1_X,alignRight1_Y,true);	end	
+	if advPartFour1 then	  advPlay("不滅的骸石1","leftPlusLittleRight",advSillFour1,alignLeft1_X,alignLeft1_Y,false); end	
+	if advSilence1 then	  advPlay("沉默的廢鐵掩埋場1","leftPlusLittleRight",advSillThree1,alignRight1_X,alignRight1_Y,false);	end		
+	if advWake1 then       advPlay("甦醒的魔眼1","right",advSillOne1,alignLeft1_X,alignLeft1_Y,false); end		
+	if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advSillTwo1,alignRight1_X,alignRight1_Y,false); end
 end
 
-function advPlay(name,slideType,isUseSkill,x,y)
+function advPlay(name,slideType,isUseSkill,x,y,isCheckTime)
 	toast(name);
-	sleep(1000);
-	if (slideMode == "left") then
+	sleep(2000);
+	if (slideType == "left") then
 		slideToLeft();
 	end
-	if (slideMode == "right") then
+	if (slideType == "right") then
 		slideToRight();
 	end	
-	if(slideMode == "TBD") then
-		--someSlideToRight();				  	
+	if (slideType == "leftPlusLittleRight") then
+		slideToLeft();
+		sleep(1000);
+		someSlideToRight();
 	end
 	sleep(1000);
 	touchClick(x,y);
 	--                                         param: (useSkill,isCheckTime)
-	loopFifghtingInSpecialMode(isUseSkill,false);	
+	loopFifghtingInSpecialMode(isUseSkill,isCheckTime);	
 end
 
 function closeWindows1()      
@@ -1012,42 +942,6 @@ function createUI()
 	newLine()newLine()newLine();newLine();
 	
 	createTextView("labSkillTitile_top","[  自動關卡設定  ]")newLine();
-	createTextView("adv_part1","    甦醒的魔眼:");newLine();	
-	createTextView("adv_part2_t","");
-	createCheckBox("advWake1","1",false);
-	createCheckBox("advWake2","2",false);
-	createCheckBox("advWake3","3",false);
-	createCheckBox("advWake4","4",false);
-	createCheckBox("advWake5","5",false);
-	createCheckBox("advWake6","6",false);
-	newLine();
-	createTextView("adv_part2","    無盡的黃金沙漠:");newLine();	
-	createTextView("adv_part2_t","");
-	createCheckBox("advDesert1","1",false);
-	createCheckBox("advDesert2","2",false);
-	createCheckBox("advDesert3","3",false);
-	createCheckBox("advDesert4","4",false);
-	createCheckBox("advDesert5","5",false);
-	createCheckBox("advDesert6","6",false);
-	newLine();
-	createTextView("adv_part3","    黃昏之冰神殿: ");newLine();
-	createTextView("adv_part3_t","");
-	createCheckBox("advPartThree1","1",false);
-	createCheckBox("advPartThree2","2",false);
-	createCheckBox("advPartThree3","3",false);
-	createCheckBox("advPartThree4","4",false);
-	createCheckBox("advPartThree5","5",false);
-	createCheckBox("advPartThree6","6",false);
-	newLine();
-	createTextView("adv_part4","    不滅的骸石: ");newLine();	
-	createTextView("adv_part4_t","");
-	createCheckBox("advPartFour1","1",false);
-	createCheckBox("advPartFour2","2",false);
-	createCheckBox("advPartFour3","3",false);
-	createCheckBox("advPartFour4","4",false);
-	createCheckBox("advPartFour5","5",false);
-	createCheckBox("advPartFour6","6",false);
-	newLine();
 	createTextView("adv_part5","    逆時發條: ");newLine();
 	createTextView("adv_part5_t","");
 	createCheckBox("advClockwork1","1",false);
@@ -1064,11 +958,45 @@ function createUI()
 	createCheckBox("advMine3","3",false);
 	createCheckBox("advMine4","4",false);
 	createCheckBox("advMine5","5",false);
-	createCheckBox("advMine6","6",false);			
+	createCheckBox("advMine6","6",false);
+	newLine();
+	createTextView("adv_part4","    不滅的骸石: ");newLine();	
+	createTextView("adv_part4_t","");
+	createCheckBox("advPartFour1","1",false);
+	createCheckBox("advPartFour2","2",false);
+	createCheckBox("advPartFour3","3",false);
+	createCheckBox("advPartFour4","4",false);
+	createCheckBox("advPartFour5","5",false);
+	createCheckBox("advPartFour6","6",false);
+	newLine();
+	createTextView("adv_part3","    沉默的廢鐵掩埋場: ");newLine();
+	createTextView("adv_part3_t","");
+	createCheckBox("advSilence1","1",false);
+	createCheckBox("advSilence2","2",true);
+	createCheckBox("advSilence3","3",true);
+	createCheckBox("advSilence4","4",false);
+	createCheckBox("advSilence5","5",false);
+	createCheckBox("advSilence6","6",false);	
+	newLine();	
+	createTextView("adv_part1","    甦醒的魔眼:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advWake1","1",false);
+	createCheckBox("advWake2","2",false);
+	createCheckBox("advWake3","3",false);
+	createCheckBox("advWake4","4",false);
+	createCheckBox("advWake5","5",false);
+	createCheckBox("advWake6","6",false);
+	newLine();
+	createTextView("adv_part2","    無盡的黃金沙漠:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advDesert1","1",false);
+	createCheckBox("advDesert2","2",false);
+	createCheckBox("advDesert3","3",false);
+	createCheckBox("advDesert4","4",false);
+	createCheckBox("advDesert5","5",false);
+	createCheckBox("advDesert6","6",false);		
 	newLine();newLine();newLine();newLine();
-	
-	--沉默的廢鐵掩埋場
-
+		
 	  createTextView("labSkillTitile","[  自動技能設定  ]")newLine();
 	  createTextView("labtemp0","所有主要關卡跟自動戰鬥:");	  
 	  createCheckBox("skillMainpoint","",false);
@@ -1136,7 +1064,7 @@ function createUI()
 	  createEditText("skill4deplay",2,1,70,60);newLine()	  
 end
 function main()
-	   		
+		
 	--if ((tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14)) or ((tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 21)) then
 	
 	::main::
