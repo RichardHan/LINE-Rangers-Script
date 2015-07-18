@@ -708,79 +708,79 @@ function specialCheckpoint()
 					
 
      if checkIsWeekend() then	 	
-		if advClockwork6 then advPlay("逆時發條6","left",advSkillFive6,alignLeft6_X,alignLeft6_Y,true); end
-		if advClockwork5 then advPlay("逆時發條5","left",advSkillFive5,alignLeft5_X,alignLeft5_Y,true); end
-		if advClockwork4 then advPlay("逆時發條4","left",advSkillFive4,alignLeft4_X,alignLeft4_Y,true); end
-		if advClockwork3 then advPlay("逆時發條3","left",advSkillFive3,alignLeft3_X,alignLeft3_Y,true); end				
-		if advClockwork2 then advPlay("逆時發條2","left",advSkillFive2,alignLeft2_X,alignLeft2_Y,true); end
-		if advClockwork1 then advPlay("逆時發條1","left",advSkillFive1,alignLeft1_X,alignLeft1_Y,true); end			
-		if advMine6 then        advPlay("未知礦山6","left",advSkillSix6,alignRight6_X,alignRight6_Y,false); end	
-		if advMine5 then        advPlay("未知礦山5","left",advSkillSix5,alignRight5_X,alignRight5_Y,false); end
-		if advMine4 then        advPlay("未知礦山4","left",advSkillSix4,alignRight4_X,alignRight4_Y,false); end		
-		if advMine3 then        advPlay("未知礦山3","left",advSkillSix3,alignRight3_X,alignRight3_Y,false); end	
-		if advMine2 then	  advPlay("未知礦山2","left",advSkillSix2,alignRight2_X,alignRight2_Y,true); end			
-		if advMine1 then        advPlay("未知礦山1","left",advSkillSix1,alignRight1_X,alignRight1_Y,true); end			
+		if advClockwork6 then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,true); end
+		if advClockwork5 then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,true); end
+		if advClockwork4 then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,true); end
+		if advClockwork3 then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,true); end				
+		if advClockwork2 then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,true); end
+		if advClockwork1 then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,true); end			
+		if advMine6 then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false); end	
+		if advMine5 then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false); end
+		if advMine4 then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false); end		
+		if advMine3 then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false); end	
+		if advMine2 then	  advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,true); end			
+		if advMine1 then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,true); end			
 		
-		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advSkillTwo6,alignRight6_X,alignRight6_Y,false);  end	
-		if advWake6 then       advPlay("甦醒的魔眼6","right",advSkillTwo6,alignLeft6_X,alignLeft6_Y,false); end
+		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advDesert_Skill6,alignRight6_X,alignRight6_Y,false);  end			
+		if advWake6 then       advPlay("甦醒的魔眼6","right",advWake_Skill6,alignLeft6_X,alignLeft6_Y,false); end		
 		
-		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advSkillTwo5,alignRight5_X,alignRight5_Y,false); end		
-		if advWake5 then       advPlay("甦醒的魔眼5","right",advSkillOne5,alignLeft5_X,alignLeft5_Y,false); end		
+		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advDesert_Skill5,alignRight5_X,alignRight5_Y,false); end		
+		if advWake5 then       advPlay("甦醒的魔眼5","right",advWake_Skill5,alignLeft5_X,alignLeft5_Y,false); end		
 		
-		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advSkillTwo4,alignRight4_X,alignRight4_Y,false); end				
-		if advWake4 then       advPlay("甦醒的魔眼4","right",advSkillOne4,alignLeft4_X,alignLeft4_Y,false); end				
+		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advDesert_Skill4,alignRight4_X,alignRight4_Y,false); end				
+		if advWake4 then       advPlay("甦醒的魔眼4","right",advWake_Skill4,alignLeft4_X,alignLeft4_Y,false); end				
 		
-		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advSkillTwo3,alignRight3_X,alignRight3_Y,false); end					
-		if advWake3 then       advPlay("甦醒的魔眼3","right",advSkillOne3,alignLeft3_X,alignLeft3_Y,false); end								
+		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advDesert_Skill3,alignRight3_X,alignRight3_Y,false); end					
+		if advWake3 then       advPlay("甦醒的魔眼3","right",advWake_Skill3,alignLeft3_X,alignLeft3_Y,false); end								
 		
-		if advWake2 then       advPlay("甦醒的魔眼2","right",advSkillOne2,alignLeft2_X,alignLeft2_Y,false);	end	
-		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advSkillTwo2,alignRight2_X,alignRight2_Y,false); end					
+		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advDesert_Skill2,alignRight2_X,alignRight2_Y,false); end					
+		if advWake2 then       advPlay("甦醒的魔眼2","right",advWake_Skill2,alignLeft2_X,alignLeft2_Y,false);	end			
 		
-		if advWake1 then       advPlay("甦醒的魔眼1","right",advSkillOne1,alignLeft1_X,alignLeft1_Y,false); end		
-		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advSkillTwo1,alignRight1_X,alignRight1_Y,false); end 
+		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advDesert_Skill1,alignRight1_X,alignRight1_Y,false); end 
+		if advWake1 then       advPlay("甦醒的魔眼1","right",advWake_Skill1,alignLeft1_X,alignLeft1_Y,false); end				
 	else	
-		if advClockwork6 then advPlay("逆時發條6","left",advSkillFive6,alignLeft6_X,alignLeft6_Y,true); end
-		if advClockwork5 then advPlay("逆時發條5","left",advSkillFive5,alignLeft5_X,alignLeft5_Y,true); end
-		if advClockwork4 then advPlay("逆時發條4","left",advSkillFive4,alignLeft4_X,alignLeft4_Y,true); end
-		if advClockwork3 then advPlay("逆時發條3","left",advSkillFive3,alignLeft3_X,alignLeft3_Y,true); end				
-		if advClockwork2 then advPlay("逆時發條2","left",advSkillFive2,alignLeft2_X,alignLeft2_Y,true); end
-		if advClockwork1 then advPlay("逆時發條1","left",advSkillFive1,alignLeft1_X,alignLeft1_Y,true); end
-		if advMine6 then        advPlay("未知礦山6","left",advSkillSix6,alignRight6_X,alignRight6_Y,false); end	
-		if advMine5 then        advPlay("未知礦山5","left",advSkillSix5,alignRight5_X,alignRight5_Y,false); end
-		if advMine4 then        advPlay("未知礦山4","left",advSkillSix4,alignRight4_X,alignRight4_Y,false); end	
-		if advMine3 then        advPlay("未知礦山3","left",advSkillSix3,alignRight3_X,alignRight3_Y,false); end
-		if advMine2 then	  advPlay("未知礦山2","left",advSkillSix2,alignRight2_X,alignRight2_Y,true); end			
-		if advMine1 then        advPlay("未知礦山1","left",advSkillSix1,alignRight1_X,alignRight1_Y,true); end	
+		if advClockwork6 then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,true); end
+		if advClockwork5 then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,true); end
+		if advClockwork4 then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,true); end
+		if advClockwork3 then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,true); end				
+		if advClockwork2 then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,true); end
+		if advClockwork1 then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,true); end
+		if advMine6 then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false); end	
+		if advMine5 then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false); end
+		if advMine4 then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false); end	
+		if advMine3 then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false); end
+		if advMine2 then	  advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,true); end			
+		if advMine1 then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,true); end	
 		
 		if advPartFour6 then   advPlay("不滅的骸石6","leftPlusLittleRight",advSkillFour6,alignLeft6_X,alignLeft6_Y,false);  end
-		if advSilence6 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方6","leftPlusLittleRight",advSkillThree6,alignRight6_X,alignRight6_Y,false);  end
-		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advSkillTwo6,alignRight6_X,alignRight6_Y,false);  end			
-		if advWake6 then       advPlay("甦醒的魔眼6","right",advSkillTwo6,alignLeft6_X,alignLeft6_Y,false); end
+		if advSilence6 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方6","leftPlusLittleRight",advSilence_Skill6,alignRight6_X,alignRight6_Y,false);  end
+		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advDesert_Skill6,alignRight6_X,alignRight6_Y,false);  end			
+		if advWake6 then       advPlay("甦醒的魔眼6","right",advWake_Skill6,alignLeft6_X,alignLeft6_Y,false); end
 		
 		if advPartFour5 then	  advPlay("不滅的骸石5","leftPlusLittleRight",advSkillFour5,alignLeft5_X,alignLeft5_Y,false); end
-		if advSilence5 then    advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方5","leftPlusLittleRight",advSkillThree5,alignRight5_X,alignRight5_Y,false); end
-		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advSkillTwo5,alignRight5_X,alignRight5_Y,false); end		
-		if advWake5 then       advPlay("甦醒的魔眼5","right",advSkillOne5,alignLeft5_X,alignLeft5_Y,false); end
+		if advSilence5 then    advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方5","leftPlusLittleRight",advSilence_Skill5,alignRight5_X,alignRight5_Y,false); end
+		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advDesert_Skill5,alignRight5_X,alignRight5_Y,false); end		
+		if advWake5 then       advPlay("甦醒的魔眼5","right",advWake_Skill5,alignLeft5_X,alignLeft5_Y,false); end
 		
 		if advPartFour4 then   advPlay("不滅的骸石4","leftPlusLittleRight",advSkillFour4,alignLeft4_X,alignLeft4_Y,false); end	
-		if advSilence4 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 4","leftPlusLittleRight",advSkillThree4,972,147,false); end	
-		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advSkillTwo4,alignRight4_X,alignRight4_Y,false); end				
-		if advWake4 then       advPlay("甦醒的魔眼4","right",advSkillOne4,alignLeft4_X,alignLeft4_Y,false); end		
+		if advSilence4 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 4","leftPlusLittleRight",advSilence_Skill4,972,147,false); end	
+		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advDesert_Skill4,alignRight4_X,alignRight4_Y,false); end				
+		if advWake4 then       advPlay("甦醒的魔眼4","right",advWake_Skill4,alignLeft4_X,alignLeft4_Y,false); end		
 		
 		if advPartFour3 then	  advPlay("不滅的骸石3","leftPlusLittleRight",advSkillFour3,alignLeft3_X,alignLeft3_Y,false); end
-		if advSilence3 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 3","leftPlusLittleRight",advSkillThree3,832,148,false); end		
-		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advSkillTwo3,alignRight3_X,alignRight3_Y,false); end					
-		if advWake3 then       advPlay("甦醒的魔眼3","right",advSkillOne3,alignLeft3_X,alignLeft3_Y,false); end				
+		if advSilence3 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 3","leftPlusLittleRight",advSilence_Skill3,832,148,false); end		
+		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advDesert_Skill3,alignRight3_X,alignRight3_Y,false); end					
+		if advWake3 then       advPlay("甦醒的魔眼3","right",advWake_Skill3,alignLeft3_X,alignLeft3_Y,false); end				
 		
 		if advPartFour2 then	  advPlay("不滅的骸石2","leftPlusLittleRight",advSkillFour2,alignLeft2_X,alignLeft2_Y,false);	end		
-		if advSilence2 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 2","leftPlusLittleRight",advSkillThree2,alignRight2_X,alignRight2_Y,false); end
-		if advWake2 then       advPlay("甦醒的魔眼2","right",advSkillOne2,alignLeft2_X,alignLeft2_Y,false);	end	
-		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advSkillTwo2,alignRight2_X,alignRight2_Y,false); end			
+		if advSilence2 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 2","leftPlusLittleRight",advSilence_Skill2,alignRight2_X,alignRight2_Y,false); end
+		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advDesert_Skill2,alignRight2_X,alignRight2_Y,false); end			
+		if advWake2 then       advPlay("甦醒的魔眼2","right",advWake_Skill2,alignLeft2_X,alignLeft2_Y,false);	end			
 		
 		if advPartFour1 then	  advPlay("不滅的骸石1","leftPlusLittleRight",advSkillFour1,alignLeft1_X,alignLeft1_Y,false); end	
-		if advSilence1 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 1","leftPlusLittleRight",advSkillThree1,alignRight1_X,alignRight1_Y,false);	end		
-		if advWake1 then       advPlay("甦醒的魔眼1","right",advSkillOne1,alignLeft1_X,alignLeft1_Y,false); end		
-		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advSkillTwo1,alignRight1_X,alignRight1_Y,false); end 
+		if advSilence1 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 1","leftPlusLittleRight",advSilence_Skill1,alignRight1_X,alignRight1_Y,false);	end		
+		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advDesert_Skill1,alignRight1_X,alignRight1_Y,false); end 
+		if advWake1 then       advPlay("甦醒的魔眼1","right",advWake_Skill1,alignLeft1_X,alignLeft1_Y,false); end				
 	end
 end
 
@@ -903,28 +903,28 @@ function createUI()
 	  createCheckBox("skillMainpoint","",false);
 	  newLine()	  	 
 	  createTextView("labtemp1","甦醒的魔眼:");newLine()
-	  createCheckBox("advSkillOne1","1",false);  
-	  createCheckBox("advSkillOne2","2",false);  
-	  createCheckBox("advSkillOne3","3",false);
-	  createCheckBox("advSkillOne4","4",false);
-	  createCheckBox("advSkillOne5","5",false);	  
-	  createCheckBox("advSkillOne6","6",false);
+	  createCheckBox("advWake_Skill1","1",false);  
+	  createCheckBox("advWake_Skill2","2",false);  
+	  createCheckBox("advWake_Skill3","3",false);
+	  createCheckBox("advWake_Skill4","4",false);
+	  createCheckBox("advWake_Skill5","5",false);	  
+	  createCheckBox("advWake_Skill6","6",false);
 	  newLine()	  
 	  createTextView("labtemp2","無盡的黃金沙漠:");newLine()
-	  createCheckBox("advSkillTwo1","1",false);
-	  createCheckBox("advSkillTwo2","2",false);
-	  createCheckBox("advSkillTwo3","3",false);
-	  createCheckBox("advSkillTwo4","4",false);	  
-	  createCheckBox("advSkillTwo5","5",false);	  
-	  createCheckBox("advSkillTwo6","6",true);
+	  createCheckBox("advDesert_Skill1","1",false);
+	  createCheckBox("advDesert_Skill2","2",false);
+	  createCheckBox("advDesert_Skill3","3",false);
+	  createCheckBox("advDesert_Skill4","4",false);	  
+	  createCheckBox("advDesert_Skill5","5",false);	  
+	  createCheckBox("advDesert_Skill6","6",true);
 	  newLine()	 
 	  createTextView("labtemp3","沉默的廢鐵掩埋場 or 魔法的迷途魔方:");newLine()
-	  createCheckBox("advSkillThree1","1",false);
-	  createCheckBox("advSkillThree2","2",false);
-	  createCheckBox("advSkillThree3","3",false);	    
-	  createCheckBox("advSkillThree4","4",false);
-	  createCheckBox("advSkillThree5","5",true);
-	  createCheckBox("advSkillThree6","6",true);
+	  createCheckBox("advSilence_Skill1","1",false);
+	  createCheckBox("advSilence_Skill2","2",false);
+	  createCheckBox("advSilence_Skill3","3",false);	    
+	  createCheckBox("advSilence_Skill4","4",false);
+	  createCheckBox("advSilence_Skill5","5",true);
+	  createCheckBox("advSilence_Skill6","6",true);
 	  newLine()
 	  createTextView("labtemp4","不滅的骸石:");newLine()
 	  createCheckBox("advSkillFour1","1",false);
@@ -935,20 +935,20 @@ function createUI()
 	  createCheckBox("advSkillFour6","6",true);
 	  newLine()	  	 
 	  createTextView("labtemp5","逆時發條:");newLine()
-	  createCheckBox("advSkillFive1","1",false);  
-	  createCheckBox("advSkillFive2","2",false);  
-	  createCheckBox("advSkillFive3","3",false);
-	  createCheckBox("advSkillFive4","4",true);
-	  createCheckBox("advSkillFive5","5",true);	  
-	  createCheckBox("advSkillFive6","6",true);	  	  
+	  createCheckBox("advClockwork_Skill1","1",false);  
+	  createCheckBox("advClockwork_Skill2","2",false);  
+	  createCheckBox("advClockwork_Skill3","3",false);
+	  createCheckBox("advClockwork_Skill4","4",true);
+	  createCheckBox("advClockwork_Skill5","5",true);	  
+	  createCheckBox("advClockwork_Skill6","6",true);	  	  
 	  newLine()
 	  createTextView("labtemp6","未知礦山:");newLine()
-	  createCheckBox("advSkillSix1","1",false);  
-	  createCheckBox("advSkillSix2","2",false);  
-	  createCheckBox("advSkillSix3","3",false);
-	  createCheckBox("advSkillSix4","4",true);
-	  createCheckBox("advSkillSix5","5",true);	  
-	  createCheckBox("advSkillSix6","6",true);	  
+	  createCheckBox("advMine_Skill1","1",false);  
+	  createCheckBox("advMine_Skill2","2",false);  
+	  createCheckBox("advMine_Skill3","3",false);
+	  createCheckBox("advMine_Skill4","4",true);
+	  createCheckBox("advMine_Skill5","5",true);	  
+	  createCheckBox("advMine_Skill6","6",true);	  
 	  newLine()newLine()newLine()newLine()
 	
 	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定 ]")newLine();
