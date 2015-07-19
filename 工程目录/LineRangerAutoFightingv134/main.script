@@ -269,7 +269,7 @@ function fightingByUserSelectedMode(useSkill)
 			--if isColor(1139,162, 0xFFF320) then
 			if isLINEAutoButtonClickedColor() then
 				-- already in LINE AUTO MODE.				
-				sleep(1000);
+				sleep(300);
 			else
 				fireRangerByPorgressColor();
 				
@@ -373,9 +373,9 @@ function loopFifghtingInSpecialMode(useSkill,isCheckTime)
 		
 		-- 不知道為甚麼會點到素材  有點到取消
 		if isColor(1093,86,0xFFEE44) and isColor(1099,86,0xFFEE44) then
-			sleep(1000);
+			sleep(200);
 			touchClick(1093,86);
-			sleep(1000);		
+			sleep(800);		
 		end		
 
 		--如果遊戲是第一次打開  會出現特殊教學
@@ -433,7 +433,7 @@ function fighting(useSkill)
 		if not isFightingViewColor() then
 			
 			toast("戰鬥結束 - 判斷結果");
-			sleep(10000)
+			sleep(5000)
 			
 			--loss
 			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then

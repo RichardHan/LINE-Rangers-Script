@@ -439,7 +439,7 @@ function fighting(useSkill)
 		if not isFightingViewColor() then
 			
 			toast("戰鬥結束 - 判斷結果");
-			sleep(10000)
+			sleep(5000)
 			
 			--loss
 			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then
@@ -815,8 +815,7 @@ function createUI()
 	createTextView("UI_tv","[ 模式選擇 ]")
 	newLine();	
 	createRadioBox("UI_type","自動戰鬥(手動選擇關卡)",false);newLine();
-	createRadioBox("UI_type","主要關卡",false)newLine();
-	createRadioBox("UI_type","特殊關卡",true)newLine();
+	createRadioBox("UI_type","主要關卡",false);createRadioBox("UI_type","特殊關卡",true);newLine();
 	createRadioBox("UI_type","無盡關卡/自動團戰",false)newLine();
 	createRadioBox("UI_type","自動對戰跟幫助好友",false)
 
@@ -824,8 +823,8 @@ function createUI()
 
 	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
 	createRadioBox("isSwitchTeam","不切換",true);newLine();	
-	createRadioBox("isSwitchTeam","連續切換",false);newLine();
-	createTextView("labdelaySec","      幾秒後開始切換:");createEditText("txtTeamDelaySec",25,1,70,60);
+	createRadioBox("isSwitchTeam","連續切換",false);
+	createTextView("labdelaySec"," -  幾秒後開始切換:");createEditText("txtTeamDelaySec",20,1,70,60);
 	  
 	newLine()newLine()newLine();newLine();
 	
@@ -835,42 +834,37 @@ function createUI()
 	createRadioBox("UI_option2","先升礦到八級",false);createTextView("txtTemp2","  ");
 	createRadioBox("UI_option2","不升礦",false);createTextView("txtTemp3","  ");
 	
-	newLine();newLine();newLine();newLine();
-		
-	createTextView("labOtherTitile","[  其他設定  ]")newLine();
-	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
-
 	newLine()newLine()newLine();newLine();
 	
 	createTextView("labSkillTitile_top","[  自動關卡設定  ]")newLine();
-	createTextView("adv_part5","    逆時發條: ");newLine();
+	createTextView("adv_part5","逆時發條: ");newLine();
 	createTextView("adv_part5_t","");
 	createCheckBox("advClockwork1","1",false);
 	createCheckBox("advClockwork2","2",false);
 	createCheckBox("advClockwork3","3",false);
 	createCheckBox("advClockwork4","4",false);
 	createCheckBox("advClockwork5","5",false);
-	createCheckBox("advClockwork6","6",false);
+	createCheckBox("advClockwork6","6",true);
 	newLine();
-	createTextView("adv_part6","    未知礦山:");newLine();	
+	createTextView("adv_part6","未知礦山:");newLine();	
 	createTextView("adv_part6_t"," ");
 	createCheckBox("advMine1","1",false);
 	createCheckBox("advMine2","2",false);
 	createCheckBox("advMine3","3",false);
 	createCheckBox("advMine4","4",false);
 	createCheckBox("advMine5","5",false);
-	createCheckBox("advMine6","6",false);
+	createCheckBox("advMine6","6",true);
 	newLine();
-	createTextView("adv_part4","    不滅的骸石: ");newLine();	
+	createTextView("adv_part4","不滅的骸石: ");newLine();	
 	createTextView("adv_part4_t","");
 	createCheckBox("advPartFour1","1",false);
 	createCheckBox("advPartFour2","2",false);
 	createCheckBox("advPartFour3","3",false);
 	createCheckBox("advPartFour4","4",false);
-	createCheckBox("advPartFour5","5",true);
-	createCheckBox("advPartFour6","6",false);
+	createCheckBox("advPartFour5","5",false);
+	createCheckBox("advPartFour6","6",true);
 	newLine();
-	createTextView("adv_part3","    沉默的廢鐵掩埋場 or 魔法的迷途魔方: ");newLine();
+	createTextView("adv_part3","沉默的廢鐵掩埋場 or 魔法的迷途魔方: ");newLine();
 	createTextView("adv_part3_t","");
 	createCheckBox("advSilence1","1",false);
 	createCheckBox("advSilence2","2",false);
@@ -879,7 +873,7 @@ function createUI()
 	createCheckBox("advSilence5","5",false);
 	createCheckBox("advSilence6","6",false);	
 	newLine();	
-	createTextView("adv_part1","    甦醒的魔眼:");newLine();	
+	createTextView("adv_part1","甦醒的魔眼:");newLine();	
 	createTextView("adv_part2_t","");
 	createCheckBox("advWake1","1",false);
 	createCheckBox("advWake2","2",false);
@@ -888,7 +882,7 @@ function createUI()
 	createCheckBox("advWake5","5",false);
 	createCheckBox("advWake6","6",true);
 	newLine();
-	createTextView("adv_part2","    無盡的黃金沙漠:");newLine();	
+	createTextView("adv_part2","無盡的黃金沙漠:");newLine();	
 	createTextView("adv_part2_t","");
 	createCheckBox("advDesert1","1",false);
 	createCheckBox("advDesert2","2",false);
@@ -908,7 +902,7 @@ function createUI()
 	  createCheckBox("advWake_Skill3","3",false);
 	  createCheckBox("advWake_Skill4","4",false);
 	  createCheckBox("advWake_Skill5","5",false);	  
-	  createCheckBox("advWake_Skill6","6",false);
+	  createCheckBox("advWake_Skill6","6",true);
 	  newLine()	  
 	  createTextView("labtemp2","無盡的黃金沙漠:");newLine()
 	  createCheckBox("advDesert_Skill1","1",false);
@@ -944,25 +938,30 @@ function createUI()
 	  newLine()
 	  createTextView("labtemp6","未知礦山:");newLine()
 	  createCheckBox("advMine_Skill1","1",false);  
-	  createCheckBox("advMine_Skill2","2",false);  
+	  createCheckBox("advMine_Skill2","2",false);
 	  createCheckBox("advMine_Skill3","3",false);
 	  createCheckBox("advMine_Skill4","4",true);
 	  createCheckBox("advMine_Skill5","5",true);	  
 	  createCheckBox("advMine_Skill6","6",true);	  
 	  newLine()newLine()newLine()newLine()
 	
-	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定 ]")newLine();
-	  createTextView("labSkillDelay2","  設定 0 表示不使用 ")newLine();	   
+	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定(秒) ]")newLine();	  
 	  createTextView("delaySkill0","呼叫好友");
-	  createEditText("skill0deplay",0,1,70,60);newLine()	   	  
+	  createEditText("skill0deplay",0,1,70,60);	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
 	  createTextView("delaySkill1","隕石");
-	  createEditText("skill1deplay",35,1,70,60);newLine()
+	  createEditText("skill1deplay",35,1,70,60);
 	  createTextView("delaySkill2","冰");
-	  createEditText("skill2deplay",22,1,70,60);newLine()
+	  createEditText("skill2deplay",22,1,70,60);
 	  createTextView("delaySkill3","龍捲風");
-	  createEditText("skill3deplay",15,1,70,60);newLine()
+	  createEditText("skill3deplay",15,1,70,60);
 	  createTextView("delaySkill4","無敵");
-	  createEditText("skill4deplay",2,1,70,60);newLine()	  
+	  createEditText("skill4deplay",2,1,70,60);newLine()	
+	  
+	newLine();newLine();newLine();newLine();
+		
+	createTextView("labOtherTitile","[  其他設定  ]")newLine();
+	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
+
 end
 function main()
 		
@@ -999,7 +998,7 @@ function main()
 	
 
 
-     toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %w %H:%M")))
+     toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M")))
 	if(w == 1280)then
 		--toast(string.format("%s","解析度設定正確"));
 	else
