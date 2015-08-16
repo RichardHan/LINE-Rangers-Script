@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv141
+--LineRangerAutoFightingv141 v1
 -----------------------------------------------------------------------
 function checkIsWeekend()
 	if (os.date("%w") == "7" or (os.date("%w") == "6" and os.date("%H") == "23")) then
@@ -92,6 +92,28 @@ function clickSkill4()
 	-- 防護罩					
 end
 
+function backToMain()
+	while true do
+		if isPopExitDialog()then 
+			sleep(1000);
+			touchClick(587,482);
+			sleep(1000);
+			break;
+		else
+			input(4);
+			sleep(2000);		
+		end
+	end
+end
+
+function isPopExitDialog()
+	if isColor(793,489,0x00BB33) and isColor(607,488,0x22AACC) and isColor(233,598,0x272727) then
+		return true;	
+	else
+		return false;
+	end	
+end
+
 function isMainMapColor()
 	if isColor(86,603,0xFFFFFF) and isColor(224,594,0xFFFFFF) then
 		return true;	
@@ -109,11 +131,22 @@ function isRangerViewMap()
 end
 
 function fitInverseClockworkTime()
-	if (tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 21) or (tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14) then		
-		toast("符合逆時發條時間");
+	--toast("符合逆時發條時間");
+	if (tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14) then				
+		--sleep(2000);
 		return true;
 	else
-		toast("不符合逆時發條時間");
+		--toast("不符合逆時發條時間");
+		--sleep(2000);
+		return false;
+	end
+end
+
+function fitUnknownMineTime()
+	--未知礦山
+	if  (tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 22) then				
+		return true;
+	else
 		return false;
 	end
 end
@@ -232,8 +265,11 @@ end
 
 function switchTeam()
 	--call friend help	
-	sleep(500);
+	sleep(100);
 	touchClick(52,100);
+	sleep(100);
+	fireRangerByPorgressColor(); -- fire ranger right after switch  20150816 , add By Jay.
+	sleep(100);   
 end
 
 --todo
@@ -362,8 +398,8 @@ function fightingByUserSelectedMode(useSkill)
 	end	
 end
 
-function loopFifghtingInSpecialMode(useSkill,isCheckTime)
-	sleep(1000);
+function loopFifghtingInSpecialMode(useSkill,checkTimeMode)
+	sleep(500);
 	
 	--不符合公告時間1
 	if isColor(569,474,0x00BB33) and isColor(702,474,0x00BB33) then			
@@ -388,13 +424,10 @@ function loopFifghtingInSpecialMode(useSkill,isCheckTime)
 		--如果遊戲是第一次打開  會出現特殊教學
 		if isColor(1086,512,0xFFFCCF) then
 			touchClick(1086,512);
-			sleep(1000);
-			--touchClick(1086,512);
-			--sleep(1000);
+			sleep(1000);			
 		end
-		
-		--bug ? time check can not exit.
-		pickFriendAndSkill(isCheckTime);
+				
+		pickFriendAndSkill(checkTimeMode);
 								
 		-- 超過入場次數
 		if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then			
@@ -411,31 +444,21 @@ function loopFifghtingInSpecialMode(useSkill,isCheckTime)
 		--戰鬥畫面
 		if isFightingViewColor() then
 			toast("偵測到戰鬥開始");
-			fighting(useSkill);			
-			--but rerport by gilbert ?
-			--break;
+			fighting(useSkill);						
 		end				
-	end				
-	
+	end					
 	::endloopFifghtingInSpecialMode::
 end
 
-function fighting(useSkill)
-
-	--local noRightTopConert = 0;
+function fighting(useSkill)	
 	local count = 0;
-
 	while true do
-		count = count + 1;
-							
-		fightingByUserSelectedMode(useSkill);
-				
+		count = count + 1;						
+		fightingByUserSelectedMode(useSkill);				
 		-- 檢查右上角有沒有暫停按鈕  				
-		if not isFightingViewColor() then
-			
+		if not isFightingViewColor() then			
 			toast("戰鬥結束 - 判斷結果");
-			sleep(5000)
-			
+			sleep(5000)			
 			--loss
 			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then
 				toast("LOSS");
@@ -524,55 +547,61 @@ function fighting(useSkill)
 	end
 end
 
-function pickFriendAndSkill(isCheckTime)
-	
-	--本月攻擊力加成
-	if isColor(1082,151,0xFFEE44) and isColor(1075,151,0xFFEE44) then
-		touchClick(1082,151);
-	end		
-	
-	-- 本月加成
-	if (isColor(1095,145,0x000000) and isColor(1098,147,0xFFEE44)) then
-		toast("出現攻擊加成視窗");
-		sleep(3000);
-		touchClick(1095,145);		
-		sleep(3000)
-	end
-			
-	sleep(500);
-	
-	--if isColor(610,610,0x05C232) or isColor(610,610,0xCF0F00) or isColor(610,610,0x24AAC6) then
-	--選技能畫面	                        
-	if isColor(610,610,0x24AAC6) or isColor(722,645,0xCF0F00) or isColor(610,610,0x0ABCCB) then		
-		touchClick(610,610); -- 下一步btn
-		sleep(500);
-	end
+function pickFriendAndSkill(checkTimeMode)	
+	local nextFightFlg = false;	
+	while true do  
+		sleep(200); -- prevent over loop
 		
-	sleep(500);
-	
-	--選朋友畫面
-    --isColor(255,344,0xB18F65) 舊關卡			  	
-	if isColor(255,344,0xB49266) or isColor(270,482,0xDCE5EF) or isColor(255,344,0xB18F65) or isColor(254,333,0xB39166) then
-		if autoPickFriend() then
-			--0xD1B894 舊關卡沒選
-			--0x8E9CA9 新關卡沒選			 
-			if isColor(481,500,0xD1B894) or isColor(481,500,0x8E9CA9) then
-				--選第一個朋友
-				touchClick(481,500);
-			end
-		else
-			if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) then				
-				touchClick(481,500);
-			end
+		if isFightingViewColor() then
+			goto endpickFriendAndSkill
 		end
-		sleep(2000);
-		touchClick(610,610);
-	end	
-	
-	while true do
-		sleep(1000);
-		-- not(isColor(812,686,0x200200)  ==>>   特殊關卡進入button color
-		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then
+		
+		--本月攻擊力加成
+		if isColor(1082,151,0xFFEE44) and isColor(1075,151,0xFFEE44) then
+			touchClick(1082,151);
+			sleep(100); --20150816 , add By Jay.		
+		end		
+		
+		-- 本月加成
+		if (isColor(1095,145,0x000000) and isColor(1098,147,0xFFEE44)) then
+			toast("出現攻擊加成視窗");
+			sleep(3000);
+			touchClick(1095,145);		
+			sleep(3000);			
+		end
+							
+		--選技能畫面					  
+		if isColor(610,610,0x24AAC6) or isColor(722,645,0xCF0F00) or isColor(610,610,0x0ABCCB) then
+			sleep(500);	
+			touchClick(610,610); -- 下一步btn					
+		end
+		
+		--選朋友畫面   
+		if isColor(255,344,0xB49266) or isColor(270,482,0xDCE5EF) or isColor(255,344,0xB18F65) or isColor(254,333,0xB39166) then
+			if autoPickFriend() then
+				--  0xD1B894 舊關卡沒選color   ,  0x8E9CA9 新關卡沒選color
+				if isColor(481,500,0xD1B894) or isColor(481,500,0x8E9CA9) then
+					--選第一個朋友
+					touchClick(481,500);
+				end
+			else
+				if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) then				
+					touchClick(481,500);
+				end
+			end
+						
+			touchClick(610,610); --next 進入戰鬥		
+			--sleep(1500);
+			--nextFightFlg = true;						
+		--else
+			-- 2015-08-16 add by Jay.
+			--if nextFightFlg == true then			
+				--break;
+			--end
+		end	
+
+		-- 羽毛不足視窗
+		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then 
 			if autobuyFeather then
 				clickAutoBuyFeather();				
 			else
@@ -582,20 +611,26 @@ function pickFriendAndSkill(isCheckTime)
 				
 				--back to entry to avoid page lock up
 				touchClick(102,34);
-				sleep(200);
+				sleep(500);
 				touchClick(102,34);
-				sleep(200);											
+				sleep(500);											
 			end
 		else			
 			break;
-		end	
-		
-		if isCheckTime == true then
+		end
+					
+		if(checkTimeMode == "Clockwork") then
 			if fitInverseClockworkTime() == false then
 				goto endpickFriendAndSkill
 			end
-		end	
-	end	
+		end
+		
+		if(checkTimeMode == "UnknownMine") then
+			if fitUnknownMineTime() == false then
+				goto endpickFriendAndSkill
+			end
+		end
+	end
 	::endpickFriendAndSkill::
 end
 
@@ -608,16 +643,12 @@ function mainCheckpoint()
 			sleep(7000);		
 		end		
 
-		--主要地圖畫面		
-		--if isColor(83,582,0x00AD07) and isColor(231,555,0x7603FC) and isColor(116,614,0x7C381B) and isColor(245,616,0x844121) then old		
+		--主要地圖畫面				
 		if isMainMapColor() then
-			--if isColor(530,50,0xdb9700) then old
-			--if isHasOncFeatherColor() then
 			--1280 / 2 = 640;
 			local centerX = 640;
 			local centerY = 360;
-			--找到第一根羽毛
-			--toast("[找到羽毛]")			
+						
 			--地圖選擇 進入遊戲 正中間的關卡
 			touchDown(centerX,centerY);
 			sleep(100);
@@ -646,16 +677,15 @@ function mainCheckpoint()
 			touchClick(1000,200);		
 			sleep(1000);			
 		end		
-		
+			
 		pickFriendAndSkill(false);
 		
-		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面		
-		--if isColor(1090,72,0x351609,99) then
+		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面				
 		if isFightingViewColor() then
-			toast("偵測到戰鬥開始");			
-			fighting(skillMainpoint);			
+			toast("偵測到戰鬥開始");
+			fighting(skillMainpoint);
 		end				
-	end		
+	end
 end
 
 function specialCheckpoint()		
@@ -715,12 +745,12 @@ function specialCheckpoint()
 		if advClockwork3 and fitInverseClockworkTime()  then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,true); end				
 		if advClockwork2 and fitInverseClockworkTime()  then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,true); end
 		if advClockwork1 and fitInverseClockworkTime()  then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,true); end			
-		if advMine6 then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false); end	
-		if advMine5 then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false); end
-		if advMine4 then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false); end		
-		if advMine3 then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false); end	
-		if advMine2 then	  advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,false); end			
-		if advMine1 then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,false); end			
+		if advMine6 and fitUnknownMineTime() then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false); end	
+		if advMine5 and fitUnknownMineTime() then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false); end
+		if advMine4 and fitUnknownMineTime() then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false); end		
+		if advMine3 and fitUnknownMineTime() then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false); end	
+		if advMine2 and fitUnknownMineTime() then	    advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,false); end			
+		if advMine1 and fitUnknownMineTime() then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,false); end			
 		
 		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advDesert_Skill6,alignRight6_X,alignRight6_Y,false);  end			
 		if advWake6 then       advPlay("甦醒的魔眼6","right",advWake_Skill6,alignLeft6_X,alignLeft6_Y,false); end		
@@ -740,18 +770,18 @@ function specialCheckpoint()
 		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advDesert_Skill1,alignRight1_X,alignRight1_Y,false); end 
 		if advWake1 then       advPlay("甦醒的魔眼1","right",advWake_Skill1,alignLeft1_X,alignLeft1_Y,false); end				
 	else	
-		if advClockwork6 and fitInverseClockworkTime()  then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,true); end
-		if advClockwork5 and fitInverseClockworkTime()  then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,true); end
-		if advClockwork4 and fitInverseClockworkTime()  then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,true); end
-		if advClockwork3 and fitInverseClockworkTime()  then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,true); end				
-		if advClockwork2 and fitInverseClockworkTime()  then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,true); end
-		if advClockwork1 and fitInverseClockworkTime()  then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,true); end
-		if advMine6 then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false); end	
-		if advMine5 then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false); end
-		if advMine4 then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false); end	
-		if advMine3 then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false); end
-		if advMine2 then	  advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,false); end			
-		if advMine1 then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,false); end	
+		if advClockwork6 and fitInverseClockworkTime()  then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,"Clockwork"); end
+		if advClockwork5 and fitInverseClockworkTime()  then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,"Clockwork"); end
+		if advClockwork4 and fitInverseClockworkTime()  then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,"Clockwork"); end
+		if advClockwork3 and fitInverseClockworkTime()  then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,"Clockwork"); end				
+		if advClockwork2 and fitInverseClockworkTime()  then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,"Clockwork"); end
+		if advClockwork1 and fitInverseClockworkTime()  then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,"Clockwork"); end
+		if advMine6 and fitUnknownMineTime() then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,"UnknownMine"); end	
+		if advMine5 and fitUnknownMineTime() then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,"UnknownMine"); end
+		if advMine4 and fitUnknownMineTime() then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,"UnknownMine"); end	
+		if advMine3 and fitUnknownMineTime() then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,"UnknownMine"); end
+		if advMine2 and fitUnknownMineTime() then	    advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,"UnknownMine"); end			
+		if advMine1 and fitUnknownMineTime() then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,"UnknownMine"); end	
 		
 		if advPartFour6 then   advPlay("黃昏之冰神殿 or 不滅的骸石6","leftPlusLittleRight",advSkillFour6,alignLeft6_X,alignLeft6_Y,false);  end
 		if advSilence6 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方6","leftPlusLittleRight",advSilence_Skill6,alignRight6_X,alignRight6_Y,false);  end
@@ -785,7 +815,7 @@ function specialCheckpoint()
 	end
 end
 
-function advPlay(name,slideType,isUseSkill,x,y,isCheckTime)
+function advPlay(name,slideType,isUseSkill,x,y,checkTimeMode)
 	toast(name);
 	sleep(2000);
 	if (slideType == "left") then
@@ -801,8 +831,9 @@ function advPlay(name,slideType,isUseSkill,x,y,isCheckTime)
 	end
 	sleep(1000);
 	touchClick(x,y);
-	--                                         param: (useSkill,isCheckTime)
-	loopFifghtingInSpecialMode(isUseSkill,isCheckTime);	
+	--param: (useSkill,isCheckTime)
+	--loopFifghtingInSpecialMode(isUseSkill,isCheckTime);	
+	loopFifghtingInSpecialMode(isUseSkill,checkTimeMode);	
 end
 
 function closeWindows1()      
@@ -959,21 +990,11 @@ function createUI()
 	newLine();newLine();newLine();newLine();		
 	createTextView("labOtherTitile","[  其他設定  ]")newLine();
 	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
-
+	createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
 end
 function main()
+	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 
 		
-	--if ((tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14)) or ((tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 21)) then
-	
-	::main::
-	--debug end		
-	
-	--toast("debug");;
-	--sleep(5000);
-	
-	--toast("debug end");;
-	--sleep(3000);
-
 	--兼容模式 check
 	if not(isCompatMode()) then
 		toast("兼容模式設定錯誤");
@@ -994,14 +1015,11 @@ function main()
 	
 	local w,h = getResolutionRatio();  --获取屏幕分辨率
 	
-
-
      toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M")))
 	if(w == 1280)then
 		--toast(string.format("%s","解析度設定正確"));
-	else
-		--toast("解析度設定錯誤 請修改成 1152 x 720"); -- before v1
-		toast("解析度設定錯誤 請修改成 1280 x 720"); -- after v2
+	else		
+		toast("解析度設定錯誤 請修改成 1280 x 720");
 		sleep(1000000);	
 	end
 	
