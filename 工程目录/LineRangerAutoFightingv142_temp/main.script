@@ -548,7 +548,7 @@ function fighting(useSkill)
 end
 
 function pickFriendAndSkill(checkTimeMode)	
-	local nextFightFlg = false;	
+	--local nextFightFlg = false;	
 	while true do  
 		sleep(200); -- prevent over loop
 		
@@ -600,6 +600,8 @@ function pickFriendAndSkill(checkTimeMode)
 			--end
 		end	
 
+
+		sleep(500);
 		-- 羽毛不足視窗
 		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then 
 			if autobuyFeather then
