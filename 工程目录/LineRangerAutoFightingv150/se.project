@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv150</name>
+ <desc>auto play for all mode</desc>
+ <script>main.script</script>
+</project>

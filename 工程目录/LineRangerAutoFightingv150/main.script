@@ -1,0 +1,1203 @@
+-----------------------------------------------------------------------
+--LineRangerAutoFightingv150
+-----------------------------------------------------------------------
+function checkIsWeekend()
+	if (os.date("%w") == "7" or (os.date("%w") == "6" and os.date("%H") == "23")) then
+		return true;
+	else
+		--toast("Not Sunday");
+		return false;
+	end	
+end
+	
+function autoPickFriend()
+	if (tonumber(skill0deplay) == 0) then
+		return false;
+	else
+		return true;	
+	end	
+end
+
+function clickAutoBuyFeather()
+	if (autobuyFeather == true) then
+		touchClick(747,483); -- 確認button
+		sleep(2000);
+		if isColor(1073,86,0x000000) then
+			-- 羽毛商店視窗
+			touchClick(929,284); --用好友點數買羽毛
+			sleep(2000);					   
+			touchClick(747,483); --  確認買羽毛 Button
+			sleep(2000);
+			touchClick(635,488); -- 確認買羽毛購買成功 Button
+			sleep(2000);
+			touchClick(1073,86); --關閉羽毛商店視窗
+			sleep(2000);
+		end
+	end	
+end
+
+function isPopupScreenColor()
+	if isColor(116,688,0x030101) and isColor(269,683,0x030201) then
+		return true;	
+	else
+		return false;
+	end
+end
+function clickSkill1()	
+	if autoPickFriend() then
+		if isColor(242,97,0x000000) then
+			touchClick(242,97);
+		end	
+	else
+		if isColor(161,100,0x000000) then
+			touchClick(161,100);
+		end	
+	end
+	--火球
+end
+function clickSkill2()	
+	if autoPickFriend() then
+		if isColor(339,99,0x000000) then
+			touchClick(339,99);
+		end	
+	else
+		if isColor(249,97,0x000000) then
+			touchClick(249,97);
+		end	
+	end
+	--冰		
+end
+function clickSkill3()
+	if autoPickFriend() then
+		if isColor(430,98,0x000000) then
+			touchClick(430,98);
+		end	
+	else
+		if isColor(344,101,0x000000) then
+			touchClick(344,101);
+		end	
+	end	
+	--龍捲風	
+end
+function clickSkill4()
+	if autoPickFriend() then
+		if isColor(519,98,0x000000) then
+			touchClick(519,98);
+		end	
+	else
+		if isColor(431,98,0x000000) then
+			touchClick(431,98);
+		end	
+	end	
+	-- 防護罩					
+end
+
+function backToMain()
+	while true do
+		if isPopExitDialog()then 
+			sleep(1000);
+			touchClick(587,482);			
+			sleep(1000);
+			break;
+		else
+			input(4);
+			sleep(2000);		
+		end
+	end
+end
+
+function isPopExitDialog()
+	if isColor(793,489,0x00BB33) and isColor(607,488,0x22AACC) and isColor(233,598,0x272727) then
+		return true;	
+	else
+		return false;
+	end	
+end
+
+function isMainMapColor()
+	if isColor(86,603,0xFFFFFF) and isColor(224,594,0xFFFFFF) then
+		return true;	
+	else
+		return false;
+	end	
+end
+
+function isSpecialMapColor()
+	if isColor(98,621,0xFFFFFF) and isColor(22,642,0x54BBD1) then
+		return true;	
+	else
+		return false;
+	end	
+end
+
+function isRangerViewMap()
+	if isColor(99,611,0xFFFFFF) and isColor(343,610,0xFFFFFF) and isColor(664,625,0xFFFFFF) then
+		return true;	
+	else
+		return false;
+	end	
+end
+
+function fitInverseClockworkTime()
+	--toast("符合逆時發條時間");
+	if (tonumber(os.date("%H")) >= 11) and (tonumber(os.date("%H")) < 14) then				
+		--sleep(2000);
+		return true;
+	else
+		--toast("不符合逆時發條時間");
+		--sleep(2000);
+		return false;
+	end
+end
+
+function fitUnknownMineTime()
+	--未知礦山
+	if  (tonumber(os.date("%H")) >= 18) and (tonumber(os.date("%H")) < 22) then				
+		return true;
+	else
+		return false;
+	end
+end
+
+function isFightingViewColor()
+	if isColor(1197,74,0x763A19) or isColor(1197,74,0x773B19) then
+		return true;
+	else
+		return false;
+	end
+end
+
+function isLevelEightColor()
+	if isColor(1120,632,0x000000) and isColor(1138,632,0x000000) and isColor(1137,648,0x000000) and isColor(1138,642,0x000000) then
+		return true;
+	else
+		return false;
+	end
+end
+
+--todo
+function gameIsExist()
+	if isColor(61,305,0x58BCF7) and isColor(33,398,0x5FBEF6) then
+		return false;
+	else
+		return true;	
+	end	
+end
+
+--todo
+function gotoGameAgain()
+	if isColor(61,305,0x58BCF7) and isColor(33,398,0x5FBEF6) then
+		-- click game again.
+		touchClick(165,109);
+		sleep(20000);		
+	end
+end
+
+function slideToLeft()
+	 -- need slide to right.	 
+	touchDown(44,505);
+	sleep(200);
+	touchMove(899,510);
+	sleep(200);
+	touchUp();
+	sleep(3000);
+	touchDown(44,505);
+	sleep(200);
+	touchMove(899,510);
+	sleep(200);
+	touchUp();	
+	sleep(3000);
+end
+
+function someSlideToRight()
+	touchDown(731,549);
+	sleep(200);
+	touchMove(560,549);
+	touchUp();	
+	sleep(2000);
+end
+
+function slideToRight()
+	 -- need slide to right.	 
+	touchDown(899,510);
+	sleep(200);
+	touchMove(44,505);
+	sleep(200);
+	touchUp();
+	sleep(3000);
+	touchDown(899,510);
+	sleep(200);
+	touchMove(44,505);
+	sleep(200);
+	touchUp();	
+	sleep(3000);
+end
+
+function fireRangerByPorgressColor()
+					
+	touchClick(350,650);sleep(100);	
+	touchClick(470,650);sleep(100);
+	touchClick(600,650);sleep(100);
+	touchClick(720,650);sleep(100);
+	touchClick(860,650);sleep(100);
+
+	--Tomas Ghost /  湯瑪斯
+	touchClick(602,172);sleep(100);
+			
+	--Missile
+	touchClick(208,620);sleep(100);
+end
+
+function clickCrystal()
+	touchClick(1015,575);
+	sleep(200);
+end
+
+function upgradeCrystalToEight()
+	while true do				
+		--檢查是否等級八
+		if isLevelEightColor() then			
+			break;
+		else					
+			clickCrystal();
+		end
+	end
+end
+
+function callFriend()
+	--call friend help
+	if isColor(155,95,0xFAD833) and isColor(164,93,0xF4D233) then
+		touchClick(155,95);				
+	end
+end
+
+function switchTeam()
+	--call friend help	
+	sleep(100);
+	touchClick(52,100);
+	sleep(100);
+	fireRangerByPorgressColor(); -- fire ranger right after switch  20150816 , add By Jay.
+	sleep(100);   
+end
+
+--todo
+function clickLINEAutoButton()	
+	--try to click LINE auto button , if enable line auto mode , will not into this function.	
+	sleep(500);
+	touchClick(1211,148);
+	touchClick(1218,198); -- 無盡
+end
+
+--todo
+function isLINEAutoButtonClickedColor()
+	if isColor(1211,148, 0xFFF31E) or isColor(1218,198,0xFEEF2A) then
+		return true;
+	else
+		return false;
+	end
+end
+
+function fightingByUserSelectedMode(useSkill)
+	local isCalledFriend = false;
+	local isClickedLineAutoButton = false;
+	local i = 0; --number counter => equals 	
+							
+	while true do		
+		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面
+		if not isFightingViewColor() then
+			sleep(300);
+			if not isFightingViewColor() then
+				sleep(300);
+				if not isFightingViewColor() then
+					sleep(300);
+					if not isFightingViewColor() then
+						sleep(300);
+						break;
+					end		
+				end			
+			end			
+		end
+
+		if(UI_option2 == "自動") then			
+			--if isColor(1139,162, 0xFFF320) then
+			if isLINEAutoButtonClickedColor() then
+				-- already in LINE AUTO MODE.				
+				sleep(1000);
+			else
+				fireRangerByPorgressColor();
+				
+				--檢查是否等級八
+				if not(isLevelEightColor()) then
+					touchClick(1015,575);	--升級礦石							
+				end
+				
+				if not isClickedLineAutoButton then
+					clickLINEAutoButton();
+					isClickedLineAutoButton = true;		
+				end
+		
+				--if not isCalledFriend then
+					--callFriend();	
+					--isCalledFriend = true;	
+				--end			
+			end	
+		end
+		
+		if(UI_option2 == "不升礦") then
+			fireRangerByPorgressColor();
+			sleep(100);
+			
+			if not isClickedLineAutoButton then
+				clickLINEAutoButton();
+				isClickedLineAutoButton = true;		
+			end
+			
+			--if not isCalledFriend then
+				--callFriend();
+				--isCalledFriend = true;	
+			--end			
+		end
+		
+		if(UI_option2 == "先升礦到八級") then								
+			upgradeCrystalToEight();
+			fireRangerByPorgressColor();
+			sleep(100);
+			
+			if not isClickedLineAutoButton then
+				clickLINEAutoButton();
+				isClickedLineAutoButton = true;		
+			end
+			
+			--if not isCalledFriend then
+				--callFriend();
+				--isCalledFriend = true;	
+			--end			
+		end
+				
+		i = i + 1;
+		
+		if useSkill then
+			if (i > tonumber(skill0deplay)) and (i < tonumber(skill0deplay)+5) and not (tonumber(skill0deplay) == 0) then
+				callFriend();
+			end
+			if (i > tonumber(skill1deplay)) and (i < tonumber(skill1deplay)+5) and not (tonumber(skill1deplay) == 0)  then
+				clickSkill1();			
+			end
+			if (i > tonumber(skill2deplay)) and (i < tonumber(skill2deplay)+5) and not (tonumber(skill2deplay) == 0) then
+				clickSkill2();			
+			end
+			if (i > tonumber(skill3deplay)) and (i < tonumber(skill3deplay)+5) and not (tonumber(skill3deplay) == 0) then
+				clickSkill3();			
+			end
+			if (i > tonumber(skill4deplay)) and (i < tonumber(skill4deplay)+5) and not (tonumber(skill4deplay) == 0) then
+				clickSkill4();
+			end									
+		end
+
+		if (i % 5) == 0 then
+			toast(i);		
+		end
+		
+		if (isSwitchTeam == "連續切換") then
+			if (i > tonumber(txtTeamDelaySec)) then
+				switchTeam();
+			end										
+		end		
+	end	
+end
+
+function loopFifghtingInSpecialMode(useSkill,checkTimeMode,startTime)
+	sleep(500);	
+	
+	--不符合公告時間1
+	if isColor(569,474,0x00BB33) and isColor(702,474,0x00BB33) then			
+		touchClick(569,474);
+		goto endloopFifghtingInSpecialMode	
+	end
+	
+	--不符合公告時間2
+	if isColor(426,543,0x7E4121) and isColor(831,546,0x7C401D) then			
+		touchClick(647,540);
+		goto endloopFifghtingInSpecialMode	
+	end	
+			
+	while true do		
+		-- 不知道為甚麼會點到素材  有點到取消
+		if isColor(1093,86,0xFFEE44) and isColor(1099,86,0xFFEE44) then
+			sleep(1000);
+			touchClick(1093,86);
+			sleep(1000);		
+		end		
+
+		--如果遊戲是第一次打開  會出現特殊教學
+		if isColor(1086,512,0xFFFCCF) then
+			touchClick(1086,512);
+			sleep(1000);			
+		end
+				
+		pickFriendAndSkill(checkTimeMode);
+		
+		if(startTime == null) then
+			--toast("startTime is null");
+		else
+			toast(os.difftime(os.time () , startTime));
+			if(os.difftime(os.time () , startTime) > 30) then
+				toast("exit - 2");	
+				backToMain();
+				goto endloopFifghtingInSpecialMode	
+			end
+		end
+								
+		-- 超過入場次數
+		if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then			
+			toast("超過入場次數");
+			touchClick(599,479); --確認btn
+			sleep(2000);
+			--back to special view , to next .
+			--touchDown(42,65); --old
+			touchClick(43,95);
+			sleep(4000);
+			goto endloopFifghtingInSpecialMode
+		end
+		
+		--戰鬥畫面
+		if isFightingViewColor() then
+			toast("偵測到戰鬥開始");
+			fighting(useSkill);						
+		end				
+	end					
+	::endloopFifghtingInSpecialMode::
+end
+
+function fighting(useSkill)	
+	local count = 0;
+	while true do
+		count = count + 1;						
+		fightingByUserSelectedMode(useSkill);				
+		-- 檢查右上角有沒有暫停按鈕  				
+		if not isFightingViewColor() then			
+			toast("戰鬥結束 - 判斷結果");
+			sleep(5000)			
+			--loss
+			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then
+				toast("LOSS");
+				sleep(5000);
+				
+				touchClick(775,482);   --取消btn
+				sleep(5000);
+								
+				touchClick(750,647);  --過關失敗確認btn		
+				sleep(5000);
+				break;	
+			end							
+			
+			-- default - win   or      確認出現是否有寶物		
+			if isColor(1022,30,0x1374DA) or isColor(935,181,0xAA5926) then
+				
+				toast("WIN");
+				sleep(8000);
+								
+				toast("亂點螢幕");
+				--亂點螢幕 
+				touchClick(1022,30);
+				
+				sleep(2000);
+				
+				touchClick(1022,30);
+				
+				sleep(6000);
+				
+				--isColor(851,359,0xAA6633)   抽獎畫面的框框
+
+				--todo
+				--出現升級確認視窗 
+				if isColor(569,543,0xFFFFFF,97) and isColor(734,543,0xFFFFFF,97) then
+					toast("升級確認");
+					touchClick(600,589);-- confirm button	bug here	
+					--touchClick(779,589);-- this is get ranger confirm button						
+					sleep(6000);
+				end
+				
+				-- 確認出現是否有寶物
+				if isColor(598,72,0x8F5E3D) then
+					toast("寶物確認");
+					touchClick(600,560);					
+					sleep(6000);	
+				end	
+																				
+				--進入 過關紅利 & 抽獎畫面
+				if(isColor(935,181,0xAA5926))then
+					toast("進入 過關紅利 & 抽獎畫面");
+					sleep(6000);		
+					touchClick(641,609);--停止button
+					
+					sleep(4000);
+																		
+					--抽到Ranger.
+					if isColor(597,581,0x0ABCCB) then -- 有出現加入隊伍button
+						sleep(1000);
+						toast("抽到Ranger, 準備離開");
+						touchClick(774,587);-- 點 確認 button																	
+						sleep(5000);
+						break;
+					end
+						
+					--todo
+					--確認抽獎
+					if(isColor(598,569,0x05C232))then
+						sleep(1000);			
+						toast("確認抽獎, 準備離開");
+						touchClick(599,563);	
+						sleep(5000);
+						break;
+					end	
+				else
+					toast("not 過關紅利 & 抽獎畫面");
+				end	
+																				
+				sleep(4000);	
+
+				break;					
+			end
+			sleep(2000);
+	
+		end			
+		sleep(1000);
+	end
+end
+
+function pickFriendAndSkill(checkTimeMode)	
+	--local nextFightFlg = false;	
+	while true do  
+		sleep(200); -- prevent over loop
+		
+		if isFightingViewColor() then
+			goto endpickFriendAndSkill
+		end
+		
+		--本月攻擊力加成
+		if isColor(1082,151,0xFFEE44) and isColor(1075,151,0xFFEE44) then
+			touchClick(1082,151);
+			sleep(100); --20150816 , add By Jay.		
+		end		
+		
+		-- 本月加成
+		if (isColor(1095,145,0x000000) and isColor(1098,147,0xFFEE44)) then
+			toast("出現攻擊加成視窗");
+			sleep(3000);
+			touchClick(1095,145);		
+			sleep(3000);			
+		end
+							
+		--選技能畫面					  
+		if isColor(610,610,0x24AAC6) or isColor(722,645,0xCF0F00) or isColor(610,610,0x0ABCCB) then
+			sleep(500);	
+			touchClick(610,610); -- 下一步btn					
+		end
+		
+		--選朋友畫面   
+		if isColor(255,344,0xB49266) or isColor(270,482,0xDCE5EF) or isColor(255,344,0xB18F65) or isColor(254,333,0xB39166) then
+			if autoPickFriend() then
+				--  0xD1B894 舊關卡沒選color   ,  0x8E9CA9 新關卡沒選color
+				if isColor(481,500,0xD1B894) or isColor(481,500,0x8E9CA9) then
+					--選第一個朋友
+					touchClick(481,500);
+				end
+			else
+				if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) then				
+					touchClick(481,500);
+				end
+			end
+						
+			touchClick(610,610); --next 進入戰鬥		
+			--sleep(1500);
+			--nextFightFlg = true;						
+		--else
+			-- 2015-08-16 add by Jay.
+			--if nextFightFlg == true then			
+				--break;
+			--end
+		end	
+
+
+		sleep(500);
+		-- 羽毛不足視窗
+		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then 
+			if autobuyFeather then
+				clickAutoBuyFeather();				
+			else
+				toast("羽毛不足! 休息10秒..");
+				touchClick(548,494);
+				sleep(10000);	
+				
+				--back to entry to avoid page lock up
+				touchClick(102,34);
+				sleep(500);
+				touchClick(102,34);
+				sleep(500);											
+			end
+		else			
+			break;
+		end
+					
+		if(checkTimeMode == "Clockwork") then
+			if fitInverseClockworkTime() == false then
+				goto endpickFriendAndSkill
+			end
+		end
+		
+		if(checkTimeMode == "UnknownMine") then
+			if fitUnknownMineTime() == false then
+				goto endpickFriendAndSkill
+			end
+		end
+	end
+	::endpickFriendAndSkill::
+end
+
+function mainCheckpoint()
+	while true do
+				
+		if isRangerViewMap() then
+			toast("在角色畫面");
+			touchClick(1095,590);
+			sleep(7000);		
+		end		
+
+		--主要地圖畫面				
+		if isMainMapColor() then
+			--1280 / 2 = 640;
+			local centerX = 640;
+			local centerY = 360;
+						
+			--地圖選擇 進入遊戲 正中間的關卡
+			touchDown(centerX,centerY);
+			sleep(100);
+			touchUp();		
+													
+			touchClick(centerX-50,centerY);
+			touchClick(centerX+50,centerY);
+			touchClick(centerX-70,centerY);
+			touchClick(centerX+70,centerY);
+			touchClick(centerX+120,centerY);
+			touchClick(centerX-120,centerY);
+			touchClick(centerX+150,centerY);
+			touchClick(centerX-150,centerY);
+			touchClick(centerX+200,centerY);
+			touchClick(centerX-200,centerY);
+			touchClick(centerX+300,centerY);
+			touchClick(centerX-300,centerY);
+			touchClick(centerX+400,centerY);
+			touchClick(centerX-400,centerY);
+		
+			sleep(5000);	
+		end
+		
+		--亂點螢幕 有些關卡會出現劇情畫面  通常是王關卡的後面
+		if not isColor(1000,200,0xD0DBE0) then
+			touchClick(1000,200);		
+			sleep(1000);			
+		end		
+			
+		pickFriendAndSkill(false);
+		
+		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面				
+		if isFightingViewColor() then
+			toast("偵測到戰鬥開始");
+			fighting(skillMainpoint);
+		end				
+	end
+end
+
+function specialCheckpoint(startTime)
+	local alignLeft1_X = 210;
+	local alignLeft1_Y = 400;
+	local alignRight1_X = 710;
+	local alignRight1_Y = 370;
+	
+	local alignLeft2_X = 215;
+	local alignLeft2_Y = 273;
+	local alignRight2_X = 724;
+	local alignRight2_Y = 238;
+
+	local alignLeft3_X = 259;
+	local alignLeft3_Y = 148;
+	local alignRight3_X = 832;
+	local alignRight3_Y = 148;
+
+	local alignLeft4_X = 450;
+	local alignLeft4_Y = 180;
+	local alignRight4_X = 972;
+	local alignRight4_Y = 147;
+
+	local alignLeft5_X = 574;
+	local alignLeft5_Y = 258;
+	local alignRight5_X = 1068;
+	local alignRight5_Y = 237;
+
+	local alignLeft6_X = 571;
+	local alignLeft6_Y = 394;
+	local alignRight6_X = 1074;
+	local alignRight6_Y = 363;	
+
+	if isRangerViewMap() then
+		toast("在遊戲開始畫面 > 進入主要關卡");
+		touchClick(1157,613); -- click start button on right of bottom corner.				
+		sleep(5000);
+	end
+
+	-- in main view  , need to go special view.
+	--if isColor(83,582,0x00AD07) and isColor(231,555,0x7603FC) and isColor(116,614,0x7C381B) and isColor(245,616,0x844121) then
+	if isMainMapColor() then
+		toast("在主要關卡 > 進入特殊關卡");
+		-- go to special view		
+		touchDown(1058,580);
+		sleep(100);
+		touchUp();		
+		--bug  如果遊戲是第一次打開  會出現很長的動畫
+		sleep(10000);
+	end
+						
+     if checkIsWeekend() then	 	
+		if advClockwork6 and fitInverseClockworkTime() then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,true,startTime); end
+		if advClockwork5 and fitInverseClockworkTime()  then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,true,startTime); end
+		if advClockwork4 and fitInverseClockworkTime()  then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,true,startTime); end
+		if advClockwork3 and fitInverseClockworkTime()  then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,true,startTime); end				
+		if advClockwork2 and fitInverseClockworkTime()  then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,true,startTime); end
+		if advClockwork1 and fitInverseClockworkTime()  then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,true,startTime); end			
+		if advMine6 and fitUnknownMineTime() then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,false,startTime); end	
+		if advMine5 and fitUnknownMineTime() then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,false,startTime); end
+		if advMine4 and fitUnknownMineTime() then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,false,startTime); end		
+		if advMine3 and fitUnknownMineTime() then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,false,startTime); end	
+		if advMine2 and fitUnknownMineTime() then	    advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,false,startTime); end			
+		if advMine1 and fitUnknownMineTime() then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,false,startTime); end			
+		
+		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advDesert_Skill6,alignRight6_X,alignRight6_Y,false,startTime);  end			
+		if advWake6 then       advPlay("甦醒的魔眼6","right",advWake_Skill6,alignLeft6_X,alignLeft6_Y,false,startTime); end		
+		
+		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advDesert_Skill5,alignRight5_X,alignRight5_Y,false,startTime); end		
+		if advWake5 then       advPlay("甦醒的魔眼5","right",advWake_Skill5,alignLeft5_X,alignLeft5_Y,false,startTime); end		
+		
+		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advDesert_Skill4,alignRight4_X,alignRight4_Y,false,startTime); end				
+		if advWake4 then       advPlay("甦醒的魔眼4","right",advWake_Skill4,alignLeft4_X,alignLeft4_Y,false,startTime); end				
+		
+		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advDesert_Skill3,alignRight3_X,alignRight3_Y,false,startTime); end					
+		if advWake3 then       advPlay("甦醒的魔眼3","right",advWake_Skill3,alignLeft3_X,alignLeft3_Y,false,startTime); end								
+		
+		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advDesert_Skill2,alignRight2_X,alignRight2_Y,false,startTime); end					
+		if advWake2 then       advPlay("甦醒的魔眼2","right",advWake_Skill2,alignLeft2_X,alignLeft2_Y,false,startTime);	end			
+		
+		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advDesert_Skill1,alignRight1_X,alignRight1_Y,false,startTime); end 
+		if advWake1 then       advPlay("甦醒的魔眼1","right",advWake_Skill1,alignLeft1_X,alignLeft1_Y,false,startTime); end				
+	else	
+		if advClockwork6 and fitInverseClockworkTime()  then advPlay("逆時發條6","left",advClockwork_Skill6,alignLeft6_X,alignLeft6_Y,"Clockwork",startTime); end		
+		if advClockwork5 and fitInverseClockworkTime()  then advPlay("逆時發條5","left",advClockwork_Skill5,alignLeft5_X,alignLeft5_Y,"Clockwork",startTime); end		
+		if advClockwork4 and fitInverseClockworkTime()  then advPlay("逆時發條4","left",advClockwork_Skill4,alignLeft4_X,alignLeft4_Y,"Clockwork",startTime); end
+		if advClockwork3 and fitInverseClockworkTime()  then advPlay("逆時發條3","left",advClockwork_Skill3,alignLeft3_X,alignLeft3_Y,"Clockwork",startTime); end				
+		if advClockwork2 and fitInverseClockworkTime()  then advPlay("逆時發條2","left",advClockwork_Skill2,alignLeft2_X,alignLeft2_Y,"Clockwork",startTime); end
+		if advClockwork1 and fitInverseClockworkTime()  then advPlay("逆時發條1","left",advClockwork_Skill1,alignLeft1_X,alignLeft1_Y,"Clockwork",startTime); end		
+		if advMine6 and fitUnknownMineTime() then        advPlay("未知礦山6","left",advMine_Skill6,alignRight6_X,alignRight6_Y,"UnknownMine",startTime); end	
+		if advMine5 and fitUnknownMineTime() then        advPlay("未知礦山5","left",advMine_Skill5,alignRight5_X,alignRight5_Y,"UnknownMine",startTime); end
+		if advMine4 and fitUnknownMineTime() then        advPlay("未知礦山4","left",advMine_Skill4,alignRight4_X,alignRight4_Y,"UnknownMine",startTime); end	
+		if advMine3 and fitUnknownMineTime() then        advPlay("未知礦山3","left",advMine_Skill3,alignRight3_X,alignRight3_Y,"UnknownMine",startTime); end
+		if advMine2 and fitUnknownMineTime() then	    advPlay("未知礦山2","left",advMine_Skill2,alignRight2_X,alignRight2_Y,"UnknownMine",startTime); end			
+		if advMine1 and fitUnknownMineTime() then        advPlay("未知礦山1","left",advMine_Skill1,alignRight1_X,alignRight1_Y,"UnknownMine",startTime); end	
+		
+		if advPartFour6 then   advPlay("黃昏之冰神殿 or 不滅的骸石6","leftPlusLittleRight",advSkillFour6,alignLeft6_X,alignLeft6_Y,false,startTime);  end
+		if advSilence6 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方6","leftPlusLittleRight",advSilence_Skill6,alignRight6_X,alignRight6_Y,false,startTime);  end
+		if advDesert6 then      advPlay("無盡的黃金沙漠6","right",advDesert_Skill6,alignRight6_X,alignRight6_Y,false,startTime);  end			
+		if advWake6 then       advPlay("甦醒的魔眼6","right",advWake_Skill6,alignLeft6_X,alignLeft6_Y,false,startTime); end
+		
+		if advPartFour5 then	  advPlay("黃昏之冰神殿 or 不滅的骸石5","leftPlusLittleRight",advSkillFour5,alignLeft5_X,alignLeft5_Y,false,startTime); end
+		if advSilence5 then    advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方5","leftPlusLittleRight",advSilence_Skill5,alignRight5_X,alignRight5_Y,false,startTime); end
+		if advDesert5 then     advPlay("無盡的黃金沙漠5","right",advDesert_Skill5,alignRight5_X,alignRight5_Y,false,startTime); end		
+		if advWake5 then       advPlay("甦醒的魔眼5","right",advWake_Skill5,alignLeft5_X,alignLeft5_Y,false,startTime); end
+		
+		if advPartFour4 then   advPlay("黃昏之冰神殿 or 不滅的骸石4","leftPlusLittleRight",advSkillFour4,alignLeft4_X,alignLeft4_Y,false,startTime); end	
+		if advSilence4 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 4","leftPlusLittleRight",advSilence_Skill4,972,147,false,startTime); end	
+		if advDesert4 then      advPlay("無盡的黃金沙漠4","right",advDesert_Skill4,alignRight4_X,alignRight4_Y,false,startTime); end				
+		if advWake4 then       advPlay("甦醒的魔眼4","right",advWake_Skill4,alignLeft4_X,alignLeft4_Y,false,startTime); end		
+		
+		if advPartFour3 then	  advPlay("黃昏之冰神殿 or 不滅的骸石3","leftPlusLittleRight",advSkillFour3,alignLeft3_X,alignLeft3_Y,false,startTime); end
+		if advSilence3 then     advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 3","leftPlusLittleRight",advSilence_Skill3,832,148,false,startTime); end		
+		if advDesert3 then     advPlay("無盡的黃金沙漠3","right",advDesert_Skill3,alignRight3_X,alignRight3_Y,false,startTime); end					
+		if advWake3 then       advPlay("甦醒的魔眼3","right",advWake_Skill3,alignLeft3_X,alignLeft3_Y,false,startTime); end				
+		
+		if advPartFour2 then	  advPlay("黃昏之冰神殿 or 不滅的骸石2","leftPlusLittleRight",advSkillFour2,alignLeft2_X,alignLeft2_Y,false,startTime);	end		
+		if advSilence2 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 2","leftPlusLittleRight",advSilence_Skill2,alignRight2_X,alignRight2_Y,false,startTime); end
+		if advDesert2 then      advPlay("無盡的黃金沙漠2","right",advDesert_Skill2,alignRight2_X,alignRight2_Y,false,startTime); end			
+		if advWake2 then       advPlay("甦醒的魔眼2","right",advWake_Skill2,alignLeft2_X,alignLeft2_Y,false,startTime);	end			
+		
+		if advPartFour1 then	  advPlay("黃昏之冰神殿 or 不滅的骸石1","leftPlusLittleRight",advSkillFour1,alignLeft1_X,alignLeft1_Y,false,startTime); end	
+		if advSilence1 then	  advPlay("沉默的廢鐵掩埋場 or 魔法的迷途魔方 1","leftPlusLittleRight",advSilence_Skill1,alignRight1_X,alignRight1_Y,false,startTime);	end		
+		if advDesert1 then      advPlay("無盡的黃金沙漠1","right",advDesert_Skill1,alignRight1_X,alignRight1_Y,false,startTime); end 
+		if advWake1 then       advPlay("甦醒的魔眼1","right",advWake_Skill1,alignLeft1_X,alignLeft1_Y,false,startTime); end				
+	end
+end
+
+function advPlay(name,slideType,isUseSkill,x,y,checkTimeMode,startTime)
+
+
+	sleep(2000);
+	
+	if(startTime == null) then
+		--toast("startTime is null");
+	else
+		if(os.difftime(os.time () , startTime) > 30) then		
+			goto endadvPlay
+		end
+	end
+		
+	toast(name);
+	sleep(2000);
+	if (slideType == "left") then
+		slideToLeft();
+	end
+	if (slideType == "right") then
+		slideToRight();
+	end	
+	if (slideType == "leftPlusLittleRight") then
+		slideToLeft();
+		sleep(1000);
+		someSlideToRight();
+	end
+		
+	sleep(1000);
+	touchClick(x,y);
+	--param: (useSkill,isCheckTime)	
+	loopFifghtingInSpecialMode(isUseSkill,checkTimeMode,startTime);		
+	
+	::endadvPlay::
+end
+
+function closeWindows1()      
+        closeWindow("my_window_1")        
+end
+
+function createUI()	
+	
+	showLoopSetting(false);
+		
+	createTextView("UI_tv","[ 模式選擇 ]")
+	newLine();	
+	createRadioBox("UI_type","懶人模式",true);newLine();
+	createRadioBox("UI_type","自動戰鬥(手動)",false);
+	createRadioBox("UI_type","主要關卡",false);newLine();
+	createRadioBox("UI_type","特殊關卡",false);
+	createRadioBox("UI_type","無盡關卡/自動團戰",false);newLine();
+	createRadioBox("UI_type","自動對戰跟幫助好友",false);
+
+	newLine()newLine()newLine();newLine();
+
+	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
+	createRadioBox("isSwitchTeam","不切換",true);newLine();	
+	createRadioBox("isSwitchTeam","連續切換",false);
+	createTextView("labdelaySec"," -  幾秒後開始切換:");createEditText("txtTeamDelaySec",20,1,70,60);
+	  
+	newLine()newLine()newLine();newLine();
+	
+	createTextView("UI_label_option2","[ 升級礦石方式 ]");
+	newLine();
+	createRadioBox("UI_option2","自動",true);createTextView("txtTemp1","  ");
+	createRadioBox("UI_option2","先升礦到八級",false);createTextView("txtTemp2","  ");
+	createRadioBox("UI_option2","不升礦",false);createTextView("txtTemp3","  ");
+	
+	newLine()newLine()newLine();newLine();
+	
+	createTextView("labSkillTitile_top","[  自動關卡設定  ]")newLine();
+	createTextView("adv_part5","逆時發條: ");newLine();
+	createTextView("adv_part5_t","");
+	createCheckBox("advClockwork1","1",false);
+	createCheckBox("advClockwork2","2",false);
+	createCheckBox("advClockwork3","3",false);
+	createCheckBox("advClockwork4","4",false);
+	createCheckBox("advClockwork5","5",true);
+	createCheckBox("advClockwork6","6",true);
+	newLine();
+	createTextView("adv_part6","未知礦山:");newLine();	
+	createTextView("adv_part6_t"," ");
+	createCheckBox("advMine1","1",false);
+	createCheckBox("advMine2","2",false);
+	createCheckBox("advMine3","3",false);
+	createCheckBox("advMine4","4",false);
+	createCheckBox("advMine5","5",true);
+	createCheckBox("advMine6","6",true);
+	newLine();
+	createTextView("adv_part4","黃昏之冰神殿 or 不滅的骸石: ");newLine();	
+	createTextView("adv_part4_t","");
+	createCheckBox("advPartFour1","1",false);
+	createCheckBox("advPartFour2","2",false);
+	createCheckBox("advPartFour3","3",false);
+	createCheckBox("advPartFour4","4",false);
+	createCheckBox("advPartFour5","5",true);
+	createCheckBox("advPartFour6","6",true);
+	newLine();
+	createTextView("adv_part3","沉默的廢鐵掩埋場 or 魔法的迷途魔方: ");newLine();
+	createTextView("adv_part3_t","");
+	createCheckBox("advSilence1","1",false);
+	createCheckBox("advSilence2","2",false);
+	createCheckBox("advSilence3","3",false);
+	createCheckBox("advSilence4","4",true);
+	createCheckBox("advSilence5","5",true);
+	createCheckBox("advSilence6","6",true);	
+	newLine();	
+	createTextView("adv_part1","甦醒的魔眼:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advWake1","1",false);
+	createCheckBox("advWake2","2",false);
+	createCheckBox("advWake3","3",false);
+	createCheckBox("advWake4","4",false);
+	createCheckBox("advWake5","5",false);
+	createCheckBox("advWake6","6",true);
+	newLine();
+	createTextView("adv_part2","無盡的黃金沙漠:");newLine();	
+	createTextView("adv_part2_t","");
+	createCheckBox("advDesert1","1",false);
+	createCheckBox("advDesert2","2",false);
+	createCheckBox("advDesert3","3",false);
+	createCheckBox("advDesert4","4",false);
+	createCheckBox("advDesert5","5",false);
+	createCheckBox("advDesert6","6",true);		
+	newLine();newLine();newLine();newLine();
+			
+	  createTextView("labSkillTitile","[  自動技能設定  ]")newLine();
+	  createTextView("labtemp0","所有主要關卡跟自動戰鬥:");	  
+	  createCheckBox("skillMainpoint","",false);
+	  newLine()	  	
+	  createTextView("labtemp5","逆時發條:");newLine()
+	  createCheckBox("advClockwork_Skill1","1",false);  
+	  createCheckBox("advClockwork_Skill2","2",false);  
+	  createCheckBox("advClockwork_Skill3","3",false);
+	  createCheckBox("advClockwork_Skill4","4",false);
+	  createCheckBox("advClockwork_Skill5","5",true);	  
+	  createCheckBox("advClockwork_Skill6","6",true);	  	  
+	  newLine()
+	  createTextView("labtemp6","未知礦山:");newLine()
+	  createCheckBox("advMine_Skill1","1",false);  
+	  createCheckBox("advMine_Skill2","2",false);
+	  createCheckBox("advMine_Skill3","3",false);
+	  createCheckBox("advMine_Skill4","4",false);
+	  createCheckBox("advMine_Skill5","5",true);	  
+	  createCheckBox("advMine_Skill6","6",true);	  
+	  newLine()
+	  createTextView("labtemp4","黃昏之冰神殿 or 不滅的骸石:");newLine()
+	  createCheckBox("advSkillFour1","1",false);
+	  createCheckBox("advSkillFour2","2",false);	  
+	  createCheckBox("advSkillFour3","3",false);	  
+	  createCheckBox("advSkillFour4","4",false);
+	  createCheckBox("advSkillFour5","5",true);
+	  createCheckBox("advSkillFour6","6",true);
+	  newLine()	  	 	   	  
+	  createTextView("labtemp3","沉默的廢鐵掩埋場 or 魔法的迷途魔方:");newLine()
+	  createCheckBox("advSilence_Skill1","1",false);
+	  createCheckBox("advSilence_Skill2","2",false);
+	  createCheckBox("advSilence_Skill3","3",false);	    
+	  createCheckBox("advSilence_Skill4","4",true);
+	  createCheckBox("advSilence_Skill5","5",true);
+	  createCheckBox("advSilence_Skill6","6",true);	  
+	  newLine()	 
+	  createTextView("labtemp1","甦醒的魔眼:");newLine()
+	  createCheckBox("advWake_Skill1","1",false);  
+	  createCheckBox("advWake_Skill2","2",false);  
+	  createCheckBox("advWake_Skill3","3",false);
+	  createCheckBox("advWake_Skill4","4",false);
+	  createCheckBox("advWake_Skill5","5",false);	  
+	  createCheckBox("advWake_Skill6","6",true);
+	  newLine()	  
+	  createTextView("labtemp2","無盡的黃金沙漠:");newLine()
+	  createCheckBox("advDesert_Skill1","1",false);
+	  createCheckBox("advDesert_Skill2","2",false);
+	  createCheckBox("advDesert_Skill3","3",false);
+	  createCheckBox("advDesert_Skill4","4",false);	  
+	  createCheckBox("advDesert_Skill5","5",false);	  
+	  createCheckBox("advDesert_Skill6","6",true);
+	  newLine()newLine()newLine()newLine()	  
+	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定(秒) ]")newLine();	  
+	  createTextView("delaySkill0","呼叫好友");
+	  createEditText("skill0deplay",0,1,70,60);	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
+	  createTextView("delaySkill1","隕石");
+	  createEditText("skill1deplay",35,1,70,60);
+	  createTextView("delaySkill2","冰");
+	  createEditText("skill2deplay",22,1,70,60);
+	  createTextView("delaySkill3","龍捲風");
+	  createEditText("skill3deplay",15,1,70,60);
+	  createTextView("delaySkill4","無敵");
+	  createEditText("skill4deplay",2,1,70,60);newLine()		  
+	newLine();newLine();newLine();newLine();		
+	createTextView("labOtherTitile","[  其他設定  ]")newLine();
+	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
+	createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
+end
+function main()
+	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 
+		
+	--兼容模式 check
+	if not(isCompatMode()) then
+		toast("兼容模式設定錯誤");
+		sleep(1000000);	
+	end
+
+	--自動戰鬥跳過 版本跟解析度提示
+	if (UI_type == "自動戰鬥(手動)") then
+		--autoFireAndRanger5();
+		local i = 0;
+		while true do
+			fightingByUserSelectedMode(skillMainpoint);
+			--toast(string.format("%d - %s",i,"not in fighting view"));
+			sleep(2000);
+			--i = i + 1 ;
+		end	
+	end
+	
+	local w,h = getResolutionRatio();  --获取屏幕分辨率
+	
+     toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M")))
+	if(w == 1280)then
+		--toast(string.format("%s","解析度設定正確"));
+	else		
+		toast("解析度設定錯誤 請修改成 1280 x 720");
+		sleep(1000000);	
+	end
+	
+	sleep(5000);
+	
+	if(UI_type == "懶人模式") then
+		while true do
+			
+			if(isRangerViewMap()) then
+				toast("在腳色畫面 > 進入主要關卡");
+				touchClick(1058,580);
+				sleep(3000);		
+			end	
+			
+			if isMainMapColor() then
+				toast("在主要關卡 > 進入特殊關卡");				
+				touchClick(1058,580);
+				sleep(3000);
+				specialCheckpoint(os.time());
+				toast("特殊關卡時間到");
+				sleep(3000);
+			end
+		
+			if isSpecialMapColor() then
+				specialCheckpoint(os.time());
+			end
+
+
+		end
+	end	
+
+	--關卡類型選擇
+	if (UI_type == "主要關卡") then			
+		mainCheckpoint();
+	end
+	
+	if (UI_type == "特殊關卡") then
+		specialCheckpoint(null);
+		--back to main view , to next .
+		toast("back to main view");
+		sleep(4000);
+		--touchDown(42,65); old
+		touchDown(43,93);
+		sleep(100);
+		touchUp();
+		sleep(6000);			
+		mainCheckpoint();
+	end
+	
+	if(UI_type == "無盡關卡/自動團戰") then
+		while true do			
+			if(isColor(1104,590,0xCF0F00) and isColor(1084,590,0xCF0F00)) then
+				touchClick(1104,590);
+			end			
+			sleep(1000);				
+			pickFriendAndSkill(false);	
+			---- 檢查右上角有沒有暫停按鈕 戰鬥畫面		
+			--if isColor(1090,72,0x351609,99) then
+			if isFightingViewColor() then
+				toast("偵測到戰鬥開始");							
+				fightingByUserSelectedMode(skillMainpoint);
+			else			
+				touchClick(500,500);
+				--關關紅利
+				touchClick(641,609);--停止button	
+			end			
+		end					
+	end
+	
+	if(UI_type == "自動對戰跟幫助好友") then
+		sleep(1000);
+		if isRangerViewMap() then
+			touchClick(371,633); --點好友icon	
+		end
+		sleep(1000);
+			
+		while true do							
+			if isColor(703,47,0x97502D) then -- 判斷是否在好友頁面
+				-- isColor(720,590,0x9C22FF)  已打過
+				-- isColor(720,590,0x9C21FF) 未打過				
+				
+				touchClick(1107,633);sleep(1000); -- 點幫助
+				touchClick(822,546);sleep(1000); -- 取消 or 確認 
+				if(isColor(694,504,0x00BB33)) then
+					touchClick(644,520);sleep(1000); --  確認			
+				end
+				
+				if isColor(720,590,0x9C21FF) then -- 判斷是否有攻擊過
+					touchClick(720,590);sleep(3000);--點戰鬥
+					touchClick(640,630);sleep(3000);--下一步
+					touchClick(644,630);sleep(3000);--開始
+					
+					local notFightViewDetected = 0;
+
+					while true do					
+						---- 檢查右上角有沒有暫停按鈕 戰鬥畫面								
+						if isFightingViewColor() then
+							toast("偵測到戰鬥開始");
+							fightingByUserSelectedMode(false);
+							sleep(3000);
+						end
+					
+						if not isFightingViewColor() then								
+							notFightViewDetected = notFightViewDetected + 1;
+							sleep(500);
+							if(notFightViewDetected > 10) then
+								touchClick(500,500);
+								sleep(3000);
+								break;
+							end							
+						end
+					end					
+				else
+					touchClick(50,135);sleep(3000);--回好友頁面					
+				end
+			else
+				if isColor(1066,508,0xFFFFFF) and isColor(1066,500,0xFFFFFF) then					
+					toast("沒有朋友可以邀請 回角色畫面");
+					sleep(4000);
+					touchDown(43,93);
+					break;				
+				end
+
+				--移動到下一位好友
+				touchDown(460,400);sleep(100);
+				touchMove(430,400);sleep(100);
+				touchMove(370,400);sleep(100);
+				touchMove(310,400);sleep(100);
+				touchMove(250,400);sleep(50);
+				touchMove(220,400);sleep(50);
+				touchMove(205,400);sleep(50);
+				sleep(200);
+				touchUp();	
+				sleep(2000);				
+				touchClick(168,354);sleep(1000);--點主頁
+			end
+		end
+	end
+		
+	--TODO
+	if isPopupScreenColor() then
+		touchClick("648,578"); -- 點選確認禮物	
+		sleep(1000);
+	end
+end
