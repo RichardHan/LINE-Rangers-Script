@@ -436,18 +436,7 @@ function loopFifghtingInSpecialMode(useSkill,checkTimeMode,startTime)
 		end
 				
 		pickFriendAndSkill(checkTimeMode);
-		
-		if(startTime == null) then
-			--toast("startTime is null");
-		else
-			toast(os.difftime(os.time () , startTime));
-			if(os.difftime(os.time () , startTime) > 30) then
-				toast("exit - 2");	
-				backToMain();
-				goto endloopFifghtingInSpecialMode	
-			end
-		end
-								
+			
 		-- 超過入場次數
 		if isColor(595,518, 0x5A1B0C) and isColor(697,518, 0x5A1C0D) then			
 			toast("超過入場次數");
@@ -458,13 +447,29 @@ function loopFifghtingInSpecialMode(useSkill,checkTimeMode,startTime)
 			touchClick(43,95);
 			sleep(4000);
 			goto endloopFifghtingInSpecialMode
-		end
-		
+		end				
+										
 		--戰鬥畫面
 		if isFightingViewColor() then
 			toast("偵測到戰鬥開始");
 			fighting(useSkill);						
-		end				
+		end	
+		
+		if(startTime == null) then
+			--toast("startTime is null");
+		else			
+			if(os.difftime(os.time () , startTime) > tonumber(autoTime1)) then
+				--toast(autoTime1+"時間到離開特殊關卡");
+				toast(string.format("%s %d %s","離開 - 滿足特殊關卡離開條件",autoTime1,"秒"));
+				sleep(3000);
+				backToMain();
+				goto endloopFifghtingInSpecialMode	
+			else
+				toast(string.format("%s %d %s","還有",tonumber(autoTime1) - os.difftime(os.time () , startTime),"秒 離開特殊關卡"));
+				sleep(3000);
+			end
+		end
+	
 	end					
 	::endloopFifghtingInSpecialMode::
 end
@@ -655,7 +660,7 @@ function pickFriendAndSkill(checkTimeMode)
 	::endpickFriendAndSkill::
 end
 
-function mainCheckpoint()
+function mainCheckpoint(startTime)
 	while true do
 				
 		if isRangerViewMap() then
@@ -697,7 +702,23 @@ function mainCheckpoint()
 		if not isColor(1000,200,0xD0DBE0) then
 			touchClick(1000,200);		
 			sleep(1000);			
-		end		
+		end	
+		
+		if(startTime == null) then
+			-- toast("do nothing");
+		else					
+			if(os.difftime(os.time () , startTime) > tonumber(autoTime2)) then
+				--toast(autoTime1+"時間到離開特殊關卡");
+				toast(string.format("%s %d %s","離開 - 滿足主要關卡離開條件",autoTime2,"秒"));
+				sleep(3000);
+				backToMain();
+				goto endmainCheckpoint	
+			else
+				toast(string.format("%s %d %s","還有",tonumber(autoTime2) - os.difftime(os.time () , startTime),"秒 離開主要關卡"));
+				sleep(3000);
+			end					
+		end
+
 			
 		pickFriendAndSkill(false);
 		
@@ -705,8 +726,10 @@ function mainCheckpoint()
 		if isFightingViewColor() then
 			toast("偵測到戰鬥開始");
 			fighting(skillMainpoint);
-		end				
+		end	
+		
 	end
+	::endmainCheckpoint::
 end
 
 function specialCheckpoint(startTime)
@@ -837,13 +860,12 @@ end
 
 function advPlay(name,slideType,isUseSkill,x,y,checkTimeMode,startTime)
 
-
 	sleep(2000);
 	
 	if(startTime == null) then
 		--toast("startTime is null");
 	else
-		if(os.difftime(os.time () , startTime) > 30) then		
+		if(os.difftime(os.time () , startTime) > tonumber(autoTime1)) then		
 			goto endadvPlay
 		end
 	end
@@ -939,7 +961,7 @@ function createUI()
 	createCheckBox("advSilence3","3",false);
 	createCheckBox("advSilence4","4",true);
 	createCheckBox("advSilence5","5",true);
-	createCheckBox("advSilence6","6",true);	
+	createCheckBox("advSilence6","6",false);	
 	newLine();	
 	createTextView("adv_part1","甦醒的魔眼:");newLine();	
 	createTextView("adv_part2_t","");
@@ -1023,14 +1045,20 @@ function createUI()
 	  createEditText("skill3deplay",15,1,70,60);
 	  createTextView("delaySkill4","無敵");
 	  createEditText("skill4deplay",2,1,70,60);newLine()		  
-	newLine();newLine();newLine();newLine();		
-	createTextView("labOtherTitile","[  其他設定  ]")newLine();
-	createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();	
-	createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
+	  newLine();newLine();newLine();newLine();		
+	  createTextView("labOtherTitile","[  其他設定  ]")newLine();
+	  createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();
+	  createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
+	  createTextView("txtAutoTime1","特殊關卡執行秒數");createEditText("autoTime1",300,1,150,60);
+	  createTextView("txtAutoTime2","主要關卡執行秒數");createEditText("autoTime2",0,1,150,60);
+	  createTextView("txtAutoTime3","對戰好友執行秒數");createEditText("autoTime3",120,1,150,60);
+	  createTextView("txtAutoTime4","團戰執行秒數");createEditText("autoTime4",120,1,150,60);
+	  createTextView("txtAutoTime5","無盡執行秒數");createEditText("autoTime5",120,1,150,60);
 end
 function main()
 	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 
-		
+			
+	
 	--兼容模式 check
 	if not(isCompatMode()) then
 		toast("兼容模式設定錯誤");
@@ -1062,20 +1090,33 @@ function main()
 	sleep(5000);
 	
 	if(UI_type == "懶人模式") then
+		local count = 1;
 		while true do
-			
+						
+			sleep(3000);
+
 			if(isRangerViewMap()) then
 				toast("在腳色畫面 > 進入主要關卡");
 				touchClick(1058,580);
-				sleep(3000);		
+				sleep(7000);		
 			end	
+						
+			--主要關卡畫面
+			if isMainMapColor() and ((count % 2) == 0) and (tonumber(autoTime1) > 0) then
+				toast("在主要關卡 > 開始執行主要關卡");				
+				sleep(3000);
+				mainCheckpoint(os.time());
+				sleep(3000);
+			end
 			
-			if isMainMapColor() then
-				toast("在主要關卡 > 進入特殊關卡");				
+			--主要關卡畫面
+			if isMainMapColor() and ((count % 2) == 1) and (tonumber(autoTime2) > 0) then
+				toast("在主要關卡 > 進入特殊關卡");
 				touchClick(1058,580);
 				sleep(3000);
+				toast("開始執行特殊關卡");
+				sleep(3000);
 				specialCheckpoint(os.time());
-				toast("特殊關卡時間到");
 				sleep(3000);
 			end
 		
@@ -1083,7 +1124,7 @@ function main()
 				specialCheckpoint(os.time());
 			end
 
-
+			count = count + 1;
 		end
 	end	
 
