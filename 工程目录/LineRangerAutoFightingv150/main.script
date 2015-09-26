@@ -235,6 +235,17 @@ function fitUnknownMineTime()
 	end
 end
 
+function isFightButtonShow()  --2015-08-16 by Jay
+	--pause button  1200,40,0x743517
+	--missile button 1015,668,0x602913
+	--crystal button 139,670,0x602913
+	if isColor(1200,40,0x743517) and isColor(1015,668,0x602913) then
+			toast("isFightButtonShow");
+		return true;
+	end
+	return false;
+end
+
 function isFightingViewColor()
 	if isColor(1197,74,0x763A19) or isColor(1197,74,0x773B19) then
 		return true;
@@ -651,9 +662,17 @@ function fighting(useSkill)
 				break;					
 			end
 			sleep(2000);
+			
+--ADD 20150826
+if (isColor(512,549,0xC1C74B) and isColor(646,643,0xCF0F00)) or (isColor(117,582,0x00BE0A) and isColor(255,578,0x9B1FFF)) then
+	--512,549,0xC1C74B  base color green    646,643,0xCF0F00  btn red
+	--117,582,0x00BE0A  btn green  main page right bottom corner 255,578,0x9B1FFF btn purple
+	toast("在關卡畫面 結束fight");
+	break;
+end			
 	
 		end			
-		sleep(1000);
+		sleep(800);
 	end
 end
 
@@ -663,6 +682,10 @@ function pickFriendAndSkill(checkTimeMode)
 		sleep(200); -- prevent over loop
 		
 		if isFightingViewColor() then
+			if blockOutMode then
+				fireRangerByPorgressColor();		
+				toast("卡位模式!");
+			end
 			goto endpickFriendAndSkill
 		end
 		
@@ -695,7 +718,7 @@ function pickFriendAndSkill(checkTimeMode)
 					touchClick(481,500);
 				end
 			else
-				if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) then				
+				if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) or isColor(475,502,0x592509) then --isColor(475,502,0x592509) black				
 					touchClick(481,500);
 				end
 			end
@@ -711,7 +734,15 @@ function pickFriendAndSkill(checkTimeMode)
 		end	
 
 
-		sleep(500);
+		--sleep(500);
+		if isFightButtonShow() then  -- add 20150926
+			if blockOutMode then
+				fireRangerByPorgressColor();		
+				toast("卡位模式2!");
+			end
+			goto endpickFriendAndSkill	
+		end		
+
 		-- 羽毛不足視窗
 		if isColor(463,432,0x612C14) and isColor(483,432,0x612C14) and not(isColor(812,686,0x200200)) then 
 			if autobuyFeather then
@@ -1133,10 +1164,11 @@ function createUI()
 	  createEditText("skill4deplay",2,1,70,60);newLine()		  
 	  newLine();newLine();newLine();newLine();		
 	  createTextView("labOtherTitile","[  其他設定  ]")newLine();
+	  createCheckBox("blockOutMode","卡位模式",false);newLine(); -- add 20150926 by Jay
 	  createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();
 	  createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
 	  newLine();newLine();
-	  createTextView("txtAutoTime1","[  懶人模式設定  ]");newLine();
+	  createTextView("labAutoTime1","[  懶人模式設定  ]");newLine();
 	  createTextView("txtAutoTime1","特殊關卡執行秒數");createEditText("autoTime1",300,1,150,60);newLine();
 	  createTextView("txtAutoTime2","主要關卡執行秒數");createEditText("autoTime2",100,1,150,60);newLine();
 	  createTextView("txtAutoTime3","團戰執行秒數");createEditText("autoTime3",100,1,150,60);newLine();
