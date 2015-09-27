@@ -1168,11 +1168,11 @@ function createUI()
 	  createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();
 	  createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
 	  newLine();newLine();
-	  createTextView("labAutoTime1","[  懶人模式設定  ]");newLine();
+	  createTextView("labAutoTime1","[  懶人模式設定  ]")newLine();
 	  createTextView("txtAutoTime1","特殊關卡執行秒數");createEditText("autoTime1",300,1,150,60);newLine();
 	  createTextView("txtAutoTime2","主要關卡執行秒數");createEditText("autoTime2",100,1,150,60);newLine();
 	  createTextView("txtAutoTime3","團戰執行秒數");createEditText("autoTime3",100,1,150,60);newLine();
-	  --createTextView("txtAutoTime4","無盡執行秒數");createEditText("autoTime4",60,1,150,60);newLine();
+	  createTextView("txtAutoTime4","無盡執行秒數");createEditText("autoTime4",60,1,150,60);newLine();
 	  createTextView("txtAutoTime5","對戰好友執行秒數");createEditText("autoTime5",300,1,150,60);
 end
 function main()
@@ -1221,7 +1221,7 @@ function main()
 			end	
 						
 			--主要關卡畫面 > 主要關卡
-			if isMainMapColor() and ((count % 4) == 0) and (tonumber(autoTime2) > 0) then
+			if isMainMapColor() and ((count % 5) == 0) and (tonumber(autoTime2) > 0) then
 				toast("在主要關卡 > 開始執行主要關卡");
 				sleep(3000);
 				mainCheckpoint(os.time());
@@ -1229,7 +1229,7 @@ function main()
 			end
 			
 			--主要關卡畫面 > 特殊關卡
-			if isMainMapColor() and ((count % 4) == 1) and (tonumber(autoTime1) > 0) then
+			if isMainMapColor() and ((count % 5) == 1) and (tonumber(autoTime1) > 0) then
 				toast("在主要關卡 > 進入特殊關卡");
 				touchClick(1058,580);
 				sleep(3000);
@@ -1240,7 +1240,7 @@ function main()
 			end
 			
 			--主要關卡畫面 >  團戰
-			if isMainMapColor() and ((count % 4) == 2) and (tonumber(autoTime3) > 0) then
+			if isMainMapColor() and ((count % 5) == 2) and (tonumber(autoTime3) > 0) then
 				toast("在主要關卡 > 進入團戰");
 				touchClick(224,623);
 				sleep(3000);
@@ -1277,9 +1277,48 @@ function main()
 				::endBattlegroup::
 				sleep(3000);
 			end
+			
+			--主要關卡畫面 >  無盡
+			if isMainMapColor() and ((count % 5) == 3) and (tonumber(autoTime4) > 0) then
+				toast("在主要關卡 > 進入無盡");
+				touchClick(86,636);
+				sleep(3000);
+				toast("開始無盡");
+				sleep(3000);
+				local startTime = os.time();
+				while true do
+					if(isColor(1104,590,0xCF0F00) and isColor(1084,590,0xCF0F00)) then						
+						touchClick(1104,590); --點羽毛不足確認視窗						
+						if(os.difftime(os.time () , startTime) > tonumber(autoTime4)) then
+							--toast(autoTime1+"時間到離開特殊關卡");
+							toast(string.format("%s %d %s","離開 - 滿足無盡離開條件",autoTime4,"秒"));
+							sleep(3000);
+							backToMain();
+							goto endBattleEndlessGroup	
+						else
+							toast(string.format("%s %d %s","還有",tonumber(autoTime4) - os.difftime(os.time () , startTime),"秒 離開團戰"));
+							sleep(3000);
+						end
+					end	
+					
+					sleep(1000);		
+							
+					pickFriendAndSkill(false);	
+											
+					if isFightingViewColor() then
+						toast("偵測到戰鬥開始");							
+						fightingByUserSelectedMode(skillMainpoint);
+					else
+						touchClick(500,500); --過關紅利
+						touchClick(641,609); --停止button
+					end						
+				end		
+				::endBattleEndlessGroup::
+				sleep(3000);
+			end
 		
 			--主要關卡畫面 > Ranger畫面 > 對戰好友
-			if isMainMapColor() and ((count % 4) == 3) and (tonumber(autoTime5) > 0) then
+			if isMainMapColor() and ((count % 5) == 4) and (tonumber(autoTime5) > 0) then
 				toast("在主要關卡 > 回Ranger畫面 > 執行對戰好友");
 				sleep(4000);
 				input(4); -- android back button.
