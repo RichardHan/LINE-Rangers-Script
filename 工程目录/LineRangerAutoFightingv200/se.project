@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv200</name>
+ <desc>for LineRangers season III</desc>
+ <script>main.script</script>
+</project>
