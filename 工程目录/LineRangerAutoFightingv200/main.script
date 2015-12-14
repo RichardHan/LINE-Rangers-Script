@@ -191,11 +191,11 @@ function isPopExitDialog()
 end
 
 function isMainMapColor()
-	if isColor(86,603,0xFFFFFF) and isColor(224,594,0xFFFFFF) then
-		return true;	
+	if isColor(951,47,0xFFEE44) and isColor(795,44,0xFFEE44) then
+		return true;
 	else
 		return false;
-	end	
+	end
 end
 
 function isSpecialMapColor()
@@ -382,7 +382,9 @@ function clickLINEAutoButton()
 	--try to click LINE auto button , if enable line auto mode , will not into this function.	
 	sleep(500);
 	touchClick(1211,148);
-	touchClick(1218,198); -- 無盡
+	touchClick(1211,148);
+	--touchClick(1218,198);
+	--touchClick(1218,198);
 end
 
 --todo
@@ -790,7 +792,7 @@ function mainCheckpoint(startTime)
 			--1280 / 2 = 640;
 			local centerX = 640;
 			local centerY = 360;
-						
+
 			--地圖選擇 進入遊戲 正中間的關卡
 			touchDown(centerX,centerY);
 			sleep(100);
@@ -810,6 +812,8 @@ function mainCheckpoint(startTime)
 			touchClick(centerX-300,centerY);
 			touchClick(centerX+400,centerY);
 			touchClick(centerX-400,centerY);
+			touchClick(centerX+500,centerY);
+			touchClick(centerX-500,centerY);			
 		
 			sleep(5000);	
 		end
@@ -999,11 +1003,11 @@ function createUI()
 	newLine();	
 	--createRadioBox("UI_type","懶人模式",false);newLine(); 
 	createRadioBox("UI_type","自動戰鬥(手動)",false);newLine();
-	--createRadioBox("UI_type","主要關卡",false);newLine();
-	createRadioBox("UI_type","特殊關卡",true);newLine();
+	createRadioBox("UI_type","主要關卡",true);newLine();
+	createRadioBox("UI_type","特殊關卡",false);newLine();
 	createRadioBox("UI_type","無盡模式",false);newLine();
 	--createRadioBox("UI_type","PVP",false);newLine();
-	--createRadioBox("UI_type","自動對戰跟幫助好友",false);
+	createRadioBox("UI_type","自動對戰跟幫助好友",false);
 
 	newLine()newLine()newLine();newLine();
 
