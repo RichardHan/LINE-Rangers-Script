@@ -121,50 +121,34 @@ function isPopupScreenColor()
 end
 --火球
 function clickSkill1()	
-	if autoPickFriend() then
-		if isColor(242,97,0x000000) then
-			touchClick(242,97);
-		end	
-	else
-		if isColor(161,100,0x000000) then
-			touchClick(161,100);
-		end	
+	if autoPickFriend() then		
+		touchClick(200,100)
+	else		
+		touchClick(310,100)
 	end	
 end
 --冰	
 function clickSkill2()	
 	if autoPickFriend() then
-		if isColor(339,99,0x000000) then
-			touchClick(339,99);
-		end	
+		touchClick(310,100)
 	else
-		if isColor(249,97,0x000000) then
-			touchClick(249,97);
-		end	
+		touchClick(420,100)
 	end	
 end
 --龍捲風	
 function clickSkill3()
 	if autoPickFriend() then
-		if isColor(430,98,0x000000) then
-			touchClick(430,98);
-		end	
+		touchClick(420,100)
 	else
-		if isColor(344,101,0x000000) then
-			touchClick(344,101);
-		end	
+		touchClick(530,100)
 	end	
 end
 -- 防護罩	
 function clickSkill4()
 	if autoPickFriend() then
-		if isColor(519,98,0x000000) then
-			touchClick(519,98);
-		end	
-	else
-		if isColor(431,98,0x000000) then
-			touchClick(431,98);
-		end	
+		touchClick(530,100)	
+	else		
+		touchClick(640,100);		
 	end					
 end
 
@@ -191,8 +175,7 @@ function isPopExitDialog()
 end
 
 function isMainMapColor()
-																     --太空站之前選技能畫面底色                       --太空站之後選技能畫面底色
-	if isColor(797,32,0xFFEE44) and isColor(966,31,0xFFEE44) and not isColor(1003,702,0x644E3D) and not isColor(1021,669,0x87A3B4) then		
+	if isColor(951,47,0xFFEE44) and isColor(795,44,0xFFEE44) then
 		return true;
 	else
 		return false;
@@ -207,8 +190,8 @@ function isSpecialMapColor()
 	end	
 end
 
-function isTopView()
-	if isColor(706,30,0xFFEE44) and isColor(880,31,0xFFEE44) and isColor(1251,30,0xFFEE44) then
+function isRangerViewMap()
+	if isColor(99,611,0xFFFFFF) and isColor(343,610,0xFFFFFF) and isColor(664,625,0xFFFFFF) then
 		return true;	
 	else
 		return false;
@@ -248,15 +231,16 @@ function isFightButtonShow()  --2015-08-16 by Jay
 end
 
 function isFightingViewColor()
-	if isColor(1197,74,0x763A19) or isColor(1197,74,0x773B19) then
+	-- 有些技能會有動畫改變到右上角暫停按鈕，要多判斷幾次
+	if isColor(1513,74,0x391400) or isColor(1535,72,0x4A1808) then
 		return true;
 	else
-		sleep(300);
-		if isColor(1197,74,0x763A19) or isColor(1197,74,0x773B19) then 
+		sleep(200);
+		if isColor(1513,74,0x391400) or isColor(1535,72,0x4A1808) then
 			return true;
 		else
-			sleep(300);
-			if isColor(1197,74,0x763A19) or isColor(1197,74,0x773B19) then 
+			sleep(200);
+			if isColor(1513,74,0x391400) or isColor(1535,72,0x4A1808) then
 				return true;
 			else
 				return false;
@@ -266,10 +250,10 @@ function isFightingViewColor()
 end
 
 function isLevelEightColor()
-	if isColor(1120,632,0x000000) and isColor(1138,632,0x000000) and isColor(1137,648,0x000000) and isColor(1138,642,0x000000) then
-		return true;
+	if isColor(1405,790,0xFFEF42) and isColor(1417,790,0xFFEF42) and isColor(1405,805,0xFFEF42) and isColor(1417,804,0xFFEF42) and isColor(1411,798,0xFFEF42)  then
+		return true
 	else
-		return false;
+		return false
 	end
 end
 
@@ -332,18 +316,18 @@ function slideToRight()
 end
 
 function fireRangerByPorgressColor()
-					
-	touchClick(350,650);sleep(100);	
-	touchClick(470,650);sleep(100);
-	touchClick(600,650);sleep(100);
-	touchClick(720,650);sleep(100);
-	touchClick(860,650);sleep(100);
-
+	local firstRangerX = 470;
+	local firstRangerY = 800;
+	local rangerSpacing = 160;
+	touchClick(firstRangerX + (rangerSpacing*0),firstRangerY);sleep(100);	
+	touchClick(firstRangerX + (rangerSpacing*1),firstRangerY);sleep(100);
+	touchClick(firstRangerX + (rangerSpacing*2),firstRangerY);sleep(100);
+	touchClick(firstRangerX + (rangerSpacing*3),firstRangerY);sleep(100);
+	touchClick(firstRangerX + (rangerSpacing*4),firstRangerY);sleep(100);
 	--Tomas Ghost /  湯瑪斯
-	touchClick(602,172);sleep(100);
-			
+	touchClick(808,193);sleep(100);			
 	--Missile
-	touchClick(208,620);sleep(100);
+	touchClick(258,778);sleep(100);
 end
 
 function clickCrystal()
@@ -381,24 +365,21 @@ end
 --todo
 function clickLINEAutoButton()	
 	--try to click LINE auto button , if enable line auto mode , will not into this function.	
-	sleep(500);
-	touchClick(1211,148);
-	touchClick(1211,148);
-	--touchClick(1218,198);
-	--touchClick(1218,198);
+	sleep(1000)	         
+	touchClick(1523,194)
+	touchClick(1526,142)	
+	sleep(300)
 end
 
---todo
 function isLINEAutoButtonClickedColor()
-	if isColor(1211,148, 0xFFF31E) or isColor(1218,198,0xFEEF2A) then
+	if isColor(1523,143, 0xFFFBC6) or isColor(1526,142,0xFFFBC6) then
 		return true;
 	else
 		return false;
 	end
 end
 
-function fightingByUserSelectedMode(useSkill)
-	local isCalledFriend = false;
+function fightingByUserSelectedMode(useSkill)	
 	local isClickedLineAutoButton = false;
 	local i = 0; --number counter => equals 	
 							
@@ -413,16 +394,15 @@ function fightingByUserSelectedMode(useSkill)
 					if not isFightingViewColor() then
 						sleep(300);
 						break;
-					end		
-				end			
-			end			
+					end
+				end
+			end
 		end
 
-		if(UI_option2 == "自動") then			
-			--if isColor(1139,162, 0xFFF320) then
-			if isLINEAutoButtonClickedColor() then
-				-- already in LINE AUTO MODE.				
-				sleep(1000);
+		if(UI_option2 == "自動") then						
+			if isLINEAutoButtonClickedColor() then	
+				--toast("使用 AUTO 模式")
+				sleep(1000)
 			else
 				fireRangerByPorgressColor();
 				
@@ -433,13 +413,8 @@ function fightingByUserSelectedMode(useSkill)
 				
 				if not isClickedLineAutoButton then
 					clickLINEAutoButton();
-					isClickedLineAutoButton = true;		
-				end
-		
-				--if not isCalledFriend then
-					--callFriend();	
-					--isCalledFriend = true;	
-				--end			
+					isClickedLineAutoButton = true
+				end						
 			end	
 		end
 		
@@ -450,12 +425,7 @@ function fightingByUserSelectedMode(useSkill)
 			if not isClickedLineAutoButton then
 				clickLINEAutoButton();
 				isClickedLineAutoButton = true;		
-			end
-			
-			--if not isCalledFriend then
-				--callFriend();
-				--isCalledFriend = true;	
-			--end			
+			end		
 		end
 		
 		if(UI_option2 == "先升礦到八級") then								
@@ -466,12 +436,7 @@ function fightingByUserSelectedMode(useSkill)
 			if not isClickedLineAutoButton then
 				clickLINEAutoButton();
 				isClickedLineAutoButton = true;		
-			end
-			
-			--if not isCalledFriend then
-				--callFriend();
-				--isCalledFriend = true;	
-			--end			
+			end					
 		end
 				
 		i = i + 1;
@@ -626,9 +591,9 @@ function fighting(useSkill)
 				end
 				
 				-- 確認出現是否有寶物
-				if isColor(598,72,0x8F5E3D) then
+				if isColor(1256,503,0x0B0804) and isColor(1201,699,0x090000) then
 					toast("寶物確認");
-					touchClick(600,560);					
+					touchClick(637,583);
 					sleep(6000);	
 				end	
 																				
@@ -640,8 +605,8 @@ function fighting(useSkill)
 					
 					sleep(4000);
 																		
-					--抽到Ranger.
-					if isColor(597,581,0x0ABCCB) then -- 有出現加入隊伍button
+					--抽到Ranger.									 
+					if isColor(597,581,0x0DBBCE) then -- 有出現加入隊伍button
 						sleep(1000);
 						toast("抽到Ranger, 準備離開");
 						touchClick(774,587);-- 點 確認 button																	
@@ -694,38 +659,34 @@ function pickFriendAndSkill(checkTimeMode)
 		
 		--本月攻擊力加成
 		if isColor(1082,151,0xFFEE44) and isColor(1075,151,0xFFEE44) then
-			toast("D") sleep(10000);
 			touchClick(1082,151);
-			sleep(100); --20150816 , add By Jay.
+			sleep(100); --20150816 , add By Jay.		
 		end		
 		
 		-- 本月加成
 		if (isColor(1095,145,0x000000) and isColor(1098,147,0xFFEE44)) then
-			toast("C") sleep(10000);
 			toast("出現攻擊加成視窗");
 			sleep(3000);
 			touchClick(1095,145);		
 			sleep(3000);			
 		end
 							
-		--選技能畫面
-		--                            太空站之後                                   太空站之前
-		if isColor(800,600,0x24AAC6) or isColor(800,600,0x0ABCCB) then
+		--選技能畫面					  
+		if isColor(610,610,0x24AAC6) or isColor(722,645,0xCF0F00) or isColor(610,610,0x0ABCCB) then
 			sleep(500);	
-			touchClick(800,600); -- 下一步btn					
+			touchClick(610,610); -- 下一步btn					
 		end
-			
-		--選朋友畫面   		
-		if isColor(148,508,0xDCE5EF) or isColor(124,486,0xAB8862) then							
-			if autoPickFriend() then				
-				--            太空站之前關卡沒選color                  太空站之後關卡沒選color
-				if isColor(471,507,0xD1B894) or isColor(484,499,0x8E9CA9) then
+		
+		--選朋友畫面   
+		if isColor(255,344,0xB49266) or isColor(270,482,0xDCE5EF) or isColor(255,344,0xB18F65) or isColor(254,333,0xB39166) then
+			if autoPickFriend() then
+				--  0xD1B894 舊關卡沒選color   ,  0x8E9CA9 新關卡沒選color
+				if isColor(481,500,0xD1B894) or isColor(481,500,0x8E9CA9) then
 					--選第一個朋友
 					touchClick(481,500);
 				end
 			else
-				--            太空站之前關卡沒選color                  太空站之後關卡沒選color
-				if isColor(467,508,0x611E09) or isColor(479,497,0x542606) then
+				if isColor(481,500,0xFBC817) or isColor(481,500,0x592509) or isColor(475,502,0x592509) then --isColor(475,502,0x592509) black				
 					touchClick(481,500);
 				end
 			end
@@ -784,8 +745,9 @@ function pickFriendAndSkill(checkTimeMode)
 end
 
 function mainCheckpoint(startTime)
-	while true do				
-		if isTopView() then
+	while true do
+				
+		if isRangerViewMap() then
 			toast("在角色畫面");
 			touchClick(1095,590);
 			sleep(7000);		
@@ -842,7 +804,8 @@ function mainCheckpoint(startTime)
 				sleep(3000);
 			end					
 		end
-				
+
+			
 		pickFriendAndSkill(false);
 		
 		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面				
@@ -886,7 +849,7 @@ function specialCheckpoint(startTime)
 	local alignRight6_X = 1074;
 	local alignRight6_Y = 363;	
 
-	if isTopView() then
+	if isRangerViewMap() then
 		toast("在遊戲開始畫面 > 進入主要關卡");
 		touchClick(1157,613); -- click start button on right of bottom corner.				
 		sleep(5000);
@@ -1005,8 +968,8 @@ function createUI()
 	createTextView("UI_tv","[ 模式選擇 ]")
 	newLine();	
 	--createRadioBox("UI_type","懶人模式",false);newLine(); 
-	createRadioBox("UI_type","自動戰鬥(手動)",false);newLine();
-	createRadioBox("UI_type","主要關卡",true);newLine();
+	createRadioBox("UI_type","自動戰鬥(手動)",true);newLine();
+	createRadioBox("UI_type","主要關卡",false);newLine();
 	createRadioBox("UI_type","特殊關卡",false);newLine();
 	createRadioBox("UI_type","無盡模式",false);newLine();
 	--createRadioBox("UI_type","PVP",false);newLine();
@@ -1035,46 +998,46 @@ function createUI()
 
 	createTextView("adv_part5","逆時發條: ");newLine();
 	createTextView("adv_part5_t","");
-	createCheckBox("advClockwork1","1",false);
-	createCheckBox("advClockwork2","2",false);
-	createCheckBox("advClockwork3","3",false);
-	createCheckBox("advClockwork4","4",false);
+	createCheckBox("advClockwork1","1",true);
+	createCheckBox("advClockwork2","2",true);
+	createCheckBox("advClockwork3","3",true);
+	createCheckBox("advClockwork4","4",true);
 	createCheckBox("advClockwork5","5",false);
 	createCheckBox("advClockwork6","6",false);
 	newLine();
 	createTextView("adv_part6","未知礦山:");newLine();	
 	createTextView("adv_part6_t"," ");
-	createCheckBox("adv未知礦山1","1",false);
-	createCheckBox("adv未知礦山2","2",false);
-	createCheckBox("adv未知礦山3","3",false);
-	createCheckBox("adv未知礦山4","4",false);
+	createCheckBox("adv未知礦山1","1",true);
+	createCheckBox("adv未知礦山2","2",true);
+	createCheckBox("adv未知礦山3","3",true);
+	createCheckBox("adv未知礦山4","4",true);
 	createCheckBox("adv未知礦山5","5",false);
 	createCheckBox("adv未知礦山6","6",false);
 	newLine();
 	createTextView("adv_part黃昏之冰神殿_title","黃昏之冰神殿: ");newLine();	
 	createTextView("adv_newline_12312312312","");
-	createCheckBox("adv黃昏之冰神殿1","1",false);
-	createCheckBox("adv黃昏之冰神殿2","2",false);
-	createCheckBox("adv黃昏之冰神殿3","3",false);
-	createCheckBox("adv黃昏之冰神殿4","4",false);
+	createCheckBox("adv黃昏之冰神殿1","1",true);
+	createCheckBox("adv黃昏之冰神殿2","2",true);
+	createCheckBox("adv黃昏之冰神殿3","3",true);
+	createCheckBox("adv黃昏之冰神殿4","4",true);
 	createCheckBox("adv黃昏之冰神殿5","5",false);
 	createCheckBox("adv黃昏之冰神殿6","6",false);
 	newLine();
 	createTextView("adv_part_不滅的骸石","不滅的骸石: ");newLine();	
 	createTextView("adv_newline_1232132421","");
-	createCheckBox("adv不滅的骸石1","1",false);
-	createCheckBox("adv不滅的骸石2","2",false);
-	createCheckBox("adv不滅的骸石3","3",false);
-	createCheckBox("adv不滅的骸石4","4",false);
+	createCheckBox("adv不滅的骸石1","1",true);
+	createCheckBox("adv不滅的骸石2","2",true);
+	createCheckBox("adv不滅的骸石3","3",true);
+	createCheckBox("adv不滅的骸石4","4",true);
 	createCheckBox("adv不滅的骸石5","5",false);
 	createCheckBox("adv不滅的骸石6","6",false);	
 	newLine();
 	createTextView("adv_part3","沉默的廢鐵掩埋場: ");newLine();
 	createTextView("adv_part3_t","");
-	createCheckBox("advSilence1","1",false);
-	createCheckBox("advSilence2","2",false);
-	createCheckBox("advSilence3","3",false);
-	createCheckBox("advSilence4","4",false);
+	createCheckBox("advSilence1","1",true);
+	createCheckBox("advSilence2","2",true);
+	createCheckBox("advSilence3","3",true);
+	createCheckBox("advSilence4","4",true);
 	createCheckBox("advSilence5","5",false);
 	createCheckBox("advSilence6","6",false);	
 	newLine();
@@ -1194,37 +1157,46 @@ function main()
 		sleep(1000000);	
 	end
 
+	--toast("test mode V1");	
+	--sleep(5000);
+	--while true do
+		--if(isColor(1104,590,0xCF0F00)) then
+			--toast(string.format("%s %s","Test1:",os.date("現在時間: %H:%M:%S")))
+		--else
+			--toast(string.format("%s %s","Test2:",os.date("現在時間: %H:%M:%S")))
+		--end	
+		--sleep(5000);
+	--end
+	
 	--自動戰鬥跳過 版本跟解析度提示
-	if (UI_type == "自動戰鬥(手動)") then
-		--autoFireAndRanger5();
-		local i = 0;
+	if (UI_type == "自動戰鬥(手動)") then				
 		while true do
-			fightingByUserSelectedMode(skillMainpoint);
-			--toast(string.format("%d - %s",i,"not in fighting view"));
-			sleep(2000);
-			--i = i + 1 ;
+			fightingByUserSelectedMode(skillMainpoint);			
+			sleep(2000);			
 		end	
 	end
 	
-	local w,h = getResolutionRatio();  --获取屏幕分辨率
-	
+	--獲取屏幕分辨率
+	local w,h = getResolutionRatio();  
+			
      toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M")))
-	if(w == 1280)then
-		--toast(string.format("%s","解析度設定正確"));
-	else		
-		toast("解析度設定錯誤 請修改成 1280 x 720");
-		sleep(1000000);	
+	if (w == 1600 and h == 900) then
+		toast(string.format("%s","解析度設定正確 1600 x 900 "))
+		sleep(3000)
+	else				
+		while true do
+			toast("請使用 BlueStacks 2 , 解析度請修改成 1600 x 900")
+			sleep(5000)			
+		end				
 	end
-	
-	sleep(5000);
-	
+		
 	if(UI_type == "懶人模式") then
 		local count = 1;
 		while true do
 						
 			sleep(3000);
 
-			if(isTopView()) then
+			if(isRangerViewMap()) then
 				toast("在腳色畫面 > 進入主要關卡");
 				touchClick(1058,580);
 				sleep(7000);		
@@ -1361,7 +1333,7 @@ function main()
 	
 	if(UI_type == "自動對戰跟幫助好友") then
 		sleep(1000);
-		if isTopView() then
+		if isRangerViewMap() then
 			touchClick(371,633); --點好友icon	
 		end
 		
