@@ -1,8 +1,7 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv200
---Release Date: 2015.12.26
+--LineRangerAutoFightingv2XX
+--This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
-
 function autoFightAndHelpFriend(startTime)
 	while true do							
 		if isColor(703,47,0x97502D) then -- 判斷是否在好友頁面
@@ -234,7 +233,7 @@ function 符合無盡的黃金沙漠時間 ()
 end
 
 function 符合黃昏之冰神殿時間()
-	if (tonumber(os.date("%w")) == 5) or (tonumber(os.date("%w")) == 6) or (tonumber(os.date("%w")) == 7) then						
+	if (tonumber(os.date("%w")) == 5) or (tonumber(os.date("%w")) == 6) or (tonumber(os.date("%w")) == 0) then						
 		return true;
 	else		
 		return false;
@@ -242,7 +241,7 @@ function 符合黃昏之冰神殿時間()
 end
 
 function 符合不滅的骸石時間 ()
-	if (tonumber(os.date("%w")) == 1) or (tonumber(os.date("%w")) == 3) or (tonumber(os.date("%w")) == 5) or (tonumber(os.date("%w")) == 7) then						
+	if (tonumber(os.date("%w")) == 1) or (tonumber(os.date("%w")) == 3) or (tonumber(os.date("%w")) == 5) or (tonumber(os.date("%w")) == 0) then						
 		return true;
 	else		
 		return false;
@@ -266,7 +265,7 @@ function 符合未知礦山時間()
 end
 
 function 符合沉默的廢鐵掩埋場時間()
-	if (tonumber(os.date("%w")) == 4) or (tonumber(os.date("%w")) == 5)  or (tonumber(os.date("%w")) == 6) or (tonumber(os.date("%w")) == 7) then						
+	if (tonumber(os.date("%w")) == 4) or (tonumber(os.date("%w")) == 5)  or (tonumber(os.date("%w")) == 6) or (tonumber(os.date("%w")) == 0) then						
 		return true;
 	else		
 		return false;
@@ -274,7 +273,7 @@ function 符合沉默的廢鐵掩埋場時間()
 end
 
 function 符合魔法的迷途魔方時間 ()
-	if (tonumber(os.date("%w")) == 1) or (tonumber(os.date("%w")) == 2)  or (tonumber(os.date("%w")) == 3) or (tonumber(os.date("%w")) == 7) then						
+	if (tonumber(os.date("%w")) == 1) or (tonumber(os.date("%w")) == 2)  or (tonumber(os.date("%w")) == 3) or (tonumber(os.date("%w")) == 0) then						
 		return true;
 	else		
 		return false;
@@ -1240,7 +1239,7 @@ function createUI()
 end
 function main()
 	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 			
-		
+			
 	--兼容模式 check
 	if not(isCompatMode()) then
 		toast("兼容模式設定錯誤");
