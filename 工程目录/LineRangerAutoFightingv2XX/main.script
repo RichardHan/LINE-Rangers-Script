@@ -1,8 +1,7 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv200
---Release Date: 2015.12.26
+--LineRangerAutoFightingv2XX
+--This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
-
 function autoFightAndHelpFriend(startTime)
 	while true do							
 		if isColor(703,47,0x97502D) then -- 判斷是否在好友頁面
