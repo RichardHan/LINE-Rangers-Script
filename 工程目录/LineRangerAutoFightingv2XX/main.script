@@ -408,9 +408,9 @@ end
 
 function callFriend()
 	--call friend help
-	if isColor(155,95,0xFAD833) and isColor(164,93,0xF4D233) then
+	--if isColor(155,95,0xFAD833) and isColor(164,93,0xF4D233) then
 		touchClick(155,95);				
-	end
+	--end
 end
 
 function switchTeam()
@@ -423,18 +423,20 @@ function switchTeam()
 end
 
 --todo
-function clickLINEAutoButton()	
-	--try to click LINE auto button , if enable line auto mode , will not into this function.	
-	sleep(500);
-	touchClick(1211,148);
-	touchClick(1211,148);
-	--touchClick(1218,198);
-	--touchClick(1218,198);
+function clickLINEAutoButton()			
+	if(UI_type == "無盡模式") then
+		sleep(500);
+		touchClick(1229,196); -- 無盡	
+	else
+		sleep(500);
+		touchClick(1211,148); -- 其他關卡		
+	end	
 end
 
 --todo
 function isLINEAutoButtonClickedColor()
-	if isColor(1211,148, 0xFFF31E) or isColor(1218,198,0xFEEF2A) then
+																   -- 無盡任務
+	if isColor(1211,148, 0xFFF31E) or isColor(1218,198,0xFEEF2A) or isColor(1229,196,0xFFFA35) then
 		return true;
 	else
 		return false;
@@ -474,11 +476,20 @@ function fightingByUserSelectedMode(useSkill)
 				if not(isLevelEightColor()) then
 					touchClick(1015,575);	--升級礦石							
 				end
-				
-				if not isClickedLineAutoButton then
-					clickLINEAutoButton();
-					isClickedLineAutoButton = true;		
-				end
+								
+				if (UI_type == "無盡模式") then
+					if not isClickedLineAutoButton then
+						clickLINEAutoButton();
+						sleep(2000);
+						clickLINEAutoButton();
+						isClickedLineAutoButton = true;		
+					end				
+				else
+					if not isClickedLineAutoButton then
+						clickLINEAutoButton();
+						isClickedLineAutoButton = true;		
+					end									
+				end				
 		
 				--if not isCalledFriend then
 					--callFriend();	
@@ -938,60 +949,91 @@ function specialCheckpoint(startTime)
 		--如果遊戲是第一次打開  會出現很長的動畫
 		sleep(10000);
 	end
-						 		
-	if adv不滅的骸石6 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石6","left",adv不滅的骸石Skill6,alignRight6_X,alignRight6_Y,startTime);  end
-	if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間() then 		advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignRight6_X,alignRight6_Y,startTime);  end
+	
+	-- 週日 %w=0   ,  order:  黃昏之冰神殿  >   不滅的骸石   >   沉默的廢鐵掩埋場   >    魔法的迷途魔方	
+	if ((tonumber(os.date("%w")) == 0)) then		
+		if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間() then 		advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignLeft6_X,alignLeft6_Y,startTime);  end	
+	else					
+		if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間() then 		advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignRight6_X,alignRight6_Y,startTime);  end			
+	end
+	
+	if adv不滅的骸石6 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石6","left",adv不滅的骸石Skill6,alignRight6_X,alignRight6_Y,startTime);  end		
 	if adv沉默的廢鐵掩埋場6 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場6","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill6,alignRight6_X,alignRight6_Y,startTime);  end
 	if adv魔法的迷途魔方6 and 符合魔法的迷途魔方時間 () then  	advPlay("魔法的迷途魔方6","leftPlusLittleRight",adv魔法的迷途魔方Skill6,alignRight6_X,alignRight6_Y,startTime);  end
 	if adv無盡的黃金沙漠6 and 符合無盡的黃金沙漠時間 () then   	advPlay("無盡的黃金沙漠6","left",adv無盡的黃金沙漠Skill6,alignLeft6_X,alignLeft6_Y,startTime);  end			
 	if adv甦醒的魔眼6 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼6","left",adv甦醒的魔眼Skill6,alignLeft6_X,alignLeft6_Y,startTime); end
 	if adv逆時發條6 and 符合逆時發條時間() then 				advPlay("逆時發條6","right",adv逆時發條Skill6,alignLeft6_X,alignLeft6_Y,startTime); end			
-	if adv未知礦山6 and 符合未知礦山時間() then 				advPlay("未知礦山6","leftPlusLittleRight",adv未知礦山Skill6,alignLeft6_X,alignLeft6_Y,startTime); end	
-	
+	if adv未知礦山6 and 符合未知礦山時間() then 				advPlay("未知礦山6","leftPlusLittleRight",adv未知礦山Skill6,alignLeft6_X,alignLeft6_Y,startTime); end				
+
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignLeft5_X,alignLeft5_Y,startTime);  end
+	else			
+		if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignRight5_X,alignRight5_Y,startTime);  end		
+	end	
+				
 	if adv不滅的骸石5 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石5","left",adv不滅的骸石Skill5,alignRight5_X,alignRight5_Y,startTime); end
-	if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignRight5_X,alignRight5_Y,startTime);  end
 	if adv沉默的廢鐵掩埋場5 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場5","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill5,alignRight5_X,alignRight5_Y,startTime); end
 	if adv魔法的迷途魔方5 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方5","leftPlusLittleRight",adv魔法的迷途魔方Skill5,alignRight5_X,alignRight5_Y,startTime); end
-	if adv無盡的黃金沙漠5 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠5","left",adv無盡的黃金沙漠Skill5,alignLeft5_X,alignLeft5_Y,startTime); end		
+	if adv無盡的黃金沙漠5 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠5","left",adv無盡的黃金沙漠Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	if adv甦醒的魔眼5 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼5","left",adv甦醒的魔眼Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	if adv逆時發條5 and 符合逆時發條時間() then				advPlay("逆時發條5","right",adv逆時發條Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	if adv未知礦山5 and 符合未知礦山時間() then				advPlay("未知礦山5","leftPlusLittleRight",adv未知礦山Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignLeft4_X,alignLeft4_Y,startTime);  end
+	else		
+		if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignRight4_X,alignRight4_Y,startTime);  end
+	end
+	
 	if adv不滅的骸石4 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石4","left",adv不滅的骸石Skill4,alignRight4_X,alignRight4_Y,startTime); end	
-	if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignRight4_X,alignRight4_Y,startTime);  end
 	if adv沉默的廢鐵掩埋場4 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場4","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill4,alignRight4_X,alignRight4_Y,startTime); end	
 	if adv魔法的迷途魔方4 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方4","leftPlusLittleRight",adv魔法的迷途魔方Skill4,alignRight4_X,alignRight4_Y,startTime); end	
 	if adv無盡的黃金沙漠4 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠4","left",adv無盡的黃金沙漠Skill4,alignLeft4_X,alignLeft4_Y,startTime); end				
 	if adv甦醒的魔眼4 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼4","left",adv甦醒的魔眼Skill4,alignLeft4_X,alignLeft4_Y,startTime); end		
 	if adv逆時發條4 and 符合逆時發條時間() then				advPlay("逆時發條4","right",adv逆時發條Skill4,alignLeft4_X,alignLeft4_Y,startTime); end
-	if adv未知礦山4 and 符合未知礦山時間() then				advPlay("未知礦山4","leftPlusLittleRight",adv未知礦山Skill4,alignLeft4_X,alignLeft4_Y,startTime); end	
-	
-	if adv不滅的骸石3 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石3","left",adv不滅的骸石Skill3,alignRight3_X,alignRight3_Y,startTime); end
-	if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignRight3_X,alignRight3_Y,startTime);  end
+	if adv未知礦山4 and 符合未知礦山時間() then				advPlay("未知礦山4","leftPlusLittleRight",adv未知礦山Skill4,alignLeft4_X,alignLeft4_Y,startTime); end
+
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignLeft3_X,alignLeft3_Y,startTime);  end
+	else
+		if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignRight3_X,alignRight3_Y,startTime);  end	
+	end
+
+	if adv不滅的骸石3 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石3","left",adv不滅的骸石Skill3,alignRight3_X,alignRight3_Y,startTime); end		
 	if adv沉默的廢鐵掩埋場3 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場3","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill3,alignRight3_X,alignRight3_Y,startTime); end		
 	if adv魔法的迷途魔方3 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方3","leftPlusLittleRight",adv魔法的迷途魔方Skill3,alignRight3_X,alignRight3_Y,startTime); end		
 	if adv無盡的黃金沙漠3  and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠3","left",adv無盡的黃金沙漠Skill3,alignLeft3_X,alignLeft3_Y,startTime); end					
 	if adv甦醒的魔眼3 and 符合甦醒的魔眼時間 ()  then			advPlay("甦醒的魔眼3","left",adv甦醒的魔眼Skill3,alignLeft3_X,alignLeft3_Y,startTime); end				
 	if adv逆時發條3 and 符合逆時發條時間() then				advPlay("逆時發條3","right",adv逆時發條Skill3,alignLeft3_X,alignLeft3_Y,startTime); end
-	if adv未知礦山3 and 符合未知礦山時間() then				advPlay("未知礦山3","leftPlusLittleRight",adv未知礦山Skill3,alignLeft3_X,alignLeft3_Y,startTime); end
+	if adv未知礦山3 and 符合未知礦山時間() then				advPlay("未知礦山3","leftPlusLittleRight",adv未知礦山Skill3,alignLeft3_X,alignLeft3_Y,startTime); end	
+
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignLeft2_X,alignLeft2_Y,startTime);  end
+	else
+		if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignRight2_X,alignRight2_Y,startTime);  end			
+	end
 	
-	if adv不滅的骸石2 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石2","left",adv不滅的骸石Skill2,alignRight2_X,alignRight2_Y,startTime);	end		
-	if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignRight2_X,alignRight2_Y,startTime);  end
+	if adv不滅的骸石2 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石2","left",adv不滅的骸石Skill2,alignRight2_X,alignRight2_Y,startTime);	end				
 	if adv沉默的廢鐵掩埋場2 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場2","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill2,alignRight2_X,alignRight2_Y,startTime); end
 	if adv魔法的迷途魔方2 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方2","leftPlusLittleRight",adv魔法的迷途魔方Skill2,alignRight2_X,alignRight2_Y,startTime); end
 	if adv無盡的黃金沙漠2 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠2","left",adv無盡的黃金沙漠Skill2,alignLeft2_X,alignLeft2_Y,startTime); end			
 	if adv甦醒的魔眼2 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼2","left",adv甦醒的魔眼Skill2,alignLeft2_X,alignLeft2_Y,startTime);	end			
 	if adv逆時發條2 and 符合逆時發條時間() then				advPlay("逆時發條2","right",adv逆時發條Skill2,alignLeft2_X,alignLeft2_Y,startTime); end
-	if adv未知礦山2 and 符合未知礦山時間() then				advPlay("未知礦山2","leftPlusLittleRight",adv未知礦山Skill2,alignLeft2_X,alignLeft2_Y,startTime); end			
+	if adv未知礦山2 and 符合未知礦山時間() then				advPlay("未知礦山2","leftPlusLittleRight",adv未知礦山Skill2,alignLeft2_X,alignLeft2_Y,startTime); end	
+			
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間() then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignLeft1_X,alignLeft1_Y,startTime);  end
+	else
+		if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間() then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignRight1_X,alignRight1_Y,startTime);  end			
+	end	
 	
-	if adv不滅的骸石1 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石1","left",adv不滅的骸石Skill1,alignRight1_X,alignRight1_Y,startTime); end	
-	if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間() then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignRight1_X,alignRight1_Y,startTime);  end
+	if adv不滅的骸石1 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石1","left",adv不滅的骸石Skill1,alignRight1_X,alignRight1_Y,startTime); end			
 	if adv沉默的廢鐵掩埋場1 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場1","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill1,alignRight1_X,alignRight1_Y,startTime);	end
 	if adv魔法的迷途魔方1 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方1","leftPlusLittleRight",adv魔法的迷途魔方Skill1,alignRight1_X,alignRight1_Y,startTime);	end	
 	if adv無盡的黃金沙漠1 and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠1","left",adv無盡的黃金沙漠Skill1,alignLeft1_X,alignLeft1_Y,startTime); end 
 	if adv甦醒的魔眼1 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼1","left",adv甦醒的魔眼Skill1,alignLeft1_X,alignLeft1_Y,startTime); end					
 	if adv逆時發條1 and 符合逆時發條時間() then				advPlay("逆時發條1","right",adv逆時發條Skill1,alignLeft1_X,alignLeft1_Y,startTime); end
-	if adv未知礦山1 and 符合未知礦山時間() then				advPlay("未知礦山1","leftPlusLittleRight",adv未知礦山Skill1,alignLeft1_X,alignLeft1_Y,startTime); end	
+	if adv未知礦山1 and 符合未知礦山時間() then				advPlay("未知礦山1","leftPlusLittleRight",adv未知礦山Skill1,alignLeft1_X,alignLeft1_Y,startTime); end		
 end
 
 function advPlay(name,slideType,isUseSkill,x,y,startTime)
@@ -1041,7 +1083,7 @@ function createUI()
 	createRadioBox("UI_type","自動戰鬥(手動)",false);newLine();
 	createRadioBox("UI_type","主要關卡",false);newLine();
 	createRadioBox("UI_type","特殊關卡",true);newLine();
-	--createRadioBox("UI_type","無盡模式",false);newLine();
+	createRadioBox("UI_type","無盡模式",false);newLine();
 	--createRadioBox("UI_type","PVP",false);newLine();
 	createRadioBox("UI_type","自動對戰跟幫助好友",false);
 
@@ -1215,7 +1257,7 @@ function createUI()
 	  newLine()newLine()newLine()newLine()	  
 	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定(秒) ]")newLine();	  
 	  createTextView("delaySkill0","呼叫好友");
-	  createEditText("skill0deplay",0,1,70,60);	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
+	  createEditText("skill0deplay",3,1,70,60);	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
 	  createTextView("delaySkill1","隕石");
 	  createEditText("skill1deplay",35,1,70,60);
 	  createTextView("delaySkill2","冰");
@@ -1377,10 +1419,10 @@ function main()
 	
 	if(UI_type == "無盡模式") then
 		while true do
-			-- 如果再進入畫面  點 "戰鬥"
-			if(isColor(1055,579,0xD10E06) and isColor(1090,594,0xD10E06)) then
+			-- 如果再進入畫面  點 "戰鬥"button
+			if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
 				touchClick(975,592);
-			end			
+			end
 			sleep(1000);							
 			pickFriendAndSkill(false);				
 			if isFightingViewColor() then
