@@ -686,7 +686,7 @@ function fighting(useSkill)
 				end
 				
 				-- 確認出現是否有寶物
-				if isColor(598,72,0x8F5E3D) then
+				if isColor(879,698,0x0E0000) then
 					toast("寶物確認");
 					touchClick(600,560);					
 					sleep(6000);	
