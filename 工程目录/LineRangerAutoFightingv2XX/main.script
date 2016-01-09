@@ -77,10 +77,6 @@ function autoFightAndHelpFriend(startTime)
 	::endautoFightAndHelpFriend::
 end
 
-function showWinLossCnt() --add 20160109 by Jay  (calculate total fight result)
-	toast(string.format("STATISTIC\r\nWIN:%s  \r\nLOSS:%s \r\n",winCnt,lossCnt));
-end
-
 function checkIsWeekend()
 	if (os.date("%w") == "7" or (os.date("%w") == "6" and os.date("%H") == "23")) then
 		return true;
@@ -657,15 +653,13 @@ function fighting(useSkill)
 	local count = 0;
 	while true do
 		count = count + 1;						
-		fightingByUserSelectedMode(useSkill);		
-		
+		fightingByUserSelectedMode(useSkill);				
 		-- 檢查右上角有沒有暫停按鈕  				
 		if not isFightingViewColor() then			
 			toast("戰鬥結束 - 判斷結果");
 			sleep(5000)			
 			--loss
 			if isColor(471,476,0xFFFFFF) and isColor(474,476,0xFFFFFF) then
-				lossCnt = lossCnt + 1; --add 20160109 by Jay  (calculate total fight result)
 				toast("LOSS");
 				sleep(5000);
 				
@@ -679,16 +673,18 @@ function fighting(useSkill)
 			
 			-- default - win   or      確認出現是否有寶物		
 			if isColor(1190,242,0x246F90) or isColor(935,181,0xAA5926) then --add color 20160101
-				winCnt = winCnt + 1; --add 20160109 by Jay  (calculate total fight result)
+				
 				toast("WIN");
 				sleep(6000);
 								
 				toast("亂點螢幕");
 				--亂點螢幕 
 				touchClick(1022,30);
+				
 				sleep(2000);
 				
 				touchClick(1022,30);
+				
 				sleep(6000);
 				
 				--isColor(851,359,0xAA6633)   抽獎畫面的框框
@@ -703,8 +699,7 @@ function fighting(useSkill)
 				end
 				
 				-- 確認出現是否有寶物
-				--if isColor(879,698,0x0E0000) then  --update by Jay 20160109
-				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) then --(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠
+				if isColor(879,698,0x0E0000) then
 					toast("寶物確認");
 					touchClick(600,560);					
 					sleep(6000);	
@@ -740,26 +735,26 @@ function fighting(useSkill)
 				end	
 																				
 				sleep(4000);	
+
 				break;					
 			end
 			sleep(2000);
-
---update 20160109 by Jay 
-			if isColor(53,45,0xFFEE44)  or isColor(1232,26,0x43A2C5) or count > 50 then
-				--(53,45,0xFFEE44)  color yellow 左上回上一頁黃色按鈕
-				--(1232,26,0x43A2C5  color blue 右上藍色切換區域按鈕
-				toast("在關卡畫面或卡在非戰鬥畫面, 結束戰鬥(fight) " + count);
-				break;
-			end			
+			
+--ADD 20150826
+if (isColor(512,549,0xC1C74B) and isColor(646,643,0xCF0F00)) or (isColor(117,582,0x00BE0A) and isColor(255,578,0x9B1FFF)) then
+	--512,549,0xC1C74B  base color green    646,643,0xCF0F00  btn red
+	--117,582,0x00BE0A  btn green  main page right bottom corner 255,578,0x9B1FFF btn purple
+	toast("在關卡畫面 結束fight");
+	break;
+end			
 	
 		end			
 		sleep(800);
-	end -- end while
-	showWinLossCnt(); --add 20160109 by Jay  (calculate total fight result)
+	end
 end
 
 function pickFriendAndSkill()	
-
+	--local nextFightFlg = false;	
 	while true do  
 		sleep(200); -- prevent over loop		
 		if isFightingViewColor() then
@@ -809,7 +804,13 @@ function pickFriendAndSkill()
 			end
 						
 			touchClick(610,610); --next 進入戰鬥		
-
+			--sleep(1500);
+			--nextFightFlg = true;						
+		--else
+			-- 2015-08-16 add by Jay.
+			--if nextFightFlg == true then			
+				--break;
+			--end
 		end	
 
 		--sleep(500);
@@ -826,19 +827,14 @@ function pickFriendAndSkill()
 			if autobuyFeather then
 				clickAutoBuyFeather();				
 			else
-				toast("羽毛不足! 休息30秒..");
-				touchClick(548,494);
-				sleep(10000); --30  add 20160109 by Jay
-				showWinLossCnt();
-				sleep(10000); --20
-				showWinLossCnt();
-				sleep(10000); --10
-				showWinLossCnt();
+				toast("羽毛不足! 休息30秒..")
+				touchClick(548,494)
+				sleep(30000)				
 				--回到特殊關卡畫面 再進入一次
-				touchClick(102,34);
-				sleep(500);
-				touchClick(102,34);
-				sleep(500);
+				touchClick(102,34)
+				sleep(500)
+				touchClick(102,34)
+				sleep(500)
 			end
 		else			
 			break;
@@ -862,11 +858,9 @@ function mainCheckpoint(startTime)
 			local centerY = 360;
 
 			--地圖選擇 進入遊戲 正中間的關卡
-			sleep(1000); -- add 增加秒數避免過快跳過  20160109 by Jay
 			touchDown(centerX,centerY);
 			sleep(100);
 			touchUp();		
-			sleep(100);
 													
 			touchClick(centerX-50,centerY);
 			touchClick(centerX+50,centerY);
@@ -1301,9 +1295,6 @@ function createUI()
 	  --createTextView("txtAutoTime5","對戰好友執行秒數");createEditText("autoTime5",300,1,150,60);
 end
 function main()
-	winCnt = 0;
-	lossCnt = 0 ;
-
 	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 			
 			
 	--兼容模式 check
