@@ -127,8 +127,9 @@ function clickSkill1()	--火球
 			touchClick(242,97);
 		end	
 	else
-		if isColor(161,100,0x000000) then
-			touchClick(161,100);
+		--if isColor(161,100,0x000000) then --fix by Jay
+		if isColor(161,97,0x000000) then 
+			touchClick(169,100); --gold (169,52,0xFFFCA7)
 		end	
 	end	
 end	
@@ -139,8 +140,9 @@ function clickSkill2()	--冰
 			touchClick(339,99);
 		end	
 	else
-		if isColor(249,97,0x000000) then
-			touchClick(249,97);
+		--if isColor(249,97,0x000000) then --fix by Jay
+		if isColor(249,96,0x000000) then 
+			touchClick(256,64); --blue (256,64,0x04DCFC)
 		end	
 	end	
 end
@@ -151,10 +153,11 @@ function clickSkill3() --龍捲風
 			touchClick(430,98);
 		end	
 	else
-		if isColor(344,101,0x000000) then
-			touchClick(344,101);
+	      --if isColor(344,98,0x000000) then --fix by Jay
+		if isColor(344,97,0x000000) then 
+			touchClick(343,35); --purple (343,35, 0xF0D9F9)
 		end	
-	end	
+	end
 end
 
 function clickSkill4()	-- 防護罩	
@@ -163,8 +166,9 @@ function clickSkill4()	-- 防護罩
 			touchClick(519,98);
 		end	
 	else
-		if isColor(431,98,0x000000) then
-			touchClick(431,98);
+	      --if isColor(431,98,0x000000) then --fix by Jay
+		if isColor(431,98,0x000000) then 
+			touchClick(432,53); --blue (432,53,0x03E1FC)
 		end	
 	end					
 end
@@ -427,9 +431,18 @@ function clickLINEAutoButton()
 	if(UI_type == "無盡模式") then
 		sleep(500);
 		touchClick(1229,196); -- 無盡	
+		if autoX2Mode then 
+			sleep(150);
+			touchClick(1229,196);
+		end
 	else
 		sleep(500);
-		touchClick(1211,148); -- 其他關卡		
+		touchClick(1211,148); -- 其他關卡
+		if autoX2Mode then --add 20160109 Jay
+			sleep(150);
+			touchClick(1211,148);
+		end
+		
 	end	
 end
 
@@ -1270,8 +1283,10 @@ function createUI()
 	  createTextView("labOtherTitile","[  其他設定  ]")newLine();
 	  createCheckBox("blockOutMode","卡位模式",false);newLine(); -- add 20150926 by Jay
 	  createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();
+	  createCheckBox("autoX2Mode","自動戰鬥x2",false);newLine(); -- add 20160109 by Jay
 	  createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
 	  newLine();newLine();newLine();
+	  
 	  --createTextView("labAutoTime1","[  懶人模式設定  ]");newLine();
 	  --createTextView("txtAutoTime1","特殊關卡執行秒數");createEditText("autoTime1",300,1,150,60);newLine();
 	  --createTextView("txtAutoTime2","主要關卡執行秒數");createEditText("autoTime2",100,1,150,60);newLine();
