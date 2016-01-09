@@ -848,7 +848,9 @@ function pickFriendAndSkill()
 end
 
 function mainCheckpoint(startTime)
-	while true do				
+	local loopCnt = 0; --add by Jay 20160109
+	while true do
+		loopCnt = loopCnt + 1;	
 		if isTopView() then
 			toast("在角色畫面");
 			touchClick(1095,590);
@@ -862,29 +864,31 @@ function mainCheckpoint(startTime)
 			local centerY = 360;
 
 			--地圖選擇 進入遊戲 正中間的關卡
-			sleep(1000); -- add 增加秒數避免過快跳過  20160109 by Jay
+			sleep(500); -- add 增加秒數避免過快跳過  20160109 by Jay
 			touchDown(centerX,centerY);
 			sleep(100);
 			touchUp();		
 			sleep(100);
-													
-			touchClick(centerX-50,centerY);
-			touchClick(centerX+50,centerY);
-			touchClick(centerX-70,centerY);
-			touchClick(centerX+70,centerY);
-			touchClick(centerX+120,centerY);
-			touchClick(centerX-120,centerY);
-			touchClick(centerX+150,centerY);
-			touchClick(centerX-150,centerY);
-			touchClick(centerX+200,centerY);
-			touchClick(centerX-200,centerY);
-			touchClick(centerX+300,centerY);
-			touchClick(centerX-300,centerY);
-			touchClick(centerX+400,centerY);
-			touchClick(centerX-400,centerY);
-			touchClick(centerX+500,centerY);
-			touchClick(centerX-500,centerY);			
-		
+			
+			if(loopCnt > 50) then -- when over check 50 time then  update 20160109 by Jay 
+				touchClick(centerX-50,centerY);
+				touchClick(centerX+50,centerY);
+				touchClick(centerX-70,centerY);
+				touchClick(centerX+70,centerY);
+				touchClick(centerX+120,centerY);
+				touchClick(centerX-120,centerY);
+				touchClick(centerX+150,centerY);
+				touchClick(centerX-150,centerY);
+				touchClick(centerX+200,centerY);
+				touchClick(centerX-200,centerY);
+				touchClick(centerX+300,centerY);
+				touchClick(centerX-300,centerY);
+				touchClick(centerX+400,centerY);
+				touchClick(centerX-400,centerY);
+				touchClick(centerX+500,centerY);
+				touchClick(centerX-500,centerY);			
+			end
+
 			sleep(5000);	
 		end
 		
