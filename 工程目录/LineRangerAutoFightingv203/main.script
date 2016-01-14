@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv2XX
+--LineRangerAutoFightingv203
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
 function autoFightAndHelpFriend(startTime)
