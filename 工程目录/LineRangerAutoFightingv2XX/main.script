@@ -2,54 +2,17 @@
 --LineRangerAutoFightingv2XX
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
-function autoFightAndHelpFriend(startTime)
-	while true do							
-		if isColor(703,47,0x97502D) then -- 判斷是否在好友頁面
-			-- isColor(720,590,0x9C22FF)  已打過
-			-- isColor(720,590,0x9C21FF) 未打過				
-			
-			touchClick(1107,633);sleep(1000); -- 點幫助
-			touchClick(822,546);sleep(1000); -- 取消 or 確認 
-			if(isColor(694,504,0x00BB33)) then
-				touchClick(644,520);sleep(1000); --  確認			
-			end
-			
-			if isColor(720,590,0x9C21FF) then -- 判斷是否有攻擊過
-				touchClick(720,590);sleep(3000);--點戰鬥
-				touchClick(640,630);sleep(3000);--下一步
-				touchClick(644,630);sleep(3000);--開始
-				
-				local notFightViewDetected = 0;
+function autoHelpFriend(startTime)
+	local count = 0;	
+	while true do									
+		if (isColor(1066,503,0xFFFFFF) and isColor(1066,498,0xFFFFFF)) or count > 55 then
+			toast("沒有朋友可以邀請 回角色畫面");
+			sleep(4000);
+			touchDown(43,93);
+			break;
+		end
 
-				while true do					
-					---- 檢查右上角有沒有暫停按鈕 戰鬥畫面								
-					if isFightingViewColor() then
-						toast("偵測到戰鬥開始");
-						fightingByUserSelectedMode(false);
-						sleep(3000);
-					end
-				
-					if not isFightingViewColor() then								
-						notFightViewDetected = notFightViewDetected + 1;
-						sleep(500);
-						if(notFightViewDetected > 10) then
-							touchClick(500,500);
-							sleep(3000);
-							break;
-						end							
-					end
-				end					
-			else
-				touchClick(50,135);sleep(3000);--回好友頁面					
-			end
-		else
-			if isColor(1066,508,0xFFFFFF) and isColor(1066,500,0xFFFFFF) then					
-				toast("沒有朋友可以邀請 回角色畫面");
-				sleep(4000);
-				touchDown(43,93);
-				break;				
-			end
-
+		if isColor(432,490,0xCD9B6A) or isColor(507,490,0xCD9B6A) then
 			--移動到下一位好友
 			touchDown(460,400);sleep(100);
 			touchMove(430,400);sleep(100);
@@ -60,21 +23,21 @@ function autoFightAndHelpFriend(startTime)
 			touchMove(205,400);sleep(50);
 			sleep(200);
 			touchUp();	
-			sleep(2000);				
-			touchClick(168,354);sleep(1000);--點主頁
-			
-			--if(os.difftime(os.time () , startTime) > tonumber(autoTime5)) then				
-				--toast(string.format("%s %d %s","離開 - 滿足對戰好友離開條件",autoTime5,"秒"));
-				--sleep(3000);
-				--backToMain();
-				--goto endautoFightAndHelpFriend
-			--else
-				--toast(string.format("%s %d %s","還有",tonumber(autoTime5) - os.difftime(os.time () , startTime),"秒 離開對戰好友"));
-				--sleep(3000);
-			--end
+			sleep(2000);	
+			count = count + 1;				
 		end
+				
+		if isColor(431,491,0xFFEE44) then
+			touchClick(431,491) -- 點help
+			sleep(2000)
+			touchClick(689,546) --點確認
+			sleep(2000)		
+			touchClick(719,489) --點第二次確認
+			sleep(2000)
+			count = count + 1;
+		end			
 	end	
-	::endautoFightAndHelpFriend::
+	::endautoHelpFriend::	
 end
 
 function showWinLossCnt() --add 20160109 by Jay  (calculate total fight result)
@@ -978,7 +941,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方6 and 符合魔法的迷途魔方時間 () then  	advPlay("魔法的迷途魔方6","leftPlusLittleRight",adv魔法的迷途魔方Skill6,alignRight6_X,alignRight6_Y,startTime);  end
 	if adv無盡的黃金沙漠6 and 符合無盡的黃金沙漠時間 () then   	advPlay("無盡的黃金沙漠6","left",adv無盡的黃金沙漠Skill6,alignLeft6_X,alignLeft6_Y,startTime);  end			
 	if adv甦醒的魔眼6 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼6","left",adv甦醒的魔眼Skill6,alignLeft6_X,alignLeft6_Y,startTime); end
-	if adv逆時發條6 and 符合逆時發條時間() then 				advPlay("逆時發條6","right",adv逆時發條Skill6,alignLeft6_X,alignLeft6_Y,startTime); end			
+	if adv逆時發條6 and 符合逆時發條時間() then 				advPlay("逆時發條6","leftPlusLittleRight",adv逆時發條Skill6,alignLeft6_X,alignLeft6_Y,startTime); end			
 	if adv未知礦山6 and 符合未知礦山時間() then 				advPlay("未知礦山6","leftPlusLittleRight",adv未知礦山Skill6,alignLeft6_X,alignLeft6_Y,startTime); end				
 
 
@@ -1001,7 +964,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方5 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方5","leftPlusLittleRight",adv魔法的迷途魔方Skill5,alignRight5_X,alignRight5_Y,startTime); end
 	if adv無盡的黃金沙漠5 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠5","left",adv無盡的黃金沙漠Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	if adv甦醒的魔眼5 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼5","left",adv甦醒的魔眼Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
-	if adv逆時發條5 and 符合逆時發條時間() then				advPlay("逆時發條5","right",adv逆時發條Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
+	if adv逆時發條5 and 符合逆時發條時間() then				advPlay("逆時發條5","leftPlusLittleRight",adv逆時發條Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	if adv未知礦山5 and 符合未知礦山時間() then				advPlay("未知礦山5","leftPlusLittleRight",adv未知礦山Skill5,alignLeft5_X,alignLeft5_Y,startTime); end
 	
 
@@ -1023,7 +986,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方4 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方4","leftPlusLittleRight",adv魔法的迷途魔方Skill4,alignRight4_X,alignRight4_Y,startTime); end	
 	if adv無盡的黃金沙漠4 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠4","left",adv無盡的黃金沙漠Skill4,alignLeft4_X,alignLeft4_Y,startTime); end				
 	if adv甦醒的魔眼4 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼4","left",adv甦醒的魔眼Skill4,alignLeft4_X,alignLeft4_Y,startTime); end		
-	if adv逆時發條4 and 符合逆時發條時間() then				advPlay("逆時發條4","right",adv逆時發條Skill4,alignLeft4_X,alignLeft4_Y,startTime); end
+	if adv逆時發條4 and 符合逆時發條時間() then				advPlay("逆時發條4","leftPlusLittleRight",adv逆時發條Skill4,alignLeft4_X,alignLeft4_Y,startTime); end
 	if adv未知礦山4 and 符合未知礦山時間() then				advPlay("未知礦山4","leftPlusLittleRight",adv未知礦山Skill4,alignLeft4_X,alignLeft4_Y,startTime); end
 
 
@@ -1045,7 +1008,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方3 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方3","leftPlusLittleRight",adv魔法的迷途魔方Skill3,alignRight3_X,alignRight3_Y,startTime); end		
 	if adv無盡的黃金沙漠3  and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠3","left",adv無盡的黃金沙漠Skill3,alignLeft3_X,alignLeft3_Y,startTime); end					
 	if adv甦醒的魔眼3 and 符合甦醒的魔眼時間 ()  then			advPlay("甦醒的魔眼3","left",adv甦醒的魔眼Skill3,alignLeft3_X,alignLeft3_Y,startTime); end				
-	if adv逆時發條3 and 符合逆時發條時間() then				advPlay("逆時發條3","right",adv逆時發條Skill3,alignLeft3_X,alignLeft3_Y,startTime); end
+	if adv逆時發條3 and 符合逆時發條時間() then				advPlay("逆時發條3","leftPlusLittleRight",adv逆時發條Skill3,alignLeft3_X,alignLeft3_Y,startTime); end
 	if adv未知礦山3 and 符合未知礦山時間() then				advPlay("未知礦山3","leftPlusLittleRight",adv未知礦山Skill3,alignLeft3_X,alignLeft3_Y,startTime); end	
 
 
@@ -1067,7 +1030,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方2 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方2","leftPlusLittleRight",adv魔法的迷途魔方Skill2,alignRight2_X,alignRight2_Y,startTime); end
 	if adv無盡的黃金沙漠2 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠2","left",adv無盡的黃金沙漠Skill2,alignLeft2_X,alignLeft2_Y,startTime); end			
 	if adv甦醒的魔眼2 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼2","left",adv甦醒的魔眼Skill2,alignLeft2_X,alignLeft2_Y,startTime);	end			
-	if adv逆時發條2 and 符合逆時發條時間() then				advPlay("逆時發條2","right",adv逆時發條Skill2,alignLeft2_X,alignLeft2_Y,startTime); end
+	if adv逆時發條2 and 符合逆時發條時間() then				advPlay("逆時發條2","leftPlusLittleRight",adv逆時發條Skill2,alignLeft2_X,alignLeft2_Y,startTime); end
 	if adv未知礦山2 and 符合未知礦山時間() then				advPlay("未知礦山2","leftPlusLittleRight",adv未知礦山Skill2,alignLeft2_X,alignLeft2_Y,startTime); end	
 			
 	if adv甜蜜的糖衣陷阱1 then	advPlay("甜蜜的糖衣陷阱1","right",adv甜蜜的糖衣陷阱Skill1,alignRight1_X,alignRight1_Y,startTime);  end	
@@ -1088,7 +1051,7 @@ function specialCheckpoint(startTime)
 	if adv魔法的迷途魔方1 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方1","leftPlusLittleRight",adv魔法的迷途魔方Skill1,alignRight1_X,alignRight1_Y,startTime);	end	
 	if adv無盡的黃金沙漠1 and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠1","left",adv無盡的黃金沙漠Skill1,alignLeft1_X,alignLeft1_Y,startTime); end 
 	if adv甦醒的魔眼1 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼1","left",adv甦醒的魔眼Skill1,alignLeft1_X,alignLeft1_Y,startTime); end					
-	if adv逆時發條1 and 符合逆時發條時間() then				advPlay("逆時發條1","right",adv逆時發條Skill1,alignLeft1_X,alignLeft1_Y,startTime); end
+	if adv逆時發條1 and 符合逆時發條時間() then				advPlay("逆時發條1","leftPlusLittleRight",adv逆時發條Skill1,alignLeft1_X,alignLeft1_Y,startTime); end
 	if adv未知礦山1 and 符合未知礦山時間() then				advPlay("未知礦山1","leftPlusLittleRight",adv未知礦山Skill1,alignLeft1_X,alignLeft1_Y,startTime); end		
 end
 
@@ -1141,7 +1104,7 @@ function createUI()
 	createRadioBox("UI_type","特殊關卡",true);newLine();
 	createRadioBox("UI_type","無盡模式",false);newLine();
 	--createRadioBox("UI_type","PVP",false);newLine();
-	createRadioBox("UI_type","自動對戰跟幫助好友",false);
+	createRadioBox("UI_type","幫助好友",false);
 
 	newLine()newLine()newLine();newLine();
 
@@ -1467,7 +1430,7 @@ function main()
 				touchClick(365,625);
 				toast("開始執行對戰好友");
 				sleep(4000);
-				autoFightAndHelpFriend(os.time());
+				autoHelpFriend(os.time());
 				sleep(3000);
 			end
 
@@ -1529,15 +1492,13 @@ function main()
 		end					
 	end	
 	
-	if(UI_type == "自動對戰跟幫助好友") then
+	if(UI_type == "幫助好友") then
 		sleep(1000);
 		if isTopView() then
-			touchClick(371,633); --點好友icon	
-		end
-		
-		sleep(1000);
-		
-		autoFightAndHelpFriend();
+			touchClick(759,641); --點好友icon	
+		end		
+		sleep(1000);				
+		autoHelpFriend();
 	end
 		
 	--TODO
