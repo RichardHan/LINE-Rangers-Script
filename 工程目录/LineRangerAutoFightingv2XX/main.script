@@ -625,8 +625,8 @@ function fighting(useSkill)
 				break;	
 			end							
 			
-			-- default - win   or      確認出現是否有寶物		
-			if isColor(1190,242,0x07161D) or isColor(32,548,0x080603) then --add color 20160101
+			-- default - win   or      確認出現是否有寶物					
+			if isColor(1190,242,0x246F90) or isColor(935,181,0xAA5926) or isColor(1190,242,0x07161D) or isColor(32,548,0x080603) then --add color 20160101
 				winCnt = winCnt + 1; --add 20160109 by Jay  (calculate total fight result)
 				toast("WIN");
 				sleep(6000);
