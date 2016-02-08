@@ -12,7 +12,7 @@ function autoHelpFriend(startTime)
 			break;
 		end
 
-		if isColor(432,490,0xCD9B6A) or isColor(507,490,0xCD9B6A) then
+		if isColor(191,475,0xBE1100) or isColor(432,490,0xCD9B6A) or isColor(507,490,0xCD9B6A) then
 			--移動到下一位好友
 			touchDown(460,400);sleep(100);
 			touchMove(430,400);sleep(100);
