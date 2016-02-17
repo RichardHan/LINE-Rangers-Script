@@ -263,21 +263,40 @@ function isFightButtonShow()  --2015-08-16 by Jay
 end
 
 function isFightingViewColor()
-	if isColor(1207,70,0x351407) or isColor(1207,70,0x351407) then
+	-- 正常關卡     1207,70,0x351407                             
+	-- PVP            1208,125,0x351407
+	if isColor(1207,70,0x351407) or isColor(1208,125,0x351407) then
 		return true;
 	else
 		sleep(300);
-		if isColor(1207,70,0x351407) or isColor(1207,70,0x351407) then 
+		if isColor(1207,70,0x351407) or isColor(1208,125,0x351407) then 
 			return true;
 		else
 			sleep(300);
-			if isColor(1207,70,0x351407) or isColor(1207,70,0x351407) then 
+			if isColor(1207,70,0x351407) or isColor(1208,125,0x351407) then 
 				return true;
 			else
 				return false;
 			end
 		end		
 	end
+end
+
+function isPVPViewColor()	 
+	if isColor(1208,125,0x351407) then
+		return true;
+	else
+		sleep(100);
+		if isColor(1208,125,0x351407) then
+			return true;
+		else
+			if isColor(1208,125,0x351407) then 
+				return true;
+			else
+				return false;
+			end
+		end		
+	end	
 end
 
 function isLevelEightColor()
@@ -395,23 +414,25 @@ function switchTeam()
 end
 
 --todo
-function clickLINEAutoButton()			
-	if(UI_type == "無盡模式") then
-		sleep(500);
-		touchClick(1229,196); -- 無盡	
-		if autoX2Mode then 
-			sleep(150);
-			touchClick(1229,196);
-		end
-	else
-		sleep(500);
-		touchClick(1211,148); -- 其他關卡
-		if autoX2Mode then --add 20160109 Jay
-			sleep(150);
-			touchClick(1211,148);
-		end
-		
-	end	
+function clickLINEAutoButton()
+	-- PVP mode didnt have auto button
+	if not isPVPViewColor() then
+		if(UI_type == "無盡模式") then
+			sleep(500);
+			touchClick(1229,196); -- 無盡	
+			if autoX2Mode then 
+				sleep(150);
+				touchClick(1229,196);
+			end
+		else
+			sleep(500);
+			touchClick(1211,148); -- 其他關卡
+			if autoX2Mode then --add 20160109 Jay
+				sleep(150);
+				touchClick(1211,148);
+			end		
+		end	
+	end
 end
 
 --todo
