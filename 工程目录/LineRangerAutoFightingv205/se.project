@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv205</name>
+ <desc>修正對戰畫面顏色</desc>
+ <script>main.script</script>
+</project>
