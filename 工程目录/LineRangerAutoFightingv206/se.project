@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv206</name>
+ <desc>Bug fix</desc>
+ <script>main.script</script>
+</project>
