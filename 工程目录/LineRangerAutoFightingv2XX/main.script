@@ -479,19 +479,22 @@ function fightingByUserSelectedMode(useSkill)
 					touchClick(1015,575);	--升級礦石							
 				end
 								
-				if (UI_type == "無盡模式") then
-					if not isClickedLineAutoButton then
-						clickLINEAutoButton();
-						sleep(2000);
-						clickLINEAutoButton();
-						isClickedLineAutoButton = true;		
-					end				
-				else
-					if not isClickedLineAutoButton then
-						clickLINEAutoButton();
-						isClickedLineAutoButton = true;		
-					end									
-				end								
+				if (not UI_type == "PVP") then												
+					if (UI_type == "無盡模式") then
+						if not isClickedLineAutoButton then
+							clickLINEAutoButton();
+							sleep(2000);
+							clickLINEAutoButton();
+							isClickedLineAutoButton = true;		
+						end				
+					else
+						-- 主要關卡 特殊關卡跟其他
+						if not isClickedLineAutoButton then
+							clickLINEAutoButton();
+							isClickedLineAutoButton = true;		
+						end									
+					end
+				end						
 			end	
 		end
 		
@@ -817,10 +820,8 @@ function pickFriendAndSkill()
 	::endpickFriendAndSkill::
 end
 
-function mainCheckpoint(startTime)
-	local loopCnt = 0; --add by Jay 20160109
-	while true do
-		loopCnt = loopCnt + 1;	
+function mainCheckpoint(startTime)	
+	while true do	
 		if isTopView() then
 			toast("在角色畫面");
 			touchClick(1095,590);
@@ -839,26 +840,24 @@ function mainCheckpoint(startTime)
 			sleep(100);
 			touchUp();		
 			sleep(100);
-			
-			if(loopCnt > 50) then -- when over check 50 time then  update 20160109 by Jay 
-				touchClick(centerX-50,centerY);
-				touchClick(centerX+50,centerY);
-				touchClick(centerX-70,centerY);
-				touchClick(centerX+70,centerY);
-				touchClick(centerX+120,centerY);
-				touchClick(centerX-120,centerY);
-				touchClick(centerX+150,centerY);
-				touchClick(centerX-150,centerY);
-				touchClick(centerX+200,centerY);
-				touchClick(centerX-200,centerY);
-				touchClick(centerX+300,centerY);
-				touchClick(centerX-300,centerY);
-				touchClick(centerX+400,centerY);
-				touchClick(centerX-400,centerY);
-				touchClick(centerX+500,centerY);
-				touchClick(centerX-500,centerY);			
-			end
-
+							
+			touchClick(centerX-50,centerY);
+			touchClick(centerX+50,centerY);
+			touchClick(centerX-70,centerY);
+			touchClick(centerX+70,centerY);
+			touchClick(centerX+120,centerY);
+			touchClick(centerX-120,centerY);
+			touchClick(centerX+150,centerY);
+			touchClick(centerX-150,centerY);
+			touchClick(centerX+200,centerY);
+			touchClick(centerX-200,centerY);
+			touchClick(centerX+300,centerY);
+			touchClick(centerX-300,centerY);
+			touchClick(centerX+400,centerY);
+			touchClick(centerX-400,centerY);
+			touchClick(centerX+500,centerY);
+			touchClick(centerX-500,centerY);
+		
 			sleep(5000);	
 		end
 		
@@ -1125,14 +1124,14 @@ function createUI()
 	createRadioBox("UI_type","主要關卡",false);newLine();
 	createRadioBox("UI_type","特殊關卡",true);newLine();
 	createRadioBox("UI_type","無盡模式",false);newLine();
-	--createRadioBox("UI_type","PVP",false);newLine();
+	createRadioBox("UI_type","PVP",false);newLine();
 	createRadioBox("UI_type","幫助好友",false);
 
 	newLine()newLine()newLine();newLine();
 
 	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
-	createRadioBox("isSwitchTeam","不切換",false);newLine();	
-	createRadioBox("isSwitchTeam","連續切換",true);
+	createRadioBox("isSwitchTeam","不切換",true);newLine();	
+	createRadioBox("isSwitchTeam","連續切換",false);
 	createTextView("labdelaySec"," -  幾秒後開始切換:");createEditText("txtTeamDelaySec",30,1,70,60);
 	  
 	newLine()newLine()newLine();newLine();
@@ -1478,7 +1477,7 @@ function main()
 		mainCheckpoint();
 	end
 	
-	if(UI_type == "無盡模式") then
+	if(UI_type == "無盡模式" or UI_type == "PVP") then
 		while true do
 			-- 如果再進入畫面  點 "戰鬥"button
 			if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
