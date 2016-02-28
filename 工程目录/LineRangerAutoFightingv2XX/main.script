@@ -88,63 +88,75 @@ function isPopupScreenColor()
 end
 
 function clickSkill1()	--火球
-
-	if autoPickFriend() then
-		if isColor(242,97,0x000000) then
-			touchClick(242,97);
-		end	
+	if (UI_type == "PVP") then		
+		touchClick(161,130)touchClick(161,130)
 	else
-		--if isColor(161,100,0x000000) then --fix by Jay
-		if isColor(161,97,0x000000) then 
-			touchClick(169,100); --gold (169,52,0xFFFCA7)
-		end	
-	end	
+		if autoPickFriend() then
+			if isColor(242,97,0x000000) then
+				touchClick(242,97);
+			end	
+		else
+			--if isColor(161,100,0x000000) then --fix by Jay
+			if isColor(161,97,0x000000) then 
+				touchClick(169,100); --gold (169,52,0xFFFCA7)
+			end	
+		end			
+	end
 end	
 function clickSkill2()	--冰
-
-	if autoPickFriend() then
-		if isColor(339,99,0x000000) then
-			touchClick(339,99);
-		end	
+	if (UI_type == "PVP") then	
+		touchClick(245,128)touchClick(245,128)
 	else
-		--if isColor(249,97,0x000000) then --fix by Jay
-		if isColor(249,96,0x000000) then 
-			touchClick(256,64); --blue (256,64,0x04DCFC)
-		end	
-	end	
-end
-
-function clickSkill3() --龍捲風	
-	if autoPickFriend() then
-		if isColor(430,98,0x000000) then
-			touchClick(430,98);
-		end	
-	else
-	      --if isColor(344,98,0x000000) then --fix by Jay
-		if isColor(344,97,0x000000) then 
-			touchClick(343,35); --purple (343,35, 0xF0D9F9)
-		end	
+		if autoPickFriend() then
+			if isColor(339,99,0x000000) then
+				touchClick(339,99);
+			end	
+		else		
+			if isColor(249,96,0x000000) then 
+				touchClick(256,64);
+			end	
+		end		
 	end
 end
 
-function clickSkill4()	-- 防護罩	
-	if autoPickFriend() then
-		if isColor(519,98,0x000000) then
-			touchClick(519,98);
-		end	
+function clickSkill3() --龍捲風		
+	if (UI_type == "PVP") then	
+		touchClick(340,131)touchClick(340,131)
 	else
-	      --if isColor(431,98,0x000000) then --fix by Jay
-		if isColor(431,98,0x000000) then 
-			touchClick(432,53); --blue (432,53,0x03E1FC)
+		if autoPickFriend() then
+			if isColor(430,98,0x000000) then
+				touchClick(430,98);
+			end	
+		else
+			  --if isColor(344,98,0x000000) then --fix by Jay
+			if isColor(344,97,0x000000) then 
+				touchClick(343,35); --purple (343,35, 0xF0D9F9)
+			end	
+		end
+	end
+end
+
+function clickSkill4()	-- 防護罩		
+	if (UI_type == "PVP") then	
+		touchClick(431,129)touchClick(431,129)
+	else
+		if autoPickFriend() then
+			if isColor(519,98,0x000000) then
+				touchClick(519,98);
+			end	
+		else			  
+			if isColor(431,98,0x000000) then 
+				touchClick(432,53);
+			end	
 		end	
-	end					
+	end
 end
 
 function backToMain()
 	while true do
 		if isPopExitDialog()then 
 			sleep(1000);
-			touchClick(587,482);	
+			touchClick(587,482);
 			sleep(1000);
 			break;
 		else
@@ -521,7 +533,7 @@ function fightingByUserSelectedMode(useSkill)
 				
 		i = i + 1;
 		
-		if useSkill then
+		if useSkill or (UI_type == "PVP") then
 			if (i > tonumber(skill0deplay)) and (i < tonumber(skill0deplay)+5) and not (tonumber(skill0deplay) == 0) then				
 				callFriend();
 			end
@@ -1534,7 +1546,7 @@ function main()
 		mainCheckpoint();
 	end
 	
-	if(UI_type == "無盡模式" or UI_type == "PVP") then
+	if(UI_type == "無盡模式") then
 		while true do
 			-- 如果再進入畫面  點 "戰鬥"button
 			if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
@@ -1559,7 +1571,7 @@ function main()
 				touchClick(975,592);
 			end	
 			sleep(1000);							
-			pickFriendAndSkill(false);				
+			pickFriendAndSkill(true);				
 			if isFightingViewColor() then
 				toast("偵測到戰鬥開始");
 				fightingByUserSelectedMode(true);
@@ -1567,7 +1579,7 @@ function main()
 				touchClick(500,500); --關關紅利
 				touchClick(641,609); --停止button	
 			end			
-		end					
+		end
 	end	
 	
 	if(UI_type == "競技場模式") then
