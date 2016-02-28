@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv207</name>
+ <desc>add PVP mode and bug fix</desc>
+ <script>main.script</script>
+</project>
