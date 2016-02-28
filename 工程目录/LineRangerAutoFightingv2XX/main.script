@@ -479,7 +479,7 @@ function fightingByUserSelectedMode(useSkill)
 					touchClick(1015,575);	--升級礦石							
 				end
 								
-				if (not UI_type == "PVP") then												
+				if not(UI_type == "PVP") then												
 					if (UI_type == "無盡模式") then
 						if not isClickedLineAutoButton then
 							clickLINEAutoButton();
@@ -677,9 +677,10 @@ function fighting(useSkill)
 				
 				-- 確認出現是否有寶物
 				--if isColor(879,698,0x0E0000) then  --update by Jay 20160109
-				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) then --(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠
+				--(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠															     
+				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) then 
 					toast("寶物確認");
-					touchClick(600,560);					
+					touchClick(750,640);					
 					sleep(6000);	
 				end	
 																				
