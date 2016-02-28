@@ -534,6 +534,7 @@ function fightingByUserSelectedMode(useSkill)
 		end
 
 		if useSkill or (UI_type == "PVP") then
+<<<<<<< d7f8721a389f22ae15bbe59d3344610fe8946324
 			if (i > tonumber(skill1deplay)) and (i < tonumber(skill1deplay)+5) and not (tonumber(skill1deplay) == 0)  then
 				clickSkill1();			
 			end
@@ -544,6 +545,22 @@ function fightingByUserSelectedMode(useSkill)
 				clickSkill3();			
 			end
 			if (i > tonumber(skill4deplay)) and (i < tonumber(skill4deplay)+5) and not (tonumber(skill4deplay) == 0) then
+=======
+			--if (i > tonumber(skill1deplay)) and (i < tonumber(skill1deplay)+10) and not (tonumber(skill1deplay) == 0)  then
+			if (i > tonumber(skill1deplay)) and not (tonumber(skill1deplay) == 0)  then			
+				clickSkill1();			
+			end
+			--if (i > tonumber(skill2deplay)) and (i < tonumber(skill2deplay)+10) and not (tonumber(skill2deplay) == 0) then
+			if (i > tonumber(skill2deplay)) and not (tonumber(skill2deplay) == 0) then				
+				clickSkill2();			
+			end
+			--if (i > tonumber(skill3deplay)) and (i < tonumber(skill3deplay)+10) and not (tonumber(skill3deplay) == 0) then
+			if (i > tonumber(skill3deplay)) and not (tonumber(skill3deplay) == 0) then				
+				clickSkill3();			
+			end
+			--if (i > tonumber(skill4deplay)) and (i < tonumber(skill4deplay)+10) and not (tonumber(skill4deplay) == 0) then
+			if (i > tonumber(skill4deplay)) and not (tonumber(skill4deplay) == 0) then				
+>>>>>>> e94b331cc9c9efd07814420730e88b4721e9059e
 				clickSkill4();
 			end									
 		end
@@ -1564,7 +1581,11 @@ function main()
 	if(UI_type == "PVP") then
 		while true do
 			-- 如果再進入畫面  點 "戰鬥"
+<<<<<<< d7f8721a389f22ae15bbe59d3344610fe8946324
 			if(isColor(1055,579,0xD10E06) and isColor(1090,594,0xD10E06)) then
+=======
+			if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
+>>>>>>> e94b331cc9c9efd07814420730e88b4721e9059e
 				touchClick(975,592);
 			end	
 			sleep(1000);							
