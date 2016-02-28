@@ -410,10 +410,6 @@ function upgradeCrystalToEight()
 end
 
 function callFriend()
-	--call friend help
-	--if isColor(196,60,0x090503) or isColor(196,60,0x090503)   then
-	--	touchClick(160,68)touchClick(160,68)		
-	--end
 	touchClick(160,68)touchClick(160,68)
 end
 
@@ -532,11 +528,13 @@ function fightingByUserSelectedMode(useSkill)
 		end
 				
 		i = i + 1;
-		
+
+		-- 呼叫好友
+		if (i > tonumber(skill0deplay)) and (i < tonumber(skill0deplay)+5) and not (tonumber(skill0deplay) == 0) then				
+			callFriend();
+		end
+
 		if useSkill or (UI_type == "PVP") then
-			if (i > tonumber(skill0deplay)) and (i < tonumber(skill0deplay)+5) and not (tonumber(skill0deplay) == 0) then				
-				callFriend();
-			end
 			if (i > tonumber(skill1deplay)) and (i < tonumber(skill1deplay)+5) and not (tonumber(skill1deplay) == 0)  then
 				clickSkill1();			
 			end
