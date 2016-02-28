@@ -615,7 +615,7 @@ function loopFifghtingInSpecialMode(useSkill,startTime)
 				--toast(autoTime1+"時間到離開特殊關卡");
 				toast(string.format("%s %d %s","離開 - 滿足特殊關卡離開條件",autoTime1,"秒"));
 				sleep(3000);
-				backToMain();
+				backToMain()
 				goto endloopFifghtingInSpecialMode	
 			else
 				toast(string.format("%s %d %s","還有",tonumber(autoTime1) - os.difftime(os.time () , startTime),"秒 離開特殊關卡"));
@@ -875,7 +875,7 @@ function mainCheckpoint(startTime)
 				--toast(autoTime1+"時間到離開特殊關卡");
 				toast(string.format("%s %d %s","離開 - 滿足主要關卡離開條件",autoTime2,"秒"));
 				sleep(3000);
-				backToMain();
+				backToMain()
 				goto endmainCheckpoint	
 			else
 				toast(string.format("%s %d %s","還有",tonumber(autoTime2) - os.difftime(os.time () , startTime),"秒 離開主要關卡"));
@@ -1116,6 +1116,58 @@ function closeWindows1()
         closeWindow("my_window_1")        
 end
 
+-- must > 200
+function runArenamode(times)
+	local i = 0;
+	while i < times do
+		sleep(2000);	
+		
+		-- 競技場模式首頁
+		if (isColor(214,591,0x07283B) and isColor(935,584,0x072937) and (times - 100) > i) then
+			--從關卡1開始點到10
+			touchClick(307,233) --1
+			touchClick(485,247) --2
+			touchClick(649,243) --3
+			touchClick(810,234) --4
+			touchClick(977,232) --5
+			touchClick(302,423) --6
+			touchClick(470,418) --7
+			touchClick(645,424) --8
+			touchClick(813,423) --9
+			touchClick(973,418) --10
+		end
+		
+		sleep(2000)
+		
+		-- 自動選隊伍
+		touchClick(1112,152)
+		
+		sleep(1000)
+		
+		--下一步 or 開始
+		touchClick(760,668)
+		
+		sleep(1000)
+		
+		-- 如果出現寶物 點中間
+		if not (isColor(650,550,0x145163)) then
+			touchClick(650,550);
+		end
+
+		--確認寶物內容
+		if isColor(740,642,0x05C232) then
+			touchClick(740,642)
+		end
+
+		-- 如果有好友 點好友
+		if(isColor(33,145,0x000000) and isColor(85,143,0x000000)) then
+			touchClick(50,145)touchClick(50,145)
+		end	
+		i = i + 1;		
+	end	
+	backToMain()
+end
+
 function createUI()		
 	showLoopSetting(false);		
 	createTextView("UI_tv","[ 模式選擇 ]")
@@ -1126,6 +1178,7 @@ function createUI()
 	createRadioBox("UI_type","特殊關卡",true);newLine();
 	createRadioBox("UI_type","無盡模式",false);newLine();
 	createRadioBox("UI_type","PVP",false);newLine();
+	createRadioBox("UI_type","競技場模式",false);newLine();
 	createRadioBox("UI_type","幫助好友",false);
 
 	newLine()newLine()newLine();newLine();
@@ -1313,7 +1366,8 @@ function createUI()
 	  newLine()newLine()newLine()newLine()	  
 	  createTextView("labSkillDelay","[  自動技能延遲使用時間設定(秒) ]")newLine();	  
 	  createTextView("delaySkill0","呼叫好友");
-	  createEditText("skill0deplay",3,1,70,60);	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
+	  createEditText("skill0deplay",3,1,70,60);	  
+	  createTextView("labSkillDelay2","  (設定 0 表示不使用)")newLine();
 	  createTextView("delaySkill1","隕石");
 	  createEditText("skill1deplay",20,1,70,60);
 	  createTextView("delaySkill2","冰");
@@ -1326,7 +1380,9 @@ function createUI()
 	  createTextView("labOtherTitile","[  其他設定  ]")newLine();
 	  createCheckBox("blockOutMode","卡位模式",false);newLine(); -- add 20150926 by Jay
 	  createCheckBox("autobuyFeather","自動友情點數買羽毛",false);newLine();
-	  createCheckBox("autoX2Mode","自動戰鬥x2",false);newLine(); -- add 20160109 by Jay
+	  -- @20160109 first add by Jay , 
+	  -- @20160228 update to by default by Richard
+	  createCheckBox("autoX2Mode","自動戰鬥x2",true);newLine(); 
 	  createTextView("delayTxt","休息分鐘後執行腳本");createEditText("delayMinute",0,1,70,60);newLine(); -- add on v141,  by Richard 	
 	  newLine();newLine();newLine();
 	  
@@ -1419,7 +1475,7 @@ function main()
 							--toast(autoTime1+"時間到離開特殊關卡");
 							toast(string.format("%s %d %s","離開 - 滿足團戰離開條件",autoTime3,"秒"));
 							sleep(3000);
-							backToMain();
+							backToMain()
 							goto endBattlegroup	
 						else
 							toast(string.format("%s %d %s","還有",tonumber(autoTime3) - os.difftime(os.time () , startTime),"秒 離開團戰"));
@@ -1505,14 +1561,19 @@ function main()
 			sleep(1000);							
 			pickFriendAndSkill(false);				
 			if isFightingViewColor() then
-				toast("偵測到戰鬥開始");							
-				fightingByUserSelectedMode(skillMainpoint);
+				toast("偵測到戰鬥開始");
+				fightingByUserSelectedMode(true);
 			else			
 				touchClick(500,500); --關關紅利
 				touchClick(641,609); --停止button	
 			end			
 		end					
 	end	
+	
+	if(UI_type == "競技場模式") then
+		-- params must > 200
+		runArenamode(1000);
+	end
 	
 	if(UI_type == "幫助好友") then
 		sleep(1000);
