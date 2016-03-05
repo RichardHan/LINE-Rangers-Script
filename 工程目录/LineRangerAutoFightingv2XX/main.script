@@ -2,9 +2,105 @@
 --LineRangerAutoFightingv2XX
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
-function autoHelpFriend(startTime)
+
+
+
+function 進入公會副本()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(1065,391) --公會副本
+			sleep(2000)
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入競技場()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(1063,278) --競技場
+			sleep(2000)
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入PVP()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(1060,148) --PVP
+			sleep(2000)
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入特殊關卡()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(928,276) --特殊
+			sleep(2000)
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入無盡模式()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(932,396) --無盡模式
+			sleep(2000)
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入主要關卡()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true then
+		if (isColor(1231,43,0xFFFFFF) then
+			break;
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+
+function autoHelpFriend(times)
 	local count = 0;	
-	while true do									
+	while count < times do									
 		if (isColor(1066,503,0xFFFFFF) and isColor(1066,498,0xFFFFFF)) or count > 55 then
 			toast("沒有朋友可以邀請 回角色畫面");
 			sleep(4000);
@@ -155,19 +251,19 @@ end
 function backToMain()
 	while true do
 		if isPopExitDialog()then 
-			sleep(1000);
-			touchClick(587,482);
+			sleep(1000);	
+			touchClick(555,484);
 			sleep(1000);
 			break;
 		else
-			input(4);
+			input(4);  --点击返回键
 			sleep(2000);		
 		end
 	end
 end
 
 function isPopExitDialog()
-	if isColor(793,489,0x00BB33) and isColor(607,488,0x22AACC) and isColor(233,598,0x272727) then
+	if  isColor(1120,668,0x272727) and isColor(1128,655,0x272727) then
 		return true;	
 	else
 		return false;
@@ -1185,15 +1281,15 @@ end
 function createUI()		
 	showLoopSetting(false);		
 	createTextView("UI_tv","[ 模式選擇 ]")
-	newLine();	
-	--createRadioBox("UI_type","懶人模式",false);newLine(); 
-	createRadioBox("UI_type","自動戰鬥(手動)",false);newLine();
-	createRadioBox("UI_type","主要關卡",false);newLine();
-	createRadioBox("UI_type","特殊關卡",true);newLine();
-	createRadioBox("UI_type","無盡模式",false);newLine();
-	createRadioBox("UI_type","PVP",false);newLine();
-	createRadioBox("UI_type","競技場模式",false);newLine();
-	createRadioBox("UI_type","幫助好友",false);
+	newLine();		
+	createRadioBox("UI_type","自動戰鬥(手動)",false)newLine()
+	createRadioBox("UI_type","主要關卡",false)
+	createRadioBox("UI_type","特殊關卡",false)
+	createRadioBox("UI_type","無盡模式",false)newLine();
+	createRadioBox("UI_type","PVP",false)
+	createRadioBox("UI_type","競技場模式",false)
+	createRadioBox("UI_type","幫助好友",false)newLine();newLine();
+	createRadioBox("UI_type","懶人模式",true)newLine();
 
 	newLine()newLine()newLine();newLine();
 
@@ -1446,8 +1542,47 @@ function main()
 	if(UI_type == "懶人模式") then
 		local count = 1;
 		while true do
-						
+				
+			backToMain();
+			
+			toast("幫助好友10次 - 開始"); sleep(3000);	
+			touchClick(768,645) -- 點雪好友畫面		
+			autoHelpFriend(10)
+			toast("幫助好友10次 - 結束"); sleep(3000);
+		
+			backToMain();
+
 			sleep(3000);
+			
+			
+
+			touchClick(891,646) -- 點選任務畫面
+			touchClick(1021,637) --點選禮物盒
+			
+			
+
+			touchClick(625,232) --點選主要關卡
+			sleep(2000)
+			while true then
+				if (isColor(1231,43,0xFFFFFF) then
+					touchClick(1228,37) --點右上角選單	
+					sleep(1000)	
+					touchClick(928,276) --特殊
+				else
+					sleep(2000)
+				end							
+			end
+
+									
+			--touchClick(930,151) --主要
+			--進入特殊關卡()
+			--進入無盡模式()
+			--進入無盡模式()
+			--進入PVP()
+			--進入競技場()
+			--進入公會副本()
+						
+			
 
 			if(isTopView()) then
 				toast("在腳色畫面 > 進入主要關卡");
@@ -1522,7 +1657,7 @@ function main()
 				touchClick(365,625);
 				toast("開始執行對戰好友");
 				sleep(4000);
-				autoHelpFriend(os.time());
+				autoHelpFriend(10);
 				sleep(3000);
 			end
 
@@ -1595,7 +1730,7 @@ function main()
 			touchClick(759,641); --點好友icon	
 		end		
 		sleep(1000);				
-		autoHelpFriend();
+		autoHelpFriend(1000);
 	end
 		
 	--TODO
