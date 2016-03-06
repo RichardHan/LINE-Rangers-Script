@@ -2,6 +2,55 @@
 --LineRangerAutoFightingv2XX
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
+function PVP對戰 (times)
+	local waitCount = 0
+	local pvpCount = 0
+	while true do
+		-- 如果再進入畫面  點 "戰鬥"
+		if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
+			touchClick(975,592);
+		end	
+		sleep(1000);							
+		pickFriendAndSkill()
+
+		if isFightingViewColor() then
+			toast("偵測到戰鬥開始");
+			fightingByUserSelectedMode(true);
+			pvpCount = pvpCount + 1;
+			sleep(3000)
+			touchClick(500,500); --過關紅利
+			sleep(1000)
+			touchClick(641,609); --停止button
+			sleep(1000)			
+		else			
+			touchClick(500,500); --過關紅利
+			sleep(1000)
+			touchClick(641,609); --停止button
+			sleep(1000)
+		end	
+		
+		if not(times == null) then
+			-- 懶人模式
+			if(pvpCount >= times) then
+				toast(string.format("%s %s","滿足PVP離開條件 執行次數:",times));
+				sleep(5000);
+				backToMain()
+				goto endPVP
+			else
+				toast(string.format("%s %s %s %s","PVP通關次數:",pvpCount,"\r\n目標執行次數:",times));
+				sleep(5000);
+				waitCount = waitCount + 1
+			end
+			if waitCount > 10 then
+				goto endPVP
+			else 
+				toast(string.format("%s %s %s","懶人模式等待次數:",waitCount,"(預設大於10離開)"))
+			end
+		end
+	end
+	::endPVP::
+end
+
 function 收集禮物盒 ()
 	backToMain();
 	touchClick(1021,637) --點選禮物盒
@@ -237,7 +286,7 @@ function isPopupScreenColor()
 end
 
 function clickSkill1()	--火球
-	if (UI_type == "PVP") then		
+	if (UI_type == "PVP" or UI_type == "懶人模式") then		
 		touchClick(161,130)touchClick(161,130)
 	else
 		if autoPickFriend() then
@@ -253,7 +302,7 @@ function clickSkill1()	--火球
 	end
 end	
 function clickSkill2()	--冰
-	if (UI_type == "PVP") then	
+	if (UI_type == "PVP" or UI_type == "懶人模式") then	
 		touchClick(245,128)touchClick(245,128)
 	else
 		if autoPickFriend() then
@@ -269,7 +318,7 @@ function clickSkill2()	--冰
 end
 
 function clickSkill3() --龍捲風		
-	if (UI_type == "PVP") then	
+	if (UI_type == "PVP" or UI_type == "懶人模式") then	
 		touchClick(340,131)touchClick(340,131)
 	else
 		if autoPickFriend() then
@@ -286,7 +335,7 @@ function clickSkill3() --龍捲風
 end
 
 function clickSkill4()	-- 防護罩		
-	if (UI_type == "PVP") then	
+	if (UI_type == "PVP" or UI_type == "懶人模式") then	
 		touchClick(431,129)touchClick(431,129)
 	else
 		if autoPickFriend() then
@@ -643,7 +692,7 @@ function fightingByUserSelectedMode(useSkill)
 					touchClick(1015,575);	--升級礦石							
 				end
 								
-				if not(UI_type == "PVP") then												
+				if not(UI_type == "PVP" or UI_type == "懶人模式") then												
 					if (UI_type == "無盡模式") then
 						if not isClickedLineAutoButton then
 							clickLINEAutoButton();
@@ -690,7 +739,7 @@ function fightingByUserSelectedMode(useSkill)
 			callFriend();
 		end
 
-		if useSkill or (UI_type == "PVP") then
+		if useSkill or (UI_type == "PVP") or (UI_type == "懶人模式") then
 			--if (i > tonumber(skill1deplay)) and (i < tonumber(skill1deplay)+10) and not (tonumber(skill1deplay) == 0)  then
 			if (i > tonumber(skill1deplay)) and not (tonumber(skill1deplay) == 0)  then			
 				clickSkill1();			
@@ -790,7 +839,7 @@ function loopFifghtingInSpecialMode(useSkill,times)
 				backToMain()
 				goto endloopFifghtingInSpecialMode	
 			else
-				toast(string.format("%s %s %s %s","特殊關卡通關次數:",count,"  目標執行次數:",times));
+				toast(string.format("%s %s %s %s","特殊關卡通關次數:",count,"\r\n目標執行次數:",times));
 				sleep(5000);
 			end
 		end	
@@ -889,7 +938,7 @@ function fighting(useSkill)
 			end
 			sleep(2000);
 
---update 20160109 by Jay 
+			--update 20160109 by Jay 
 			if isColor(53,45,0xFFEE44)  or isColor(1232,26,0x43A2C5) or count > 50 then
 				--(53,45,0xFFEE44)  color yellow 左上回上一頁黃色按鈕
 				--(1232,26,0x43A2C5  color blue 右上藍色切換區域按鈕
@@ -904,7 +953,7 @@ function fighting(useSkill)
 end
 
 function pickFriendAndSkill()	
-
+	local sleepCount = 0
 	while true do  
 		sleep(200); -- prevent over loop		
 		if isFightingViewColor() then
@@ -941,13 +990,13 @@ function pickFriendAndSkill()
 		--選朋友畫面   		
 		if isColor(148,508,0xDCE5EF) or isColor(124,486,0xAB8862) then							
 			if autoPickFriend() then				
-				--            太空站之前關卡沒選color                  太空站之後關卡沒選color
+				--  太空站之前關卡沒選color     太空站之後關卡沒選color
 				if isColor(471,507,0xD1B894) or isColor(484,499,0x8E9CA9) then
 					--選第一個朋友
 					touchClick(481,500);
 				end
 			else
-				--            太空站之前關卡沒選color                  太空站之後關卡沒選color
+				--  太空站之前關卡沒選color     太空站之後關卡沒選color
 				if isColor(467,508,0x611E09) or isColor(479,497,0x542606) then
 					touchClick(481,500);
 				end
@@ -970,8 +1019,9 @@ function pickFriendAndSkill()
 		if (isColor(469,492,0x22AACC) and isColor(669,496,0x00BB33)) then 
 			if autobuyFeather then
 				clickAutoBuyFeather();				
-			else
+			else		
 				toast("羽毛不足! 休息30秒..");
+				sleepCount = sleepCount + 1
 				touchClick(548,494);
 				sleep(10000); --30  add 20160109 by Jay
 				showWinLossCnt();
@@ -1055,7 +1105,7 @@ function mainCheckpoint(times)
 			end					
 		end
 				
-		pickFriendAndSkill(false);
+		pickFriendAndSkill();
 		
 		---- 檢查右上角有沒有暫停按鈕 戰鬥畫面				
 		if isFightingViewColor() then
@@ -1573,6 +1623,9 @@ function main()
 	lossCnt = 0 ;
 	globalSpecialCount = 0
 
+	if(delayMinute == null)then
+		delayMinute = 0
+	end
 	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 			
 			
 	--兼容模式 check
@@ -1611,6 +1664,13 @@ function main()
 		local isHelpFriendCompleted = true; 
 		while true do
 				
+			toast("PVP - 開始")
+			backToMain();
+			進入PVP()
+			PVP對戰(1);
+			backToMain();
+			toast("PVP - 結束")
+
 			-- 自動幫助好友 2016/03/06 by Richard
 			if (isHelpFriendCompleted == false)	then
 				backToMain();
@@ -1633,18 +1693,16 @@ function main()
 			收集禮物盒 ()
 			toast("收集禮物盒 - 結束")
 								
-			--touchClick(930,151) --主要
+			--touchClick(930,151) --主要 todo ?
 
 			sleep(5000)
 			toast("特殊關卡 - 開始")
 			進入特殊關卡()
 			globalSpecialCount = 0
-			specialCheckpoint(1);
+			specialCheckpoint(2);
 			toast("特殊關卡 - 結束")
 
-			--進入無盡模式() --todo
-			--進入無盡模式() --todo
-			--進入PVP() --todo
+			--進入無盡模式() --todo			
 			--進入競技場() --todo
 			--進入公會副本() --todo
 													
@@ -1699,7 +1757,7 @@ function main()
 						
 						sleep(1000);		
 								
-						pickFriendAndSkill(false);	
+						pickFriendAndSkill();	
 												
 						if isFightingViewColor() then
 							toast("偵測到戰鬥開始");							
@@ -1756,7 +1814,7 @@ function main()
 				touchClick(975,592);
 			end
 			sleep(1000);							
-			pickFriendAndSkill(false);				
+			pickFriendAndSkill();				
 			if isFightingViewColor() then
 				toast("偵測到戰鬥開始");							
 				fightingByUserSelectedMode(skillMainpoint);
@@ -1768,21 +1826,7 @@ function main()
 	end
 
 	if(UI_type == "PVP") then
-		while true do
-			-- 如果再進入畫面  點 "戰鬥"
-			if(isColor(1050,592,0xCF0F00) and isColor(881,603,0xCF0F00)) then
-				touchClick(975,592);
-			end	
-			sleep(1000);							
-			pickFriendAndSkill(true);				
-			if isFightingViewColor() then
-				toast("偵測到戰鬥開始");
-				fightingByUserSelectedMode(true);
-			else			
-				touchClick(500,500); --關關紅利
-				touchClick(641,609); --停止button	
-			end			
-		end
+		PVP對戰(null)	
 	end	
 	
 	if(UI_type == "競技場模式") then
