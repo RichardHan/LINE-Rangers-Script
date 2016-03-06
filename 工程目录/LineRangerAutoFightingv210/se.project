@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv210</name>
+ <desc>懶人模式</desc>
+ <script>main.script</script>
+</project>
