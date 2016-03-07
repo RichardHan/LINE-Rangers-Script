@@ -1377,10 +1377,9 @@ function runArenamode(times)
 		
 		sleep(2000)
 		
-		-- 如果出現寶物 點中間
-		if not (isColor(650,550,0x145163)) then
-			-- BUG , 有時會點到RANGER  2016/03/06
-			touchClick(698,605);
+		-- 如果出現寶物color 點中間
+		if isColor(640,566,0xFFC507) or isColor(640,566,0xFFF41F) then
+			touchClick(640,566)
 		end
 
 		--確認寶物內容
