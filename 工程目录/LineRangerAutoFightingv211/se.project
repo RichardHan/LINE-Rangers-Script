@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv211</name>
+ <desc>for line-rangers.3.2.0</desc>
+ <script>main.script</script>
+</project>

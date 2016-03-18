@@ -1,6 +1,8 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv2XX
---This is develop trunk , Please tracking change on GitHub.
+-- 本文件为脚本入口文件，请不要删除
+-- 该脚本适用于脚本精灵2.0.1及以上版本
+-- 脚本从main()开始执行
+-- 脚本界面从createUI()开始执行，脚本可以无界面
 -----------------------------------------------------------------------
 function PVP對戰 (times)
 	local waitCount = 0
