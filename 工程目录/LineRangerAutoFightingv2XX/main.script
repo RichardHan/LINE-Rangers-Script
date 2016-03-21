@@ -909,7 +909,10 @@ function fighting(useSkill)
 				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) then 
 					toast("寶物確認");
 					touchClick(750,640);					
-					sleep(6000);	
+					sleep(6000);
+				else
+					--3/21 特殊關卡 EVA寶物顏色不同
+					touchClick(208,620);sleep(5000);
 				end	
 																				
 				--進入 過關紅利 & 抽獎畫面
