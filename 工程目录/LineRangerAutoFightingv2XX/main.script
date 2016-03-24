@@ -1729,17 +1729,19 @@ function main()
 			backToMain();
 			toast("PVP - 結束")
 
-
-
 			-- 自動幫助好友 2016/03/06 by Richard
-			if (isHelpFriendCompleted == false)	then
-				backToMain();
-				toast("幫助好友10次 - 開始"); sleep(3000);	
-				touchClick(768,645) -- 點選好友畫面		
-				autoHelpFriend(10)
-				toast("幫助好友10次 - 結束"); sleep(3000);
-				isHelpFriendCompleted = true;
-			end			
+			-- Update 
+			-- 2016/03/24 -     每天只在特定時間執行
+			if((tonumber(os.date("%H")) == 21)) then			
+				if (isHelpFriendCompleted == false)	then
+					backToMain();
+					toast("幫助好友10次 - 開始"); sleep(3000);	
+					touchClick(768,645) -- 點選好友畫面		
+					autoHelpFriend(10)
+					toast("幫助好友10次 - 結束"); sleep(3000);
+					isHelpFriendCompleted = true;
+				end						
+			end	
 						
 			--touchClick(930,151) --主要 TODO ?
 			--進入無盡模式() --todo
