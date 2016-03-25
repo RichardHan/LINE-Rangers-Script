@@ -1354,7 +1354,7 @@ end
 
 function runArenamode(times)
 
-	-- 100是buffer給對戰的過程
+	-- +30是buffer給對戰的過程
 	times = times + 30
 
 	local i = 0;
@@ -1388,14 +1388,25 @@ function runArenamode(times)
 		
 		sleep(2000)
 		
+		-- bug.  tmep reremove.
 		-- 如果出現寶物color 點中間
-		if isColor(640,566,0xFFC507) or isColor(640,566,0xFFF41F) then
-			touchClick(640,566)
+		--if isColor(640,566,0xFFC507) or isColor(640,566,0xFFF41F) then
+			--touchClick(640,566)
+		--end
+		
+		-- keep click 寶物中間
+		touchClick(640,400)
+		
+		-- 如果不小心點到關卡 案取消
+		if isColor(700,486,0x00BB33) then
+			touchClick(700,486);		
 		end
+		
+		sleep(1000);
 
 		--確認寶物內容
 		if isColor(740,642,0x05C232) then			
-			touchClick(740,642) 			
+			touchClick(740,642) 
 		end
 
 		-- 如果有好友 點好友
@@ -1405,7 +1416,7 @@ function runArenamode(times)
 
 		i = i + 1;	
 
-		if (i % 5) == 0 then
+		if (i % 2) == 0 then
 			toast(string.format("%s %s","競技場模式	counter(debug) :",i))		
 		end		
 	end	
@@ -1690,8 +1701,7 @@ function main()
 			--進入公會副本()
 			--toast("公會副本 - 結束")
 				
-
-			--打一場競技場 2016/03/06 by Richard
+			-- 執行一場競技場 2016/03/06 by Richard			
 			sleep(5000)
 			toast("競技場 - 開始")
 			backToMain()
@@ -1700,8 +1710,7 @@ function main()
 			runArenamode(20)
 			backToMain()
 			toast("競技場 - 結束")
-
-							
+	
 			--收集任務獎勵 2016/03/06 by Richard
 			sleep(5000)
 			toast("收集任務獎勵 - 開始")
@@ -1730,9 +1739,9 @@ function main()
 			toast("PVP - 結束")
 
 			-- 自動幫助好友 2016/03/06 by Richard
-			-- Update 
-			-- 2016/03/24 -     每天只在特定時間執行
-			if((tonumber(os.date("%H")) == 21)) then			
+			-- Update history:  
+			--      2016/03/24 -     每天只在特定時間執行
+			if((tonumber(os.date("%H")) == 21)) then		
 				if (isHelpFriendCompleted == false)	then
 					backToMain();
 					toast("幫助好友10次 - 開始"); sleep(3000);	
