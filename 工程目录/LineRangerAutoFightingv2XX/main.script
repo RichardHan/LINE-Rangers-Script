@@ -879,8 +879,8 @@ function fighting(useSkill)
 				break;	
 			end							
 			
-			-- default - win   or      確認出現是否有寶物					
-			if isColor(1190,242,0x246F90) or isColor(935,181,0xAA5926) or isColor(1190,242,0x07161D) or isColor(32,548,0x080603) then --add color 20160101
+			-- default - win   or      確認出現是否有寶物								
+			if isColor(1190,242,0x246F90) or isColor(935,181,0xAA5926) or isColor(1190,242,0x07161D) or isColor(32,548,0x080603)  then --add color 20160101
 				winCnt = winCnt + 1; --add 20160109 by Jay  (calculate total fight result)
 				toast("WIN");
 				sleep(6000);
@@ -905,8 +905,9 @@ function fighting(useSkill)
 				
 				-- 確認出現是否有寶物
 				--if isColor(879,698,0x0E0000) then  --update by Jay 20160109
-				--(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠															     
-				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) then 
+				--(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠		
+				-- 04/01 , add color check -  isColor(624,524,0xDB8E16)												     
+				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) or or isColor(624,524,0xDB8E16) then 
 					toast("寶物確認");
 					touchClick(750,640);					
 					sleep(6000);
@@ -930,6 +931,11 @@ function fighting(useSkill)
 						touchClick(774,587);-- 點 確認 button																	
 						sleep(5000);
 						break;
+					end
+					
+					--EVA寶物
+					if isColor(806,513,0x261803) then
+							touchClick(644,363);				
 					end
 											
 					--確認抽獎									 
