@@ -907,7 +907,7 @@ function fighting(useSkill)
 				--if isColor(879,698,0x0E0000) then  --update by Jay 20160109
 				--(690,624,0xFFFFFF) 驚嘆號白   (551,583,0x05C232)確認鈕綠		
 				-- 04/01 , add color check -  isColor(624,524,0xDB8E16)												     
-				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) or or isColor(624,524,0xDB8E16) then 
+				if isColor(690,624,0xFFFFFF) and isColor(551,583,0x05C232) or isColor(624,524,0xDB8E16) then 
 					toast("寶物確認");
 					touchClick(750,640);					
 					sleep(6000);
@@ -1444,9 +1444,9 @@ function createUI()
 	newLine()newLine()newLine();newLine();
 
 	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
-	createRadioBox("isSwitchTeam","不切換",true);newLine();	
-	createRadioBox("isSwitchTeam","連續切換",false);
-	createTextView("labdelaySec"," -  幾秒後開始切換:");createEditText("txtTeamDelaySec",30,1,70,60);
+	createRadioBox("isSwitchTeam","不切換",false);newLine();	
+	createRadioBox("isSwitchTeam","連續切換",true);
+	createTextView("labdelaySec"," -  幾秒後開始切換:");createEditText("txtTeamDelaySec",20,1,70,60);
 	  
 	newLine()newLine()newLine();newLine();
 	
@@ -1707,15 +1707,18 @@ function main()
 			--進入公會副本()
 			--toast("公會副本 - 結束")
 				
-			-- 執行一場競技場 2016/03/06 by Richard			
-			sleep(5000)
-			toast("競技場 - 開始")
-			backToMain()
-			進入競技場 ()			
-			sleep(5000)
-			runArenamode(20)
-			backToMain()
-			toast("競技場 - 結束")
+			-- 競技場
+			-- 2016/04/11 -     每天只在特定時間執行 PM7:00
+			if((tonumber(os.date("%H")) == 19)) then									
+				sleep(5000)
+				toast("競技場 - 開始")
+				backToMain()
+				進入競技場 ()			
+				sleep(5000)
+				runArenamode(20)
+				backToMain()
+				toast("競技場 - 結束")
+			end	
 	
 			--收集任務獎勵 2016/03/06 by Richard
 			sleep(5000)
@@ -1746,8 +1749,8 @@ function main()
 
 			-- 自動幫助好友 2016/03/06 by Richard
 			-- Update history:  
-			--      2016/03/24 -     每天只在特定時間執行
-			if((tonumber(os.date("%H")) == 21)) then		
+			--      2016/03/24 -     每天只在特定時間執行 PM9:00
+			if((tonumber(os.date("%H")) == 21)) then
 				if (isHelpFriendCompleted == false)	then
 					backToMain();
 					toast("幫助好友10次 - 開始"); sleep(3000);	
