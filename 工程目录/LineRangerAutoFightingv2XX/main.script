@@ -361,6 +361,11 @@ function backToMain()
 			sleep(1000);
 			break;
 		else
+			-- BUG 每日獎勵視窗卡住
+			if (isColor(1077,676,0x00BB33) and isColor(951,681,0x00BB33)) then
+				touchClick(1077,676);				
+				sleep(3000);
+			end
 			input(4);  --点击返回键
 			sleep(2000);		
 		end
