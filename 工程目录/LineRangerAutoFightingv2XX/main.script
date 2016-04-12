@@ -938,9 +938,14 @@ function fighting(useSkill)
 						break;
 					end
 					
-					--EVA寶物
+					--EVA寶物 霹靂寶物								
 					if isColor(806,513,0x261803) then
-							touchClick(644,363);				
+						touchClick(644,363);			
+						sleep(3000);
+						if isColor(744,638,0x05C232) then
+							touchClick(744,638);
+							break;
+						end
 					end
 											
 					--確認抽獎									 
