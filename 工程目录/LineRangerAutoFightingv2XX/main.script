@@ -59,18 +59,24 @@ function 收集禮物盒 ()
 	while true do
 		--出現右上角X
 		if isColor(1079,80,0x000000) then
-			touchClick(920,123);--點全部接收
+			touchClick(920,123)--點全部接收
 			sleep(2000)
-			touchClick(795,487);--確認接收所有禮物
+			touchClick(795,487)--確認接收所有禮物
+			sleep(1000)
+			touchClick(795,500)
 			--出現接收空間不足視窗
 			if(isColor(707,487,0x00BB33)) then 
 				touchClick(707,487)
 				sleep(2000)
 				touchClick(1079,80) -- 點右上角關閉按鈕
 				break;
-			end
+			else
+				sleep(2000)
+				touchClick(1079,80) -- 點右上角關閉按鈕
+				break;
+			end			
 		else
-			sleep(2000)
+			sleep(2000)			
 		end
 	end	
 end
