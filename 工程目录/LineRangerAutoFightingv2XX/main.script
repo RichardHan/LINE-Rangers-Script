@@ -53,6 +53,149 @@ function PVP對戰 (times)
 	::endPVP::
 end
 
+
+function 打公會副本 ()	
+	sleep(3000)
+	
+	--拉到左下角 熱帶雨林 靈魂地窖
+	touchDown(450,528)sleep(200)touchMove(900,271)sleep(200)touchUp()	
+	sleep(1000)	
+	touchDown(450,528)sleep(200)touchMove(900,271)sleep(200)	touchUp()		
+	sleep(1000)	
+	touchDown(450,528)sleep(200)touchMove(900,271)sleep(200)touchUp()
+	
+	--進入熱帶雨林
+	sleep(2000)toast("熱帶雨林")sleep(3000)touchClick(438,424)sleep(2000)	
+	-- 左邊可以進入副本
+	if isColor(549,522,0x8F4B25) then touchClick(549,522) sleep(2000)	end
+	-- 右邊可以進入副本 
+	if isColor(899,520,0x864121) then touchClick(899,520) sleep(2000)	end
+	
+	-- 左右都無法打 離開
+	if isColor(997,98,0x222222) then	toast("守護神復活中")	touchClick(997,98) sleep(2000) end
+		
+	-- 如果是第一個人去打守護神會出現提示視窗
+	touchClick(1272,713) --隨意點
+	sleep(1000)
+	if isColor(1115,45,0x000000) then 		
+		endtouchClick(1115,45) -- 關閉視窗
+	end	
+	sleep(1000)
+	if isColor(656,685,0xCF0F00) then
+		touchClick(656,685) --開始戰鬥		
+	end	
+	sleep(1000)
+	if isColor(595,550,0x22AACC) then		
+		sleep(3000)
+		touchClick(595,550)
+		toast("已經達副本次數上限 - 離開")
+		sleep(3000)
+		goto endguild
+	end
+	sleep(1000)
+	
+	while true do
+		if isFightingViewColor() then
+			toast("偵測到戰鬥開始");							
+			fightingByUserSelectedMode(false);
+			sleep(2000)
+			toast("戰鬥結束")
+			sleep(2000)
+			touchClick(500,500); -- 結束 隨便點
+			goto endguild			
+		else
+			break;
+		end
+	end
+	
+		
+	
+	--進入靈魂地窖
+	sleep(2000)toast("靈魂地窖")sleep(3000)touchClick(943,259)sleep(2000)	
+	-- 左邊可以進入副本 
+	if isColor(549,522,0x8F4B25) then touchClick(549,522) sleep(2000)	end
+	-- 右邊可以進入副本
+	if isColor(899,520,0x864121) then touchClick(899,520) sleep(2000)	end	
+	-- 左右都無法打 離開 
+	if isColor(997,98,0x222222) then toast("守護神復活中") touchClick(997,98) sleep(2000) end
+		
+	-- 如果是第一個人去打守護神會出現提示視窗
+	touchClick(1272,713) --隨意點
+	sleep(1000)
+	if isColor(1115,45,0x000000) then
+		touchClick(1115,45) -- 關閉視窗
+	end	
+	sleep(1000)
+	if isColor(656,685,0xCF0F00) then
+		touchClick(656,685) --開始戰鬥		
+	end	
+	sleep(1000)
+	if isColor(595,550,0x22AACC) then		
+		sleep(3000)
+		touchClick(595,550)
+		toast("已經達副本次數上限 - 離開")
+		sleep(3000)
+		goto endguild
+	end
+	sleep(1000)
+
+	while true do
+		if isFightingViewColor() then
+			toast("偵測到戰鬥開始");							
+			fightingByUserSelectedMode(false);
+			sleep(2000)
+			toast("戰鬥結束")
+			sleep(2000)
+			touchClick(500,500); -- 結束 隨便點
+			goto endguild			
+		else
+			break;
+		end
+	end
+
+
+	::endguild::
+	toast("打公會副本 end");
+	sleep(3000)
+end
+
+function 收集公會獎勵和PVP獎勵 ()
+	sleep(2000)				
+	touchClick(235,659);  --獎勵盒
+	
+	sleep(2000)
+	
+	--開第一個寶箱 ,  如果多個公會獎勵 等下一次
+	if isColor(1040,267,0x05C232) then
+		touchClick(1040,267)
+		sleep(2000)
+		touchClick(710,495)
+		sleep(2000)
+		touchClick(710,495) --亂點開寶物
+		sleep(2000)
+		touchClick(747,653) -- 確認
+		sleep(2000)
+		touchClick(747,653) -- double 確認		
+		sleep(2000)
+		touchClick(710,495) --亂點開寶物
+		sleep(2000)
+		touchClick(747,653) -- 確認
+		sleep(2000)
+		touchClick(747,653) -- double 確認				
+	end			
+	
+	sleep(2000)
+	
+	--PVP 獎勵
+	touchClick(927,86)
+	if isColor(1040,267,0x05C232) then
+		touchClick(1040,267)
+		sleep(2000)
+		touchClick(710,495)
+	end	
+	sleep(2000)	
+end
+
 function 收集禮物盒 ()
 	backToMain();
 	touchClick(1021,637) --點選禮物盒
@@ -81,6 +224,54 @@ function 收集禮物盒 ()
 	end	
 end
 
+function 收集公會獎勵()	
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true do
+		if isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(1103,178) -- 公會
+			sleep(4000)
+			touchClick(433,596) -- 簽到
+			sleep(2000)
+			touchClick(433,596) -- 簽到
+			sleep(2000)
+			touchClick(968,243) -- 接收 上面
+			sleep(2000)
+			
+			touchClick(644,460) -- 確認			
+			sleep(2000)
+			touchClick(328,544) -- 接收 下面1
+			sleep(2000)
+			
+			touchClick(644,460) -- 確認
+			sleep(2000)
+			touchClick(504,549) -- 接收 下面2
+			sleep(2000)
+			touchClick(644,460) -- 確認			
+
+			sleep(2000)
+			touchClick(689,547) -- 接收 下面3
+			sleep(2000)
+			touchClick(644,460) -- 確認	
+
+			sleep(2000)
+			touchClick(875,547) -- 接收 下面4
+			sleep(2000)
+			touchClick(644,460) -- 確認	
+
+			sleep(2000)
+			touchClick(1051,545) -- 接收 下面4
+			sleep(2000)
+			touchClick(644,460) -- 確認	
+
+			break
+		else
+			sleep(2000)
+		end							
+	end		
+end
 
 function 收集任務獎勵()	
 	backToMain()
@@ -1198,11 +1389,20 @@ function specialCheckpoint(times)
 		sleep(10000);
 	end
 	
+	--1 霹靂 魔眼 	 不滅	   甜蜜
+
+	--2 霹靂					   甜蜜
+
+	--3 霹靂 			 不滅      甜蜜
+
+	--4 霹靂 沙漠			  沉默 甜蜜
+
+	--5 霹靂 沙漠 黃昏 不滅 沉默 甜蜜
+
+	--6 霹靂 沙漠 黃昏 逆時 沉默 甜蜜 confirm
+
+	--7 霹靂 黃昏 不滅 沉默 魔方 甜蜜 confirm (週日) - confirm 04.26.2016
 	
-
-	-- 週日 %w=0   ,  order:  黃昏之冰神殿  >   不滅的骸石   >   沉默的廢鐵掩埋場   >    魔法的迷途魔方	
-
-
 	if adv霹靂武林星球6 then		advPlay("霹靂武林星球6","left",adv霹靂武林星球Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv霹靂武林星球5 then		advPlay("霹靂武林星球5","left",adv霹靂武林星球Skill5,alignLeft5_X,alignLeft5_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv霹靂武林星球4 then		advPlay("霹靂武林星球4","left",adv霹靂武林星球Skill4,alignLeft4_X,alignLeft4_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
@@ -1217,124 +1417,161 @@ function specialCheckpoint(times)
 	if adv甜蜜的糖衣陷阱2 then	advPlay("甜蜜的糖衣陷阱2","right",adv甜蜜的糖衣陷阱Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end		
 	if adv甜蜜的糖衣陷阱1 then	advPlay("甜蜜的糖衣陷阱1","right",adv甜蜜的糖衣陷阱Skill1,alignRight1_X,alignRight1_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	--if ((tonumber(os.date("%w")) == 0)) then		
-		--if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間 () then 		advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else					
-		--if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間 () then 		advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end
+	local todayNum = tonumber(os.date("%w"));
 
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石6 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石6","leftPlusLittleRight",adv不滅的骸石Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
-	--else			
-		--if adv不滅的骸石6 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石6","left",adv不滅的骸石Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if (todayNum == 0) then		
+		if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間 () then	advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else
+		if adv黃昏之冰神殿6 and 符合黃昏之冰神殿時間 () then	advPlay("黃昏之冰神殿6","left",adv黃昏之冰神殿Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
+
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石6 and 符合不滅的骸石時間 () then	advPlay("不滅的骸石6","leftPlusLittleRight",adv不滅的骸石Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		if adv不滅的骸石6 and 符合不滅的骸石時間 () then	advPlay("不滅的骸石6","left",adv不滅的骸石Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
 	
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then		
+		if adv魔法的迷途魔方6 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方6","right",adv魔法的迷途魔方Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		-- unconfirm.
+		if adv魔法的迷途魔方6 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方6","leftPlusLittleRight",adv魔法的迷途魔方Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
 
-	if adv沉默的廢鐵掩埋場6 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場6","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	if adv魔法的迷途魔方6 and 符合魔法的迷途魔方時間 () then  	advPlay("魔法的迷途魔方6","leftPlusLittleRight",adv魔法的迷途魔方Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	if adv沉默的廢鐵掩埋場6 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場6","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv無盡的黃金沙漠6 and 符合無盡的黃金沙漠時間 () then   	advPlay("無盡的黃金沙漠6","left",adv無盡的黃金沙漠Skill6,alignLeft6_X,alignLeft6_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv甦醒的魔眼6 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼6","left",adv甦醒的魔眼Skill6,alignLeft6_X,alignLeft6_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv逆時發條6 and 符合逆時發條時間 () then 				advPlay("逆時發條6","leftPlusLittleRight",adv逆時發條Skill6,alignLeft6_X,alignLeft6_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv未知礦山6 and 符合未知礦山時間 () then 				advPlay("未知礦山6","leftPlusLittleRight",adv未知礦山Skill6,alignLeft6_X,alignLeft6_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	--if ((tonumber(os.date("%w")) == 0)) then
-		--if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignLeft5_X,alignLeft5_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else			
-		--if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if (todayNum == 0) then
+		if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignRight5_X,alignRight5_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else			
+		if adv黃昏之冰神殿5 and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿5","left",adv黃昏之冰神殿Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
 	
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石5 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石5","leftPlusLittleRight",adv不滅的骸石Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
-	--else			
-		--if adv不滅的骸石5 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石5","left",adv不滅的骸石Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end						
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石5 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石5","leftPlusLittleRight",adv不滅的骸石Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
+	else			
+		if adv不滅的骸石5 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石5","left",adv不滅的骸石Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
 	
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then
+		if adv魔法的迷途魔方5 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方5","right",adv魔法的迷途魔方Skill5,alignLeft5_X,alignLeft5_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		-- unconfirm.		
+		if adv魔法的迷途魔方5 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方5","leftPlusLittleRight",adv魔法的迷途魔方Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
 	
-	if adv沉默的廢鐵掩埋場5 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場5","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	if adv魔法的迷途魔方5 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方5","leftPlusLittleRight",adv魔法的迷途魔方Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	if adv沉默的廢鐵掩埋場5 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場5","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv無盡的黃金沙漠5 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠5","left",adv無盡的黃金沙漠Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv甦醒的魔眼5 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼5","left",adv甦醒的魔眼Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv逆時發條5 and 符合逆時發條時間 () then				advPlay("逆時發條5","leftPlusLittleRight",adv逆時發條Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv未知礦山5 and 符合未知礦山時間 () then				advPlay("未知礦山5","leftPlusLittleRight",adv未知礦山Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	
-	--if ((tonumber(os.date("%w")) == 0)) then	
-		--if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
-	--else		
-		--if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
-	--end
+	if ((tonumber(os.date("%w")) == 0)) then	
+		if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
+	else		
+		if adv黃昏之冰神殿4 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿4","left",adv黃昏之冰神殿Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
+	end
 	
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石4 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石4","leftPlusLittleRight",adv不滅的骸石Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
-	--else			
-		--if adv不滅的骸石4 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石4","left",adv不滅的骸石Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石4 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石4","leftPlusLittleRight",adv不滅的骸石Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
+	else			
+		if adv不滅的骸石4 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石4","left",adv不滅的骸石Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
 	
-	
-	if adv沉默的廢鐵掩埋場4 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場4","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	if adv魔法的迷途魔方4 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方4","leftPlusLittleRight",adv魔法的迷途魔方Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then
+		if adv魔法的迷途魔方4 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方4","right",adv魔法的迷途魔方Skill4,alignLeft4_X,alignLeft4_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		-- unconfirm.		
+		if adv魔法的迷途魔方4 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方4","leftPlusLittleRight",adv魔法的迷途魔方Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
+		
+	if adv沉默的廢鐵掩埋場4 and 符合沉默的廢鐵掩埋場時間() then	advPlay("沉默的廢鐵掩埋場4","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv無盡的黃金沙漠4 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠4","left",adv無盡的黃金沙漠Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv甦醒的魔眼4 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼4","left",adv甦醒的魔眼Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv逆時發條4 and 符合逆時發條時間 () then				advPlay("逆時發條4","leftPlusLittleRight",adv逆時發條Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv未知礦山4 and 符合未知礦山時間 () then				advPlay("未知礦山4","leftPlusLittleRight",adv未知礦山Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
+	if (todayNum == 0) then
+		if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignRight3_X,alignRight3_Y,times);if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else
+		if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	end
 
-	--if ((tonumber(os.date("%w")) == 0)) then	
-		--if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignLeft3_X,alignLeft3_Y,times);if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else
-		--if adv黃昏之冰神殿3 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿3","left",adv黃昏之冰神殿Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
-	--end
-
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石3 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石3","leftPlusLittleRight",adv不滅的骸石Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else			
-		--if adv不滅的骸石3 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石3","left",adv不滅的骸石Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石3 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石3","leftPlusLittleRight",adv不滅的骸石Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else			
+		if adv不滅的骸石3 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石3","left",adv不滅的骸石Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
 	
-	
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then
+		if adv魔法的迷途魔方3 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方3","right",adv魔法的迷途魔方Skill3,alignLeft3_X,alignLeft3_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		-- unconfirm.
+		if adv魔法的迷途魔方3 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方3","leftPlusLittleRight",adv魔法的迷途魔方Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
+		
 	if adv沉默的廢鐵掩埋場3 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場3","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end
-	if adv魔法的迷途魔方3 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方3","leftPlusLittleRight",adv魔法的迷途魔方Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	
 	if adv無盡的黃金沙漠3  and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠3","left",adv無盡的黃金沙漠Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv甦醒的魔眼3 and 符合甦醒的魔眼時間 ()  then			advPlay("甦醒的魔眼3","left",adv甦醒的魔眼Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv逆時發條3 and 符合逆時發條時間 () then				advPlay("逆時發條3","leftPlusLittleRight",adv逆時發條Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv未知礦山3 and 符合未知礦山時間 () then				advPlay("未知礦山3","leftPlusLittleRight",adv未知礦山Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	end
 
-
-	--if ((tonumber(os.date("%w")) == 0)) then	
-		--if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else
-		--if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end
+	if (todayNum == 0) then
+		if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else
+		if adv黃昏之冰神殿2 and 符合黃昏之冰神殿時間 ()  then		advPlay("黃昏之冰神殿2","left",adv黃昏之冰神殿Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
 	
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石2 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石2","leftPlusLittleRight",adv不滅的骸石Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else			
-		--if adv不滅的骸石2 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石2","left",adv不滅的骸石Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石2 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石2","leftPlusLittleRight",adv不滅的骸石Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else			
+		if adv不滅的骸石2 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石2","left",adv不滅的骸石Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
 	
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then
+		if adv魔法的迷途魔方2 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方2","right",adv魔法的迷途魔方Skill2,alignLeft2_X,alignLeft2_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else			
+		-- unconfirm.		
+		if adv魔法的迷途魔方2 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方2","leftPlusLittleRight",adv魔法的迷途魔方Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end	
 	
-	if adv沉默的廢鐵掩埋場2 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場2","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	if adv魔法的迷途魔方2 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方2","leftPlusLittleRight",adv魔法的迷途魔方Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	if adv沉默的廢鐵掩埋場2 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場2","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv無盡的黃金沙漠2 and 符合無盡的黃金沙漠時間 ()  then	advPlay("無盡的黃金沙漠2","left",adv無盡的黃金沙漠Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv甦醒的魔眼2 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼2","left",adv甦醒的魔眼Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv逆時發條2 and 符合逆時發條時間 () then				advPlay("逆時發條2","leftPlusLittleRight",adv逆時發條Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv未知礦山2 and 符合未知礦山時間 () then				advPlay("未知礦山2","leftPlusLittleRight",adv未知礦山Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	end
 	
 
-	--if ((tonumber(os.date("%w")) == 0)) then	
-		--if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else
-		--if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end			
-	--end	
+	if (todayNum == 0) then
+		if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else
+		if adv黃昏之冰神殿1  and 符合黃昏之冰神殿時間 () then		advPlay("黃昏之冰神殿1","left",adv黃昏之冰神殿Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end			
+	end	
 	
-	--if ((tonumber(os.date("%w")) == 5)) then
-		--if adv不滅的骸石1 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石1","leftPlusLittleRight",adv不滅的骸石Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--else			
-		--if adv不滅的骸石1 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石1","left",adv不滅的骸石Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	--end	
+	if ((todayNum == 5) or (todayNum == 0)) then
+		if adv不滅的骸石1 and 符合不滅的骸石時間 () then     		advPlay("不滅的骸石1","leftPlusLittleRight",adv不滅的骸石Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	else			
+		if adv不滅的骸石1 and 符合不滅的骸石時間 ()  then			advPlay("不滅的骸石1","left",adv不滅的骸石Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
+	end
+
+	--%w = 0 : Sunday.
+	if (todayNum == 0) then
+		if adv魔法的迷途魔方1 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方1","right",adv魔法的迷途魔方Skill1,alignLeft1_X,alignLeft1_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end	 end
+	else
+		-- unconfirm.				
+		if adv魔法的迷途魔方1 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方1","leftPlusLittleRight",adv魔法的迷途魔方Skill1,alignRight1_X,alignRight1_Y,times);	if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	end		
 	
-	
-	if adv沉默的廢鐵掩埋場1 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場1","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
-	if adv魔法的迷途魔方1 and 符合魔法的迷途魔方時間 () then	advPlay("魔法的迷途魔方1","leftPlusLittleRight",adv魔法的迷途魔方Skill1,alignRight1_X,alignRight1_Y,times);	if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv沉默的廢鐵掩埋場1 and 符合沉默的廢鐵掩埋場時間 () then	advPlay("沉默的廢鐵掩埋場1","leftPlusLittleRight",adv沉默的廢鐵掩埋場Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv無盡的黃金沙漠1 and 符合無盡的黃金沙漠時間 () then	advPlay("無盡的黃金沙漠1","left",adv無盡的黃金沙漠Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end 
 	if adv甦醒的魔眼1 and 符合甦醒的魔眼時間 () then			advPlay("甦醒的魔眼1","left",adv甦醒的魔眼Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv逆時發條1 and 符合逆時發條時間 () then				advPlay("逆時發條1","leftPlusLittleRight",adv逆時發條Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
@@ -1489,25 +1726,25 @@ function createUI()
 	createCheckBox("adv無盡的黃金沙漠2","2",true);
 	createCheckBox("adv無盡的黃金沙漠3","3",true);
 	createCheckBox("adv無盡的黃金沙漠4","4",true);
-	createCheckBox("adv無盡的黃金沙漠5","5",true);
+	createCheckBox("adv無盡的黃金沙漠5","5",false);
 	createCheckBox("adv無盡的黃金沙漠6","6",true);
 	newLine();
 	createTextView("adv_part黃昏之冰神殿_title","黃昏之冰神殿(五六日): ");newLine();	
 	createTextView("adv_newline_12312312312","");
 	createCheckBox("adv黃昏之冰神殿1","1",true);
 	createCheckBox("adv黃昏之冰神殿2","2",true);
-	createCheckBox("adv黃昏之冰神殿3","3",true);
-	createCheckBox("adv黃昏之冰神殿4","4",true);
-	createCheckBox("adv黃昏之冰神殿5","5",true);
+	createCheckBox("adv黃昏之冰神殿3","3",false);
+	createCheckBox("adv黃昏之冰神殿4","4",false);
+	createCheckBox("adv黃昏之冰神殿5","5",false);
 	createCheckBox("adv黃昏之冰神殿6","6",true);
 	newLine();
 	createTextView("adv_part5","逆時發條(二四六): ");newLine();
 	createTextView("adv_part5_t","");
 	createCheckBox("adv逆時發條1","1",true);
 	createCheckBox("adv逆時發條2","2",true);
-	createCheckBox("adv逆時發條3","3",true);
-	createCheckBox("adv逆時發條4","4",true);
-	createCheckBox("adv逆時發條5","5",true);
+	createCheckBox("adv逆時發條3","3",false);
+	createCheckBox("adv逆時發條4","4",false);
+	createCheckBox("adv逆時發條5","5",false);
 	createCheckBox("adv逆時發條6","6",true);
 	newLine();
 	createTextView("adv_part6","未知礦山(一二三四):");newLine();	
@@ -1534,7 +1771,7 @@ function createUI()
 	createCheckBox("adv沉默的廢鐵掩埋場2","2",true);
 	createCheckBox("adv沉默的廢鐵掩埋場3","3",true);
 	createCheckBox("adv沉默的廢鐵掩埋場4","4",true);
-	createCheckBox("adv沉默的廢鐵掩埋場","5",true);
+	createCheckBox("adv沉默的廢鐵掩埋場5","5",true);
 	createCheckBox("adv沉默的廢鐵掩埋場6","6",true);	
 	newLine();
 	createTextView("adv_part_魔法的迷途魔方","魔法的迷途魔方(一二三日): ");newLine();
@@ -1552,7 +1789,7 @@ function createUI()
 	createCheckBox("adv甦醒的魔眼2","2",true);
 	createCheckBox("adv甦醒的魔眼3","3",true);
 	createCheckBox("adv甦醒的魔眼4","4",true);
-	createCheckBox("adv甦醒的魔眼5","5",true);
+	createCheckBox("adv甦醒的魔眼5","5",false);
 	createCheckBox("adv甦醒的魔眼6","6",true);
 	newLine();	
 	createTextView("adv_part_甜蜜的糖衣陷阱","甜蜜的糖衣陷阱:(每天)");newLine();	
@@ -1702,6 +1939,11 @@ function main()
 	end
 	sleep(delayMinute*1000*60);  -- add on v141,  by Richard 			
 			
+	-- under develop
+	--打公會副本 ();
+	--sleep(10000000);
+
+
 	--兼容模式 check
 	if not(isCompatMode()) then
 		toast("兼容模式設定錯誤");
@@ -1709,15 +1951,12 @@ function main()
 	end
 
 	--自動戰鬥跳過 版本跟解析度提示
-	if (UI_type == "自動戰鬥(手動)") then
-		--autoFireAndRanger5();
+	if (UI_type == "自動戰鬥(手動)") then		
 		local i = 0;
 		while true do
-			fightingByUserSelectedMode(skillMainpoint);
-			--toast(string.format("%d - %s",i,"not in fighting view"));
-			sleep(2000);
-			--i = i + 1 ;
-		end	
+			fightingByUserSelectedMode(skillMainpoint);			
+			sleep(2000);			
+		end
 	end
 	
 	local w,h = getResolutionRatio();  --获取屏幕分辨率
@@ -1739,12 +1978,29 @@ function main()
 		local isHelpFriendCompleted = false; 
 		while true do
 				
-			--打公會副本 TODO
+			--如果在戰鬥畫面 自動戰鬥一次
+			sleep(1000);
+			if isFightingViewColor() then
+				fightingByUserSelectedMode(skillMainpoint);
+			end
+			
+			--打公會副本 [TODO]
 			--sleep(5000)
-			--toast("公會副本 - 開始")
+			--toast("打公會副本 - 開始")
 			--backToMain()
 			--進入公會副本()
-			--toast("公會副本 - 結束")
+			--toast("進入公會副本 sucess")
+			--打公會副本 ()			
+			--toast("打公會副本 - 結束")			
+			
+
+			--收集公會獎勵和PVP獎勵
+			sleep(5000)
+			toast("收集公會獎勵和PVP獎勵 - 開始")
+			backToMain()
+			進入公會副本()			
+			收集公會獎勵和PVP獎勵()			
+			toast("收集公會獎勵和PVP獎勵 - 結束")
 				
 			-- 競技場
 			-- 2016/04/11 -     每天只在特定時間執行 PM7:00
@@ -1758,7 +2014,7 @@ function main()
 				backToMain()
 				toast("競技場 - 結束")
 			end	
-	
+			
 			--收集任務獎勵 2016/03/06 by Richard
 			sleep(5000)
 			toast("收集任務獎勵 - 開始")
@@ -1769,7 +2025,14 @@ function main()
 			sleep(5000);
 			toast("收集禮物盒 - 開始")
 			收集禮物盒 ()
-			toast("收集禮物盒 - 結束")
+			toast("收集禮物盒 - 結束")			
+			
+			--收集公會獎勵 2016/04/26 by Richard
+			sleep(5000)
+			toast("收集公會獎勵 - 開始")
+			收集公會獎勵()
+			toast("收集公會獎勵 - 結束")
+			
 						
 			--特殊關卡 2016/03/06 by Richard					
 			sleep(5000)
