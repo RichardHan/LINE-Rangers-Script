@@ -224,53 +224,70 @@ function 收集禮物盒 ()
 	end	
 end
 
-function 收集公會獎勵()	
+function 公會簽到()	
+	
+	backToMain()
+
 	touchClick(625,232) --點選主要關卡
+	
 	sleep(2000)
+	
 	while true do
 		if isColor(1231,43,0xFFFFFF) then
 			touchClick(1228,37) --點右上角選單	
 			sleep(1000)	
-			touchClick(1103,178) -- 公會
-			sleep(4000)
-			touchClick(433,596) -- 簽到
+			touchClick(1100,178) --公會
 			sleep(2000)
-			touchClick(433,596) -- 簽到
-			sleep(2000)
-			touchClick(968,243) -- 接收 上面
-			sleep(2000)
-			
-			touchClick(644,460) -- 確認			
-			sleep(2000)
-			touchClick(328,544) -- 接收 下面1
-			sleep(2000)
-			
-			touchClick(644,460) -- 確認
-			sleep(2000)
-			touchClick(504,549) -- 接收 下面2
-			sleep(2000)
-			touchClick(644,460) -- 確認			
-
-			sleep(2000)
-			touchClick(689,547) -- 接收 下面3
-			sleep(2000)
-			touchClick(644,460) -- 確認	
-
-			sleep(2000)
-			touchClick(875,547) -- 接收 下面4
-			sleep(2000)
-			touchClick(644,460) -- 確認	
-
-			sleep(2000)
-			touchClick(1051,545) -- 接收 下面4
-			sleep(2000)
-			touchClick(644,460) -- 確認	
-
-			break
+			break;
 		else
 			sleep(2000)
 		end							
-	end		
+	end	
+
+	sleep(2000)
+	
+	touchClick(409,574) --點選簽到
+	
+	sleep(2000)
+		
+	touchClick(409,574) --點選簽到
+	
+	sleep(2000)
+
+	touchClick(433,596) -- 點選簽到
+	
+	sleep(2000)
+	touchClick(968,243) -- 接收 上面
+	sleep(2000)
+	
+	touchClick(644,460) -- 確認			
+	sleep(2000)
+	touchClick(328,544) -- 接收 下面1
+	sleep(2000)
+	
+	touchClick(644,460) -- 確認
+	sleep(2000)
+	touchClick(504,549) -- 接收 下面2
+	sleep(2000)
+	touchClick(644,460) -- 確認			
+
+	sleep(2000)
+	touchClick(689,547) -- 接收 下面3
+	sleep(2000)
+	touchClick(644,460) -- 確認	
+
+	sleep(2000)
+	touchClick(875,547) -- 接收 下面4
+	sleep(2000)
+	touchClick(644,460) -- 確認	
+
+	sleep(2000)
+	touchClick(1051,545) -- 接收 下面4
+	sleep(2000)
+	touchClick(644,460) -- 確認	
+	sleep(2000)			
+	
+	backToMain()
 end
 
 function 收集任務獎勵()	
@@ -1999,7 +2016,8 @@ function main()
 			toast("收集公會獎勵和PVP獎勵 - 開始")
 			backToMain()
 			進入公會副本()			
-			收集公會獎勵和PVP獎勵()			
+			收集公會獎勵和PVP獎勵()
+			backToMain()
 			toast("收集公會獎勵和PVP獎勵 - 結束")
 				
 			-- 競技場
@@ -2027,13 +2045,12 @@ function main()
 			收集禮物盒 ()
 			toast("收集禮物盒 - 結束")			
 			
-			--收集公會獎勵 2016/04/26 by Richard
+			--公會簽到 2016/04/26 by Richard
 			sleep(5000)
-			toast("收集公會獎勵 - 開始")
-			收集公會獎勵()
-			toast("收集公會獎勵 - 結束")
-			
-						
+			toast("公會簽到 - 開始")
+			公會簽到()
+			toast("公會簽到 - 結束")
+								
 			--特殊關卡 2016/03/06 by Richard					
 			sleep(5000)
 			toast("特殊關卡 - 開始")
