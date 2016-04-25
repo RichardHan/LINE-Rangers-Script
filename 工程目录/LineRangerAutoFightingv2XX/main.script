@@ -2002,19 +2002,18 @@ function main()
 			end
 			
 			--打公會副本 [TODO]
-			--sleep(5000)
-			--toast("打公會副本 - 開始")
-			--backToMain()
-			--進入公會副本()
-			--toast("進入公會副本 sucess")
-			--打公會副本 ()			
-			--toast("打公會副本 - 結束")			
-			
+			sleep(5000)
+			toast("打公會副本 - 開始")
+			backToMain()
+			進入公會副本()
+			打公會副本 ()
+			backToMain()	
+			toast("打公會副本 - 結束")						
+
 
 			--收集公會獎勵和PVP獎勵
 			sleep(5000)
-			toast("收集公會獎勵和PVP獎勵 - 開始")
-			backToMain()
+			toast("收集公會獎勵和PVP獎勵 - 開始")			
 			進入公會副本()			
 			收集公會獎勵和PVP獎勵()
 			backToMain()
