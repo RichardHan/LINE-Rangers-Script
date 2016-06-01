@@ -1105,7 +1105,8 @@ function fighting(useSkill)
 			-- 20160101 add color 
 			-- 20160601 update win screen color 
 			if isColor(1190,242,0x246F90) or isColor(935,181,0xAA5926) or isColor(1190,242,0x07161D) or isColor(32,548,0x080603) 
-			or isColor(1058,19,0x137CE4) or isColor(1030,23,0x1070D9) or isColor(95,114,0x216CAC)  then 
+			or isColor(1058,19,0x137CE4) or isColor(1030,23,0x1070D9) or isColor(95,114,0x216CAC) or isColor(1061,28,0x1178E2)
+			or isColor(1179,20,0x185993) or isColor(1157,495,0x183504) then 
 				winCnt = winCnt + 1; --add 20160109 by Jay  (calculate total fight result)
 				toast("WIN");
 				sleep(6000);
