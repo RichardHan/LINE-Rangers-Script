@@ -1,0 +1,5 @@
+<project>
+ <name>LineRangerAutoFightingv220</name>
+ <desc>LINE Rangers改版</desc>
+ <script>main.script</script>
+</project>
