@@ -1745,7 +1745,7 @@ function createUI()
 	createCheckBox("adv沉默的廢鐵掩埋場4","4",true);
 	createCheckBox("adv沉默的廢鐵掩埋場5","5",true);
 	createCheckBox("adv沉默的廢鐵掩埋場6","6",false);	
-		
+	newLine()newLine()newLine();newLine();
 	  createTextView("labSkillTitile","[  自動技能設定  ]")newLine();	 
 	  createTextView("labtemp0","所有主要關卡跟自動戰鬥:");	  
 	  createCheckBox("skillMainpoint","",false);
@@ -1755,8 +1755,8 @@ function createUI()
 	  createCheckBox("adv不滅的骸石Skill2","2",false);
 	  createCheckBox("adv不滅的骸石Skill3","3",false);
 	  createCheckBox("adv不滅的骸石Skill4","4",false);	  
-	  createCheckBox("adv不滅的骸石Skill5","5",false);	  
-	  createCheckBox("adv不滅的骸石Skill6","6",false);	 
+	  createCheckBox("adv不滅的骸石Skill5","5",true);	  
+	  createCheckBox("adv不滅的骸石Skill6","6",true);	 
 	  newLine()
 	  createTextView("lab未知礦山Skill","未知礦山:");newLine()
 	  createCheckBox("adv未知礦山Skill1","1",false);  
@@ -1771,7 +1771,7 @@ function createUI()
 	  createCheckBox("adv沉默的廢鐵掩埋場Skill2","2",false);
 	  createCheckBox("adv沉默的廢鐵掩埋場Skill3","3",false);	    
 	  createCheckBox("adv沉默的廢鐵掩埋場Skill4","4",false);
-	  createCheckBox("adv沉默的廢鐵掩埋場Skill5","5",false);
+	  createCheckBox("adv沉默的廢鐵掩埋場Skill5","5",true);
 	  createCheckBox("adv沉默的廢鐵掩埋場Skill6","6",true);	  
 
 
