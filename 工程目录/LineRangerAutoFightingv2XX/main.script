@@ -1727,7 +1727,7 @@ function createUI()
 	createCheckBox("adv不滅的骸石3","3",true);
 	createCheckBox("adv不滅的骸石4","4",true);
 	createCheckBox("adv不滅的骸石5","5",true);
-	createCheckBox("adv不滅的骸石6","6",false);	
+	createCheckBox("adv不滅的骸石6","6",true);	
 	newLine();
 	createTextView("adv_part6","未知礦山:");newLine();	
 	createTextView("adv_part6_t"," ");
