@@ -1386,37 +1386,37 @@ function specialCheckpoint(times)
 		sleep(10000);
 	end	
 	
-	if adv進階關卡5_6 then	advPlay("進階關卡4_6","right",adv進階關卡5_Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_6 then	advPlay("進階關卡5_6","right",adv進階關卡5_Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_6 then	advPlay("進階關卡4_6","leftPlusLittleRight",adv進階關卡4_Skill6,alignRight6_X,alignRight6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv進階關卡3_6 then	advPlay("進階關卡3_6","leftPlusLittleRight",adv進階關卡3_Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end		
 	if adv進階關卡2_6 then	advPlay("進階關卡2_6","left",adv進階關卡2_Skill6,alignRight6_X,alignRight6_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡1_6 then	advPlay("進階關卡1_6","left",adv進階關卡1_Skill6,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	if adv進階關卡5_5 then	advPlay("進階關卡4_5","right",adv進階關卡5_Skill5,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_5 then	advPlay("進階關卡5_5","right",adv進階關卡5_Skill5,alignRight5_X,alignRight5_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_5 then	advPlay("進階關卡4_5","leftPlusLittleRight",adv進階關卡4_Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv進階關卡3_5 then	advPlay("進階關卡3_5","leftPlusLittleRight",adv進階關卡3_Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end			
 	if adv進階關卡2_5 then	advPlay("進階關卡2_5","left",adv進階關卡2_Skill5,alignRight5_X,alignRight5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end		
 	if adv進階關卡1_5 then	advPlay("進階關卡1_5","left",adv進階關卡1_Skill5,alignLeft5_X,alignLeft5_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	if adv進階關卡5_4 then	advPlay("進階關卡4_4","right",adv進階關卡5_Skill4,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_4 then	advPlay("進階關卡5_4","right",adv進階關卡5_Skill4,alignRight4_X,alignRight4_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_4 then	advPlay("進階關卡4_4","leftPlusLittleRight",adv進階關卡4_Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡3_4 then	advPlay("進階關卡3_4","leftPlusLittleRight",adv進階關卡3_Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡2_4 then	advPlay("進階關卡2_4","left",adv進階關卡2_Skill4,alignRight4_X,alignRight4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv進階關卡1_4 then	advPlay("進階關卡1_4","left",adv進階關卡1_Skill4,alignLeft4_X,alignLeft4_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	if adv進階關卡5_3 then	advPlay("進階關卡4_3","right",adv進階關卡5_Skill3,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_3 then	advPlay("進階關卡5_3","right",adv進階關卡5_Skill3,alignRight3_X,alignRight3_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_3 then	advPlay("進階關卡4_3","leftPlusLittleRight",adv進階關卡4_Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv進階關卡3_3 then	advPlay("進階關卡3_3","leftPlusLittleRight",adv進階關卡3_Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint  end end		
 	if adv進階關卡2_3 then	advPlay("進階關卡2_3","left",adv進階關卡2_Skill3,alignRight3_X,alignRight3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	end
 	if adv進階關卡1_3 then	advPlay("進階關卡1_3","left",adv進階關卡1_Skill3,alignLeft3_X,alignLeft3_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	if adv進階關卡5_2 then	advPlay("進階關卡4_2","right",adv進階關卡5_Skill2,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_2 then	advPlay("進階關卡5_2","right",adv進階關卡5_Skill2,alignRight2_X,alignRight2_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_2 then	advPlay("進階關卡4_2","leftPlusLittleRight",adv進階關卡4_Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 	if adv進階關卡3_2 then	advPlay("進階關卡3_2","leftPlusLittleRight",adv進階關卡3_Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡2_2 then	advPlay("進階關卡2_2","left",adv進階關卡2_Skill2,alignRight2_X,alignRight2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end	end
 	if adv進階關卡1_2 then	advPlay("進階關卡1_2","left",adv進階關卡1_Skill2,alignLeft2_X,alignLeft2_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
 
-	if adv進階關卡5_1 then	advPlay("進階關卡4_1","right",adv進階關卡5_Skill1,alignLeft6_X,alignLeft6_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
+	if adv進階關卡5_1 then	advPlay("進階關卡5_1","right",adv進階關卡5_Skill1,alignRight1_X,alignRight1_Y,times);  if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡4_1 then	advPlay("進階關卡4_1","leftPlusLittleRight",adv進階關卡4_Skill1,alignRight1_X,alignRight1_Y,times);	if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡3_1 then	advPlay("進階關卡3_1","leftPlusLittleRight",adv進階關卡3_Skill1,alignLeft1_X,alignLeft1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end	
 	if adv進階關卡2_1 then	advPlay("進階關卡2_1","left",adv進階關卡2_Skill1,alignRight1_X,alignRight1_Y,times); if (times == globalSpecialCount) then goto endspecialCheckpoint end end
