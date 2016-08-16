@@ -884,9 +884,11 @@ function fightingByUserSelectedMode(useSkill)
 			else
 				fireRangerByPorgressColor();
 				
-				--檢查是否等級八
-				if not(isLevelEightColor()) then
-					touchClick(1015,575);	--升級礦石							
+				if not(UI_type == "公會" or UI_type == "懶人模式") then										
+					--檢查是否等級八
+					if not(isLevelEightColor()) then
+						touchClick(1015,575);	--升級礦石							
+					end
 				end
 								
 				--if not(UI_type == "PVP" or UI_type == "懶人模式") then
@@ -919,8 +921,11 @@ function fightingByUserSelectedMode(useSkill)
 			end					
 		end
 		
-		if(UI_option2 == "先升礦到八級") then								
-			upgradeCrystalToEight();
+	
+		if(UI_option2 == "先升礦到八級") then
+			if not(UI_type == "公會" or UI_type == "懶人模式") then		
+				upgradeCrystalToEight();
+			end			
 			fireRangerByPorgressColor();
 			sleep(100);
 			
@@ -1542,10 +1547,11 @@ function createUI()
 	createRadioBox("UI_type","特殊關卡",false)
 	createRadioBox("UI_type","無盡模式",false)newLine();
 	createRadioBox("UI_type","PVP",false)
-	createRadioBox("UI_type","競技場模式",false)
-	createRadioBox("UI_type","幫助好友",false)newLine();newLine();
+	createRadioBox("UI_type","競技場模式",false)newLine()
+	createRadioBox("UI_type","幫助好友",false)
+	createRadioBox("UI_type","公會",false)newLine();newLine();newLine();
 	createRadioBox("UI_type","懶人模式",true)newLine();
-
+	createTextView("UI_type_label1"," (特殊+PVP+競技場)");
 	newLine()newLine()newLine();newLine();
 
 	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
@@ -1571,8 +1577,8 @@ function createUI()
 	createCheckBox("adv進階關卡1_2","2",true);
 	createCheckBox("adv進階關卡1_3","3",true);
 	createCheckBox("adv進階關卡1_4","4",true);
-	createCheckBox("adv進階關卡1_5","5",false);
-	createCheckBox("adv進階關卡1_6","6",false);	
+	createCheckBox("adv進階關卡1_5","5",true);
+	createCheckBox("adv進階關卡1_6","6",true);	
 	newLine();
 	createTextView("adv_part6","進階關卡2_:");newLine();	
 	createTextView("adv_part6_t"," ");
@@ -1580,8 +1586,8 @@ function createUI()
 	createCheckBox("adv進階關卡2_2","2",true);
 	createCheckBox("adv進階關卡2_3","3",true);
 	createCheckBox("adv進階關卡2_4","4",true);
-	createCheckBox("adv進階關卡2_5","5",false);
-	createCheckBox("adv進階關卡2_6","6",false);
+	createCheckBox("adv進階關卡2_5","5",true);
+	createCheckBox("adv進階關卡2_6","6",true);
 	newLine();
 	createTextView("adv_part3","進階關卡3_: ");newLine();
 	createTextView("adv_part3_t","");
@@ -1589,8 +1595,8 @@ function createUI()
 	createCheckBox("adv進階關卡3_2","2",true);
 	createCheckBox("adv進階關卡3_3","3",true);
 	createCheckBox("adv進階關卡3_4","4",true);
-	createCheckBox("adv進階關卡3_5","5",false);
-	createCheckBox("adv進階關卡3_6","6",false);	
+	createCheckBox("adv進階關卡3_5","5",true);
+	createCheckBox("adv進階關卡3_6","6",true);	
 	newLine();
 	createTextView("adv_part_進階關卡4_","進階關卡4_: ");newLine();
 	createTextView("adv_newline_12321324213","");
@@ -1603,10 +1609,10 @@ function createUI()
 	newLine();
 	createTextView("adv_part_進階關卡5_","進階關卡5_: ");newLine();
 	createTextView("adv_newline_12321324213","");
-	createCheckBox("adv進階關卡5_1","1",true);
-	createCheckBox("adv進階關卡5_2","2",true);
-	createCheckBox("adv進階關卡5_3","3",true);
-	createCheckBox("adv進階關卡5_4","4",true);
+	createCheckBox("adv進階關卡5_1","1",false);
+	createCheckBox("adv進階關卡5_2","2",false);
+	createCheckBox("adv進階關卡5_3","3",false);
+	createCheckBox("adv進階關卡5_4","4",false);
 	createCheckBox("adv進階關卡5_5","5",false);
 	createCheckBox("adv進階關卡5_6","6",false);		
 	newLine()newLine()newLine();newLine();
@@ -1764,7 +1770,8 @@ function main()
 			backToMain();
 			toast("PVP - 結束")
 
-			--打公會副本 [TODO]
+			
+			--打公會副本 fix 2016.06.16
 			sleep(5000)
 			toast("打公會副本 - 開始")
 			backToMain()
@@ -1962,6 +1969,20 @@ function main()
 		autoHelpFriend(50);
 	end
 		
+	if(UI_type == "公會") then		
+		sleep(5000)
+		toast("打公會副本 - 開始")
+		backToMain()
+		進入公會副本()
+		打公會副本 ()
+		backToMain()			
+		toast("打公會副本 - 結束")
+		while true do
+			toast("打公會副本 - 結束")
+			sleep(1000);
+		end		
+	end
+	
 	--TODO
 	if isPopupScreenColor() then
 		touchClick("648,578"); -- 點選確認禮物	
