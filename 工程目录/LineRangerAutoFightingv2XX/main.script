@@ -169,19 +169,33 @@ function 收集公會獎勵和PVP獎勵 ()
 	if isColor(1040,267,0x05C232) then
 		touchClick(1040,267)
 		sleep(2000)
-		touchClick(710,495)
+		touchClick(710,495) --亂點開寶物
 		sleep(2000)
+		
 		touchClick(710,495) --亂點開寶物
 		sleep(2000)
 		touchClick(747,653) -- 確認
 		sleep(2000)
 		touchClick(747,653) -- double 確認		
 		sleep(2000)
+		
 		touchClick(710,495) --亂點開寶物
 		sleep(2000)
 		touchClick(747,653) -- 確認
 		sleep(2000)
-		touchClick(747,653) -- double 確認				
+		touchClick(747,653) -- double 確認
+		
+		touchClick(710,495) --亂點開寶物
+		sleep(2000)
+		touchClick(747,653) -- 確認
+		sleep(2000)
+		touchClick(747,653) -- double 確認		
+		
+		touchClick(710,495) --亂點開寶物
+		sleep(2000)
+		touchClick(747,653) -- 確認
+		sleep(2000)
+		touchClick(747,653) -- double 確認								
 	end			
 	
 	sleep(2000)
@@ -1492,9 +1506,12 @@ function runArenamode(times)
 		
 		sleep(2000)
 		
-		-- 自動選隊伍
-		touchClick(1112,152)
-		
+		-- 如果 第二ranger都是空的
+		if(isColor(283,282,0x386776)) then
+			-- 自動選隊伍		
+			touchClick(1112,152)
+		end
+				
 		sleep(2000)
 		
 		--下一步 or 開始
