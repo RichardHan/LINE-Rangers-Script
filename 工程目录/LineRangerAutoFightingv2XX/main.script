@@ -212,6 +212,29 @@ function 收集公會獎勵和PVP獎勵 ()
 	sleep(2000)	
 end
 
+
+function 幫助公會成員()
+	toast("幫助公會成員");
+	touchClick(873,178) -- 點選成員button
+	sleep(4000)
+	touchClick(938,277) -- 點選成員1 	
+	sleep(1000)
+	touchClick(728,490) --confirm	 
+	toast("finish 1")sleep(5000) 
+	touchClick(917,375) -- 點選成員2 	
+	sleep(1000)
+	touchClick(728,490) --confirm
+	toast("finish 2")sleep(5000) 
+	touchClick(919,472) -- 點選成員3 	
+	sleep(1000)
+	touchClick(728,490) --confirm
+	toast("finish 3")sleep(5000) 
+	touchClick(915,584) -- 點選成員4 	
+	sleep(1000)
+	touchClick(728,490) --confirm
+	toast("finish 4")sleep(5000) 
+end
+
 function 收集禮物盒 ()
 	backToMain();
 	touchClick(1021,637) --點選禮物盒
@@ -346,6 +369,22 @@ function 進入公會副本()
 			touchClick(965,391) --公會副本
 			sleep(2000)
 			break
+		else
+			sleep(2000)
+		end							
+	end	
+end
+
+function 進入公會 ()
+	touchClick(625,232) --點選主要關卡
+	sleep(2000)
+	while true do
+		if isColor(1231,43,0xFFFFFF) then
+			touchClick(1228,37) --點右上角選單	
+			sleep(1000)	
+			touchClick(1063,178) --公會
+			sleep(2000)
+			break;
 		else
 			sleep(2000)
 		end							
@@ -1567,7 +1606,7 @@ function createUI()
 	createRadioBox("UI_type","幫助好友",false)
 	createRadioBox("UI_type","公會",false)newLine();newLine();newLine();
 	createRadioBox("UI_type","懶人模式",true)newLine();
-	createTextView("UI_type_label1"," (特殊+PVP+競技場)");
+	createTextView("UI_type_label1"," (特殊+PVP+競技場+競技場)");
 	newLine()newLine()newLine();newLine();
 
 	createTextView("temp4","[ 切換隊伍模式 ]");	newLine();
@@ -1751,6 +1790,7 @@ function main()
 	sleep(5000);
 	
 	if (UI_type == "懶人模式") then
+		
 		backToMain()
 		local count = 1;
 		--TODO , during debug , need remove when release
@@ -1762,14 +1802,8 @@ function main()
 			if isFightingViewColor() then
 				fightingByUserSelectedMode(skillMainpoint);
 			end
-			
-			--收集公會獎勵和PVP獎勵
-			sleep(5000)
-			toast("收集公會獎勵和PVP獎勵 - 開始")			
-			進入公會副本()			
-			收集公會獎勵和PVP獎勵()
-			backToMain()
-			toast("收集公會獎勵和PVP獎勵 - 結束")
+	
+
 
 			--特殊關卡 2016/03/06 by Richard					
 			sleep(5000)
@@ -1785,7 +1819,6 @@ function main()
 			PVP對戰(1);
 			backToMain();
 			toast("PVP - 結束")
-
 			
 			--打公會副本 fix 2016.06.16
 			sleep(5000)
@@ -1798,7 +1831,7 @@ function main()
 				
 			-- 競技場
 			-- 2016/04/11 -     每天只在特定時間執行 PM7:00 and AM 11
-			if((tonumber(os.date("%H")) == 19) or (tonumber(os.date("%H")) == 11)) then
+			if((tonumber(os.date("%H")) == 19) or (tonumber(os.date("%H")) == 11) or (tonumber(os.date("%H")) == 9) or (tonumber(os.date("%H")) == 3)) then
 				sleep(5000)
 				toast("競技場 - 開始")
 				backToMain()
@@ -1813,6 +1846,22 @@ function main()
 				toast("競技場 - 結束")
 			end	
 			
+			--幫助公會成員
+			sleep(5000)
+			toast("幫助公會成員 - 開始")
+			進入公會()			
+			幫助公會成員()
+			backToMain()
+			toast("幫助公會成員 - 結束")
+		
+			--收集公會獎勵和PVP獎勵
+			sleep(5000)
+			toast("收集公會獎勵和PVP獎勵 - 開始")			
+			進入公會副本()			
+			收集公會獎勵和PVP獎勵()
+			backToMain()
+			toast("收集公會獎勵和PVP獎勵 - 結束")
+
 			--收集任務獎勵 2016/03/06 by Richard
 			sleep(5000)
 			toast("收集任務獎勵 - 開始")
