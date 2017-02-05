@@ -2,6 +2,7 @@
 --LineRangerAutoFightingv2XX
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
+local currentVersion = "2XX"
 function PVP對戰 (times)
 	local waitCount = 0
 	local pvpCount = 0
@@ -217,22 +218,22 @@ function 幫助公會成員()
 	toast("幫助公會成員");
 	touchClick(873,178) -- 點選成員button
 	sleep(4000)
-	touchClick(938,277) -- 點選成員1 	
+	touchClick(938,277) -- 點選成員1 
 	sleep(1000)
 	touchClick(728,490) --confirm	 
-	toast("finish 1")sleep(5000) 
-	touchClick(917,375) -- 點選成員2 	
+	toast("成員 1 finish")sleep(5000) 
+	touchClick(917,375) -- 點選成員2
 	sleep(1000)
 	touchClick(728,490) --confirm
-	toast("finish 2")sleep(5000) 
-	touchClick(919,472) -- 點選成員3 	
+	toast("成員 2 finish")sleep(5000) 
+	touchClick(919,472) -- 點選成員3
 	sleep(1000)
 	touchClick(728,490) --confirm
-	toast("finish 3")sleep(5000) 
-	touchClick(915,584) -- 點選成員4 	
+	toast("成員 3 finish")sleep(5000) 
+	touchClick(915,584) -- 點選成員4
 	sleep(1000)
 	touchClick(728,490) --confirm
-	toast("finish 4")sleep(5000) 
+	toast("成員4 finish ")sleep(5000) 
 end
 
 function 收集禮物盒 ()
@@ -1521,15 +1522,44 @@ end
 
 function runArenamode(times)
 
-	-- +30是buffer給對戰的過程
-	times = times + 30
+	-- +15是buffer給對戰的過程
+	
+	local isExit = false;
 
+	-- 懶人模式
+	if(times == -1) then
+		times = -1;	
+	else
+		times = times + 15
+	end
+	
 	local i = 0;
-	while i < times do
+	
+	-- 競技場模式首頁 one time click
+	if times == -1 then
+		--從關卡1開始點到10
+		touchClick(307,233) --1
+		touchClick(485,247) --2
+		touchClick(649,243) --3
+		touchClick(810,234) --4
+		touchClick(977,232) --5
+		touchClick(302,423) --6
+		touchClick(470,418) --7
+		touchClick(645,424) --8
+		touchClick(813,423) --9
+		touchClick(973,418) --10
+	end
+	
+	while not isExit do
+		
+		if (i > 15 and times == -1) then			
+			isExit = true;		
+		end
+		
 		sleep(2000);	
 		
 		-- 競技場模式首頁
-		if (isColor(214,591,0x07283B) and isColor(935,584,0x072937) and (times - 30) > i) then
+		if (isColor(214,591,0x07283B) and isColor(935,584,0x072937) and (times - 15) > i) then
 			--從關卡1開始點到10
 			touchClick(307,233) --1
 			touchClick(485,247) --2
@@ -1566,6 +1596,7 @@ function runArenamode(times)
 		
 		-- keep click 寶物中間
 		touchClick(640,400)
+		--toast("debug flag 5")sleep(4000)
 		
 		-- 如果不小心點到關卡 案取消
 		if isColor(700,486,0x00BB33) then
@@ -1573,22 +1604,27 @@ function runArenamode(times)
 		end
 		
 		sleep(1000);
-
+		
 		--確認寶物內容
 		if isColor(740,642,0x05C232) then			
 			touchClick(740,642) 
 		end
-
+		
 		-- 如果有好友 點好友
 		if(isColor(33,145,0x000000) and isColor(85,143,0x000000)) then
-			touchClick(50,145)touchClick(50,145)
+			touchClick(50,145) touchClick(50,145)
 		end
-
-		i = i + 1;	
-
+		
+		i = i + 1;
+		
 		if (i % 2) == 0 then
 			toast(string.format("%s %s","競技場模式	counter(debug) :",i))		
-		end		
+		end
+		
+		if (i > times and i > 10) then			
+			isExit = true		
+		end
+		
 	end	
 end
 
@@ -1637,12 +1673,12 @@ function createUI()
 	newLine();
 	createTextView("adv_part6","進階關卡2_:");newLine();	
 	createTextView("adv_part6_t"," ");
-	createCheckBox("adv進階關卡2_1","1",true);
-	createCheckBox("adv進階關卡2_2","2",true);
-	createCheckBox("adv進階關卡2_3","3",true);
-	createCheckBox("adv進階關卡2_4","4",true);
-	createCheckBox("adv進階關卡2_5","5",true);
-	createCheckBox("adv進階關卡2_6","6",true);
+	createCheckBox("adv進階關卡2_1","1",false);
+	createCheckBox("adv進階關卡2_2","2",false);
+	createCheckBox("adv進階關卡2_3","3",false);
+	createCheckBox("adv進階關卡2_4","4",false);
+	createCheckBox("adv進階關卡2_5","5",false);
+	createCheckBox("adv進階關卡2_6","6",false);
 	newLine();
 	createTextView("adv_part3","進階關卡3_: ");newLine();
 	createTextView("adv_part3_t","");
@@ -1660,16 +1696,16 @@ function createUI()
 	createCheckBox("adv進階關卡4_3","3",false);
 	createCheckBox("adv進階關卡4_4","4",false);
 	createCheckBox("adv進階關卡4_5","5",false);
-	createCheckBox("adv進階關卡4_6","6",false);	
+	createCheckBox("adv進階關卡4_6","6",true);	
 	newLine();
 	createTextView("adv_part_進階關卡5_","進階關卡5_: ");newLine();
 	createTextView("adv_newline_12321324213","");
 	createCheckBox("adv進階關卡5_1","1",false);
-	createCheckBox("adv進階關卡5_2","2",false);
+	createCheckBox("adv進階關卡5_2","2",true);
 	createCheckBox("adv進階關卡5_3","3",false);
-	createCheckBox("adv進階關卡5_4","4",false);
+	createCheckBox("adv進階關卡5_4","4",true);
 	createCheckBox("adv進階關卡5_5","5",false);
-	createCheckBox("adv進階關卡5_6","6",false);		
+	createCheckBox("adv進階關卡5_6","6",true);		
 	newLine()newLine()newLine();newLine();
 	createTextView("labSkillTitile","[  自動技能設定  ]")newLine();	 
   	createTextView("labtemp0","所有主要關卡跟自動戰鬥:");	  
@@ -1779,7 +1815,7 @@ function main()
 	
 	local w,h = getResolutionRatio();  --获取屏幕分辨率
 	
-     toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M")))
+     toast(string.format("模式選擇:%s \r\n切換隊伍模式:%s  \r\n升級礦石方式:%s \r\n%s  \r\n%s%s",UI_type,isSwitchTeam,UI_option2,os.date("現在時間: %H:%M"),"版本:",currentVersion))
 	if(w == 1280)then
 		--toast(string.format("%s","解析度設定正確"));
 	else		
@@ -1802,8 +1838,32 @@ function main()
 			if isFightingViewColor() then
 				fightingByUserSelectedMode(skillMainpoint);
 			end
-	
+			
+			-- 競技場
+			-- 2016/04/11 -     每天只在特定時間執行 PM7:00 and AM 11
+			--if((tonumber(os.date("%H")) == 19) or (tonumber(os.date("%H")) == 11) or (tonumber(os.date("%H")) == 9) or (tonumber(os.date("%H")) == 3)) then
+			sleep(5000)
+			toast("競技場 - 開始")
+			backToMain()
+			進入競技場 ()
+			--出現遊戲方法
+			if isColor(1234,43,0x939393) and isColor(1237,44,0x879091) then
+				touchClick(1234,43);
+			end	
+			sleep(5000)
+			--  "-1" means only play one time.
+			runArenamode(-1)
+			backToMain()
+			toast("競技場 - 結束")
+			--end	
 
+			--幫助公會成員
+			sleep(5000)
+			toast("幫助公會成員 - 開始")
+			進入公會()			
+			幫助公會成員()
+			backToMain()
+			toast("幫助公會成員 - 結束")
 
 			--特殊關卡 2016/03/06 by Richard					
 			sleep(5000)
@@ -1816,8 +1876,8 @@ function main()
 			toast("PVP - 開始")
 			backToMain()
 			進入PVP()
-			PVP對戰(1);
-			backToMain();
+			PVP對戰(1)
+			backToMain()
 			toast("PVP - 結束")
 			
 			--打公會副本 fix 2016.06.16
@@ -1829,31 +1889,6 @@ function main()
 			backToMain()	
 			toast("打公會副本 - 結束")						
 				
-			-- 競技場
-			-- 2016/04/11 -     每天只在特定時間執行 PM7:00 and AM 11
-			if((tonumber(os.date("%H")) == 19) or (tonumber(os.date("%H")) == 11) or (tonumber(os.date("%H")) == 9) or (tonumber(os.date("%H")) == 3)) then
-				sleep(5000)
-				toast("競技場 - 開始")
-				backToMain()
-				進入競技場 ()
-				--出現遊戲方法
-				if isColor(1234,43,0x939393) and isColor(1237,44,0x879091) then
-					touchClick(1234,43);
-				end	
-				sleep(5000)
-				runArenamode(20)
-				backToMain()
-				toast("競技場 - 結束")
-			end	
-			
-			--幫助公會成員
-			sleep(5000)
-			toast("幫助公會成員 - 開始")
-			進入公會()			
-			幫助公會成員()
-			backToMain()
-			toast("幫助公會成員 - 結束")
-		
 			--收集公會獎勵和PVP獎勵
 			sleep(5000)
 			toast("收集公會獎勵和PVP獎勵 - 開始")			
@@ -1883,16 +1918,16 @@ function main()
 			-- 自動幫助好友 2016/03/06 by Richard
 			-- Update history:  
 			--      2016/03/24 -     每天只在特定時間執行 PM9 and AM9  (怕吵到人)
-			if((tonumber(os.date("%H")) == 21) or (tonumber(os.date("%H")) == 9)) then
-				if (isHelpFriendCompleted == false)	then
-					backToMain();
-					toast("幫助好友10次 - 開始"); sleep(3000);	
-					touchClick(768,645) -- 點選好友畫面		
-					autoHelpFriend(10)
-					toast("幫助好友10次 - 結束"); sleep(3000);
-					isHelpFriendCompleted = true;
-				end						
-			end	
+			--if((tonumber(os.date("%H")) == 21) or (tonumber(os.date("%H")) == 9)) then
+			if (isHelpFriendCompleted == false)	then
+				backToMain();
+				toast("幫助好友10次 - 開始"); sleep(3000);	
+				touchClick(768,645) -- 點選好友畫面		
+				autoHelpFriend(10)
+				toast("幫助好友10次 - 結束"); sleep(3000);
+				isHelpFriendCompleted = true;
+			end						
+			--end	
 						
 			--touchClick(930,151) --主要 TODO ?
 			--進入無盡模式() --todo
