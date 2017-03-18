@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------
---LineRangerAutoFightingv3XX
+--LineRangerAutoFightingv300
 --This is develop trunk , Please tracking change on GitHub.
 -----------------------------------------------------------------------
-local currentVersion = "3XX"
+local currentVersion = "300"
 function PVP對戰 (times)
 	local waitCount = 0
 	local pvpCount = 0
