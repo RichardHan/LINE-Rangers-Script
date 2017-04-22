@@ -15,7 +15,7 @@ function PVP對戰 (times)
 		pickFriendAndSkill()
 
 		if isFightingViewColor() then
-			toast("偵測到戰鬥開始");
+			toast("偵測到戰鬥開始 in FightingViewColor");
 			fightingByUserSelectedMode(true);
 			pvpCount = pvpCount + 1;
 			sleep(3000)
@@ -1034,10 +1034,13 @@ function fightingByUserSelectedMode(useSkill)
 			fireRangerByPorgressColor();
 			sleep(100);
 			
-			if not isClickedLineAutoButton then
-				clickLINEAutoButton();
-				isClickedLineAutoButton = true;		
-			end					
+			if not(UI_type == "公會" or UI_type == "懶人模式") then		
+				
+				if not isClickedLineAutoButton then
+					clickLINEAutoButton();
+					isClickedLineAutoButton = true;		
+				end		
+			end		
 		end
 		
 	
@@ -1942,23 +1945,6 @@ function main()
 				fightingByUserSelectedMode(skillMainpoint);
 			end
 			
-			--打公會副本 fix 2016.06.16
-			sleep(5000)
-			toast("打公會副本 - 開始")
-			backToMain()
-			進入公會副本()
-			打公會副本 ()
-			backToMain()	
-			toast("打公會副本 - 結束")		
-
-			--特殊關卡 2016/03/06 by Richard					
-			sleep(5000)
-			toast("特殊關卡 - 開始")
-			進入特殊關卡()
-			globalSpecialCount = 0
-			specialCheckpoint(2)
-			toast("特殊關卡 - 結束")
-
 			toast("PVP - 開始")
 			backToMain()
 			進入PVP()
@@ -1966,6 +1952,14 @@ function main()
 			backToMain()
 			toast("PVP - 結束")
 			
+			--打公會副本 fix 2016.06.16
+			sleep(5000)
+			toast("打公會副本 - 開始")
+			backToMain()
+			進入公會副本()
+			打公會副本 ()
+			backToMain()	
+			toast("打公會副本 - 結束")			
 			-- 競技場
 			-- 2016/04/11 -     每天只在特定時間執行 PM7:00 and AM 11
 			--if((tonumber(os.date("%H")) == 19) or (tonumber(os.date("%H")) == 11) or (tonumber(os.date("%H")) == 9) or (tonumber(os.date("%H")) == 3)) then
@@ -1983,9 +1977,7 @@ function main()
 			backToMain()
 			toast("競技場 - 結束")
 			--end
-
-				
-				
+			
 			--收集公會獎勵和PVP獎勵
 			sleep(5000)
 			toast("收集公會獎勵和PVP獎勵 - 開始")			
@@ -2020,6 +2012,15 @@ function main()
 			收集任務獎勵()
 			toast("收集任務獎勵 - 結束")
 							
+
+			--特殊關卡 2016/03/06 by Richard					
+			sleep(5000)
+			toast("特殊關卡 - 開始")
+			進入特殊關卡()
+			globalSpecialCount = 0
+			specialCheckpoint(2)
+			toast("特殊關卡 - 結束")
+
 			-- 自動幫助好友 2016/03/06 by Richard
 			-- Update history:  
 			--      2016/03/24 -     每天只在特定時間執行 PM9 and AM9  (怕吵到人)
